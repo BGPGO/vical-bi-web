@@ -1,19 +1,32 @@
-# Coolify deploy — nginx static serve
-FROM nginx:alpine
+# Coolify deploy — Node Express serve static + refresh endpoint
+FROM node:20-alpine
+WORKDIR /app
 
-# Remove default config
-RUN rm /etc/nginx/conf.d/default.conf
+# Deps
+COPY package.json package-lock.json* ./
+RUN npm install --omit=dev --no-audit --no-fund && npm cache clean --force
 
-# Custom nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Static frontend
+COPY index.html styles.css ./
+COPY data.js app.bundle.js data-extras.js ./
+COPY assets ./assets
 
-# Static frontend files
-COPY index.html /usr/share/nginx/html/
-COPY styles.css /usr/share/nginx/html/
-COPY data.js /usr/share/nginx/html/
-COPY app.bundle.js /usr/share/nginx/html/
-COPY data-extras.js /usr/share/nginx/html/
-COPY assets /usr/share/nginx/html/assets
+# Server + scripts de refresh
+COPY server.cjs ./
+COPY fetch-data.cjs ./
+COPY build-data.cjs ./
+COPY build-data-extras.cjs ./
+COPY build-jsx.cjs ./
+COPY bi.config.js ./
+COPY adapters ./adapters
+COPY lib ./lib
+
+# JSX sources (pra rebuild do bundle)
+COPY components.jsx pages-*.jsx upsell-pages.jsx ./
+
+# Data JSONs (pra rebuild sem Drive)
+COPY data ./data
 
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+ENV REFRESH_ON_START=false
+CMD ["node", "server.cjs"]

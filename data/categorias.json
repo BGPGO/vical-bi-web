@@ -1,0 +1,1297 @@
+[
+  {
+    "codigo": "8.7 Softwares",
+    "descricao": "8.7 Softwares",
+    "natureza": "D"
+  },
+  {
+    "codigo": "2.1. Impostos - DAS",
+    "descricao": "2.1. Impostos - DAS",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.2. Fornecedor Mercadoria",
+    "descricao": "1.2. Fornecedor Mercadoria",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.2. Venda de Mercadorias",
+    "descricao": "1.2. Venda de Mercadorias",
+    "natureza": "R"
+  },
+  {
+    "codigo": "3.2 Empréstimos Vical Instrumentos",
+    "descricao": "3.2 Empréstimos Vical Instrumentos",
+    "natureza": "R"
+  },
+  {
+    "codigo": "8.4 Contabilidade",
+    "descricao": "8.4 Contabilidade",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.11 Vale Refeição",
+    "descricao": "4.11 Vale Refeição",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.1. Prestação de Serviços",
+    "descricao": "1.1. Prestação de Serviços",
+    "natureza": "R"
+  },
+  {
+    "codigo": "4.7 Auxilio Combustivel",
+    "descricao": "4.7 Auxilio Combustivel",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.1 Salários",
+    "descricao": "4.1 Salários",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.2 Adiantamento Salarial",
+    "descricao": "4.2 Adiantamento Salarial",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Transferência de Entrada",
+    "descricao": "Transferência de Entrada",
+    "natureza": "R"
+  },
+  {
+    "codigo": "Devolução Emprestimo Vical",
+    "descricao": "Devolução Emprestimo Vical",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Transferência de Saída",
+    "descricao": "Transferência de Saída",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Empréstimos para Vical Instrumentos",
+    "descricao": "Empréstimos para Vical Instrumentos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.9.Transportadora Venda",
+    "descricao": "3.9.Transportadora Venda",
+    "natureza": "D"
+  },
+  {
+    "codigo": "11.3.1 Doações / Esporádica",
+    "descricao": "11.3.1 Doações / Esporádica",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.1 Antecipação de Lucros",
+    "descricao": "6.1 Antecipação de Lucros",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.2 Pró-labore",
+    "descricao": "6.2 Pró-labore",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.6 Serviço de limpeza",
+    "descricao": "8.6 Serviço de limpeza",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.6.1 FGTS e Multa de FGTS",
+    "descricao": "4.6.1 FGTS e Multa de FGTS",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.6.2 INSS sobre Salários - GPS",
+    "descricao": "4.6.2 INSS sobre Salários - GPS",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.3. Exame Admissional / Demissional",
+    "descricao": "5.3. Exame Admissional / Demissional",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.1.3 Aluguel",
+    "descricao": "8.1.3 Aluguel",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.3 INSS sobre Pró-labore - GPS",
+    "descricao": "6.3 INSS sobre Pró-labore - GPS",
+    "natureza": "D"
+  },
+  {
+    "codigo": "2.2. Impostos - ICMS",
+    "descricao": "2.2. Impostos - ICMS",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.3. Fornecedor Serviços",
+    "descricao": "1.3. Fornecedor Serviços",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.14.Lanches e Refeições",
+    "descricao": "4.14.Lanches e Refeições",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.1.1 Água e Saneamento",
+    "descricao": "8.1.1 Água e Saneamento",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.2. Bonificação",
+    "descricao": "5.2. Bonificação",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.1.8 Telefone",
+    "descricao": "8.1.8 Telefone",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.1.2 Energia Elétrica",
+    "descricao": "8.1.2 Energia Elétrica",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.3.2 Devolução Empréstimo Vical",
+    "descricao": "4.3.2 Devolução Empréstimo Vical",
+    "natureza": "R"
+  },
+  {
+    "codigo": "1.5.1. Combustivel Entrega e Retira",
+    "descricao": "1.5.1. Combustivel Entrega e Retira",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.3 Computadores e Periféricos",
+    "descricao": "9.3 Computadores e Periféricos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.3 13º Salário - 1ª Parcela",
+    "descricao": "4.3 13º Salário - 1ª Parcela",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.5 Férias",
+    "descricao": "4.5 Férias",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.4 13º Salário - 2ª Parcela",
+    "descricao": "4.4 13º Salário - 2ª Parcela",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.12 Confraternizações",
+    "descricao": "4.12 Confraternizações",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.1. Devolução de Material",
+    "descricao": "4.1. Devolução de Material",
+    "natureza": "R"
+  },
+  {
+    "codigo": "EDIVAL",
+    "descricao": "EDIVAL",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Certificado digital",
+    "descricao": "Certificado digital",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.1. Recebimentos (Duplicidade ou Maior)",
+    "descricao": "5.1. Recebimentos (Duplicidade ou Maior)",
+    "natureza": "R"
+  },
+  {
+    "codigo": "11.2 Devolução Venda",
+    "descricao": "11.2 Devolução Venda",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.1.10 Manutenção Predial",
+    "descricao": "8.1.10 Manutenção Predial",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.8 Serviços Prestados por Terceiros",
+    "descricao": "8.8 Serviços Prestados por Terceiros",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.5.8 Transportadora Fornecedor",
+    "descricao": "1.5.8 Transportadora Fornecedor",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.2. Estornos",
+    "descricao": "5.2. Estornos",
+    "natureza": "R"
+  },
+  {
+    "codigo": "2.1. Rendimentos Aplicações Financeiras",
+    "descricao": "2.1. Rendimentos Aplicações Financeiras",
+    "natureza": "R"
+  },
+  {
+    "codigo": "3.7 Prestação de Serviços de Venda",
+    "descricao": "3.7 Prestação de Serviços de Venda",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.6 Emprestimo Diretoria",
+    "descricao": "6.6 Emprestimo Diretoria",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.4. Embalagens",
+    "descricao": "1.4. Embalagens",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.2. Venda Cancelada",
+    "descricao": "4.2. Venda Cancelada",
+    "natureza": "R"
+  },
+  {
+    "codigo": "1.1 Fornecedor Importação",
+    "descricao": "1.1 Fornecedor Importação",
+    "natureza": "D"
+  },
+  {
+    "codigo": "11.1 Devolução Compra",
+    "descricao": "11.1 Devolução Compra",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.9.3. Salario Estagiario",
+    "descricao": "4.9.3. Salario Estagiario",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.5.2 Pedágio e estacionamento entrega e retira",
+    "descricao": "1.5.2 Pedágio e estacionamento entrega e retira",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.12 Copa e Cozinha",
+    "descricao": "8.12 Copa e Cozinha",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.1 Empréstimos de Bancos",
+    "descricao": "3.1 Empréstimos de Bancos",
+    "natureza": "R"
+  },
+  {
+    "codigo": "1.5.5. Motoboy",
+    "descricao": "1.5.5. Motoboy",
+    "natureza": "D"
+  },
+  {
+    "codigo": "10.3 Tarifas Bancárias",
+    "descricao": "10.3 Tarifas Bancárias",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.13 Cursos e Treinamentos",
+    "descricao": "4.13 Cursos e Treinamentos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "11.3.2 Doações / Fixa",
+    "descricao": "11.3.2 Doações / Fixa",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.5 Despesas Pessoais dos Sócios",
+    "descricao": "6.5 Despesas Pessoais dos Sócios",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.1 Marketing e Publicidade",
+    "descricao": "3.1 Marketing e Publicidade",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Empréstimos de Bancos",
+    "descricao": "Empréstimos de Bancos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.4 Empréstimos de Sócios",
+    "descricao": "3.4 Empréstimos de Sócios",
+    "natureza": "R"
+  },
+  {
+    "codigo": "4.3.1 Devolução de Empréstimo Diretoria",
+    "descricao": "4.3.1 Devolução de Empréstimo Diretoria",
+    "natureza": "R"
+  },
+  {
+    "codigo": "Devolução de empréstimo de Sócio",
+    "descricao": "Devolução de empréstimo de Sócio",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.1. Fornecedor Mercadoria",
+    "descricao": "1.1. Fornecedor Mercadoria",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.2. Tarifa Boleto",
+    "descricao": "8.2. Tarifa Boleto",
+    "natureza": "D"
+  },
+  {
+    "codigo": "2.1.6. Rendimentos Conta Itaú",
+    "descricao": "2.1.6. Rendimentos Conta Itaú",
+    "natureza": "R"
+  },
+  {
+    "codigo": "6.2.5. Material para Escritório",
+    "descricao": "6.2.5. Material para Escritório",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.6.1. Com link",
+    "descricao": "3.6.1. Com link",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.3.1. Carro Diretoria",
+    "descricao": "5.3.1. Carro Diretoria",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.3. Tarifa de Manutenção de Conta",
+    "descricao": "8.3. Tarifa de Manutenção de Conta",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.1.2. Pró-labore",
+    "descricao": "5.1.2. Pró-labore",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.6.4. Conta Azul Sistema Financeiro",
+    "descricao": "6.6.4. Conta Azul Sistema Financeiro",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.1.4. Telefone",
+    "descricao": "6.1.4. Telefone",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.5. Tarifas Bancarias",
+    "descricao": "8.5. Tarifas Bancarias",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.2. Fornecedor Serviços",
+    "descricao": "1.2. Fornecedor Serviços",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Doações / Fixa",
+    "descricao": "Doações / Fixa",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.5.7. Motoboy",
+    "descricao": "1.5.7. Motoboy",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.1.1. Aluguel Empresa",
+    "descricao": "6.1.1. Aluguel Empresa",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.7.4. Serviços de Limpeza",
+    "descricao": "6.7.4. Serviços de Limpeza",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.1.1. Salários",
+    "descricao": "4.1.1. Salários",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.8.2. Transportadora Venda",
+    "descricao": "3.8.2. Transportadora Venda",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.2.3. Documentos",
+    "descricao": "6.2.3. Documentos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.5.8. Portador Terceiro Carro Vical",
+    "descricao": "1.5.8. Portador Terceiro Carro Vical",
+    "natureza": "D"
+  },
+  {
+    "codigo": "2.1.8. Rendimentos Poupança Caixa",
+    "descricao": "2.1.8. Rendimentos Poupança Caixa",
+    "natureza": "R"
+  },
+  {
+    "codigo": "2.1.9. Rendimentos Poupança Itaú",
+    "descricao": "2.1.9. Rendimentos Poupança Itaú",
+    "natureza": "R"
+  },
+  {
+    "codigo": "3.6.4. Procob",
+    "descricao": "3.6.4. Procob",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.7.1. Contabilidade",
+    "descricao": "6.7.1. Contabilidade",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.8.3 Correios",
+    "descricao": "3.8.3 Correios",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.1. Juros",
+    "descricao": "8.1. Juros",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.1.3. Local Web",
+    "descricao": "3.1.3. Local Web",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.4. Titulos em Cartório",
+    "descricao": "8.4. Titulos em Cartório",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.3. Computadores e Periféricos",
+    "descricao": "9.3. Computadores e Periféricos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.4. Ferramentas",
+    "descricao": "9.4. Ferramentas",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Doações / Exporadica",
+    "descricao": "Doações / Exporadica",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.2.4. Manutençāo PC",
+    "descricao": "6.2.4. Manutençāo PC",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.9. Outras Receitas",
+    "descricao": "9.9. Outras Receitas",
+    "natureza": "R"
+  },
+  {
+    "codigo": "3.1.4. Serviços de Terceiros (Agências/Consultoria)",
+    "descricao": "3.1.4. Serviços de Terceiros (Agências/Consultoria)",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.1.5. Luz",
+    "descricao": "6.1.5. Luz",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.1.3. Água",
+    "descricao": "6.1.3. Água",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.9.4. Pagamento Indevido (Houve Devolução)",
+    "descricao": "9.9.4. Pagamento Indevido (Houve Devolução)",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.2. Estornos",
+    "descricao": "9.2. Estornos",
+    "natureza": "R"
+  },
+  {
+    "codigo": "Empréstimo Elaine",
+    "descricao": "Empréstimo Elaine",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.9.2. Alimentação",
+    "descricao": "6.9.2. Alimentação",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.8.2. Manutenção do Prédio",
+    "descricao": "6.8.2. Manutenção do Prédio",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Empréstimo Almerinda",
+    "descricao": "Empréstimo Almerinda",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.3. Devolução de Empréstimo",
+    "descricao": "9.3. Devolução de Empréstimo",
+    "natureza": "R"
+  },
+  {
+    "codigo": "9.2.2. Utensílios",
+    "descricao": "9.2.2. Utensílios",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.6. Equipamentos",
+    "descricao": "9.6. Equipamentos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.3.3. Vale Transporte",
+    "descricao": "4.3.3. Vale Transporte",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.7. Cartão Anuidade",
+    "descricao": "8.7. Cartão Anuidade",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.5.3. Estacionamento",
+    "descricao": "1.5.3. Estacionamento",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.2.1. Móveis",
+    "descricao": "9.2.1. Móveis",
+    "natureza": "D"
+  },
+  {
+    "codigo": "2.1.1. CDB Caixa",
+    "descricao": "2.1.1. CDB Caixa",
+    "natureza": "R"
+  },
+  {
+    "codigo": "Empréstimo Lindomar",
+    "descricao": "Empréstimo Lindomar",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.1.3. 13° Daniel",
+    "descricao": "5.1.3. 13° Daniel",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.4.1. 13° Salário - 1ª Parcela",
+    "descricao": "4.4.1. 13° Salário - 1ª Parcela",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.2. Brinde ou doações para clientes",
+    "descricao": "3.2. Brinde ou doações para clientes",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Empréstimo Daniel",
+    "descricao": "Empréstimo Daniel",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.9.5. Comemoração",
+    "descricao": "6.9.5. Comemoração",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.4. Comissão Vendedores",
+    "descricao": "3.4. Comissão Vendedores",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.2.2. Investimento Imobiliário",
+    "descricao": "5.2.2. Investimento Imobiliário",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.1.8. Materiais de Limpeza",
+    "descricao": "6.1.8. Materiais de Limpeza",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.5. Investimento em Infraestrutura",
+    "descricao": "9.5. Investimento em Infraestrutura",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Empréstimo Edmilson",
+    "descricao": "Empréstimo Edmilson",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Empréstimo Sueli",
+    "descricao": "Empréstimo Sueli",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.1.2. Deposito Salão",
+    "descricao": "6.1.2. Deposito Salão",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.1.2. Salários Avulsos",
+    "descricao": "4.1.2. Salários Avulsos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Empréstimo Marcos",
+    "descricao": "Empréstimo Marcos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.8.3. Prateleira",
+    "descricao": "6.8.3. Prateleira",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.2.2. Decoração Escritório",
+    "descricao": "6.2.2. Decoração Escritório",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.8.1. Bancada",
+    "descricao": "6.8.1. Bancada",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.7. Laboratório Material Padrão",
+    "descricao": "9.7. Laboratório Material Padrão",
+    "natureza": "D"
+  },
+  {
+    "codigo": "PIC",
+    "descricao": "PIC",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.6.6. Serasa Consulta",
+    "descricao": "3.6.6. Serasa Consulta",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.6.1. Rescisão",
+    "descricao": "4.6.1. Rescisão",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Empréstimo Walter",
+    "descricao": "Empréstimo Walter",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.7.2. Prestação de Serviços Administrativos",
+    "descricao": "6.7.2. Prestação de Serviços Administrativos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.6. IOF",
+    "descricao": "8.6. IOF",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.1. Devolução de Material",
+    "descricao": "8.1. Devolução de Material",
+    "natureza": "R"
+  },
+  {
+    "codigo": "6.9.7. Treinamento Novos Funcionários",
+    "descricao": "6.9.7. Treinamento Novos Funcionários",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.6.9 Serasa portal de venda",
+    "descricao": "3.6.9 Serasa portal de venda",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.5.2. Férias Avulsos",
+    "descricao": "4.5.2. Férias Avulsos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.2.1. Certificado Digital",
+    "descricao": "6.2.1. Certificado Digital",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.6.9. Outros Softwares",
+    "descricao": "6.6.9. Outros Softwares",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.1. Recebimentos (Duplicidade ou Maior)",
+    "descricao": "9.1. Recebimentos (Duplicidade ou Maior)",
+    "natureza": "R"
+  },
+  {
+    "codigo": "6.6.2. Ant Virus",
+    "descricao": "6.6.2. Ant Virus",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.8.1. FGTS",
+    "descricao": "4.8.1. FGTS",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.8.2. INSS",
+    "descricao": "4.8.2. INSS",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.6.5. SIC (Serviços de Compra)",
+    "descricao": "3.6.5. SIC (Serviços de Compra)",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.9.6. Devolução Venda",
+    "descricao": "9.9.6. Devolução Venda",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.7.1. Participação de Lucros",
+    "descricao": "4.7.1. Participação de Lucros",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.9.6. Devolução Compra",
+    "descricao": "9.9.6. Devolução Compra",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.2.1. Faculdade",
+    "descricao": "5.2.1. Faculdade",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.9.3. Exame Admissional",
+    "descricao": "4.9.3. Exame Admissional",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.3.2. Manutenção Carro Vical",
+    "descricao": "6.3.2. Manutenção Carro Vical",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.3.1. Documentos / Carro Vical",
+    "descricao": "6.3.1. Documentos / Carro Vical",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.3. Cursos e Treinamentos",
+    "descricao": "3.3. Cursos e Treinamentos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.5.1. Férias",
+    "descricao": "4.5.1. Férias",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.9.5. Sindicato",
+    "descricao": "4.9.5. Sindicato",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.1.4. Férias Daniel",
+    "descricao": "5.1.4. Férias Daniel",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.3.5. Auxilio Academia",
+    "descricao": "4.3.5. Auxilio Academia",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.1. Veículos",
+    "descricao": "9.1. Veículos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.1.1. Agencia de  Marketing",
+    "descricao": "3.1.1. Agencia de  Marketing",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.5.1.1 Pedágio entrega e retira",
+    "descricao": "1.5.1.1 Pedágio entrega e retira",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.1.6. Internet",
+    "descricao": "6.1.6. Internet",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.3.4. Auxilio Combustivel",
+    "descricao": "4.3.4. Auxilio Combustivel",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.9.5. Devolução Duplicidade",
+    "descricao": "9.9.5. Devolução Duplicidade",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.3.4. Seguros Veículos",
+    "descricao": "6.3.4. Seguros Veículos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.2. Venda Cancelada - Com NF",
+    "descricao": "8.2. Venda Cancelada - Com NF",
+    "natureza": "R"
+  },
+  {
+    "codigo": "3.5 Comissão de portais de venda",
+    "descricao": "3.5 Comissão de portais de venda",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.9.9. Seguro do Prédio Aluguel Porto Seguro",
+    "descricao": "6.9.9. Seguro do Prédio Aluguel Porto Seguro",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.3. Empréstimo Caixa",
+    "descricao": "3.3. Empréstimo Caixa",
+    "natureza": "R"
+  },
+  {
+    "codigo": "4.9.1. Agência de Estágio",
+    "descricao": "4.9.1. Agência de Estágio",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.1.4. Ajuda de Custo",
+    "descricao": "4.1.4. Ajuda de Custo",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.9.6. Manutenção Moveis e Equipamentos",
+    "descricao": "6.9.6. Manutenção Moveis e Equipamentos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.4.2. 13° Salário - 2ª Parcela",
+    "descricao": "4.4.2. 13° Salário - 2ª Parcela",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.9.4. Exame Demissional",
+    "descricao": "4.9.4. Exame Demissional",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.2.3. Terapia",
+    "descricao": "5.2.3. Terapia",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.1.2. Google - trafeco pago",
+    "descricao": "3.1.2. Google - trafeco pago",
+    "natureza": "D"
+  },
+  {
+    "codigo": "7.1. Empréstimo Caixa",
+    "descricao": "7.1. Empréstimo Caixa",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.6.1. Bitrix Sistema CRM",
+    "descricao": "6.6.1. Bitrix Sistema CRM",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.6.3. Bling Sistema Comercial",
+    "descricao": "6.6.3. Bling Sistema Comercial",
+    "natureza": "D"
+  },
+  {
+    "codigo": "2.1.7. Rendimentos Conta Mercado Pago",
+    "descricao": "2.1.7. Rendimentos Conta Mercado Pago",
+    "natureza": "R"
+  },
+  {
+    "codigo": "6.7.3. Prestação de Serviços Tributários",
+    "descricao": "6.7.3. Prestação de Serviços Tributários",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.6.5. Pluga",
+    "descricao": "6.6.5. Pluga",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.1.3. Salários Estagiários",
+    "descricao": "4.1.3. Salários Estagiários",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.1.1. Antecipação de Lucro",
+    "descricao": "5.1.1. Antecipação de Lucro",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Vical do Brasil",
+    "descricao": "Vical do Brasil",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.6.10 Mercado Eletronico",
+    "descricao": "3.6.10 Mercado Eletronico",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.7.5. Serviços Prestados por Terceiros",
+    "descricao": "6.7.5. Serviços Prestados por Terceiros",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.9.2. Bonificação",
+    "descricao": "4.9.2. Bonificação",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.1.7. IPTU",
+    "descricao": "6.1.7. IPTU",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.8. Consorcio",
+    "descricao": "9.8. Consorcio",
+    "natureza": "D"
+  },
+  {
+    "codigo": "2.1.3. Rendimento Itau-Investimento",
+    "descricao": "2.1.3. Rendimento Itau-Investimento",
+    "natureza": "R"
+  },
+  {
+    "codigo": "9.9.7. Outras Despesas",
+    "descricao": "9.9.7. Outras Despesas",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.8.1 Frete Mercado Livre",
+    "descricao": "3.8.1 Frete Mercado Livre",
+    "natureza": "D"
+  },
+  {
+    "codigo": "2.1.2. PIC",
+    "descricao": "2.1.2. PIC",
+    "natureza": "R"
+  },
+  {
+    "codigo": "4.3.1. Vale Refeição",
+    "descricao": "4.3.1. Vale Refeição",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.8.3. IRRF",
+    "descricao": "4.8.3. IRRF",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.3.4. Manutenção Carro Diretoria",
+    "descricao": "5.3.4. Manutenção Carro Diretoria",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.3.5. Seguro Carro Diretoria",
+    "descricao": "5.3.5. Seguro Carro Diretoria",
+    "natureza": "D"
+  },
+  {
+    "codigo": "2.1.4. Rendimento PagBank",
+    "descricao": "2.1.4. Rendimento PagBank",
+    "natureza": "R"
+  },
+  {
+    "codigo": "5.1.5. Bonificação",
+    "descricao": "5.1.5. Bonificação",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.3.3. Documento Carro Diretoria",
+    "descricao": "5.3.3. Documento Carro Diretoria",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.6.2. Mercado Livre",
+    "descricao": "3.6.2. Mercado Livre",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.2.1. Adiantamento Salarial",
+    "descricao": "4.2.1. Adiantamento Salarial",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.8.4. Reforma - Prédio Novo",
+    "descricao": "6.8.4. Reforma - Prédio Novo",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.9.3. Caixa Postal - Anual Correios",
+    "descricao": "6.9.3. Caixa Postal - Anual Correios",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.9.3. Pagamento a Maior",
+    "descricao": "9.9.3. Pagamento a Maior",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.9.1. Copa e Cozinha",
+    "descricao": "6.9.1. Copa e Cozinha",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.6.3. Nuvem Shop",
+    "descricao": "3.6.3. Nuvem Shop",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.5.9.1 Transportadora Fornecedor",
+    "descricao": "1.5.9.1 Transportadora Fornecedor",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.5.6. Locação de Veiculo",
+    "descricao": "1.5.6. Locação de Veiculo",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.1. Empréstimo Itau",
+    "descricao": "3.1. Empréstimo Itau",
+    "natureza": "R"
+  },
+  {
+    "codigo": "6.1.9. TFE",
+    "descricao": "6.1.9. TFE",
+    "natureza": "D"
+  },
+  {
+    "codigo": "5.2.4. Emprestimo Diretoria",
+    "descricao": "5.2.4. Emprestimo Diretoria",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.2. Empréstimo Banco do Brasil",
+    "descricao": "3.2. Empréstimo Banco do Brasil",
+    "natureza": "R"
+  },
+  {
+    "codigo": "2.10 Rendimento Conta Banco Brasil",
+    "descricao": "2.10 Rendimento Conta Banco Brasil",
+    "natureza": "R"
+  },
+  {
+    "codigo": "6.9.4. Bens de Pequeno Valor",
+    "descricao": "6.9.4. Bens de Pequeno Valor",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.6.2. Rescisão Avulsos",
+    "descricao": "4.6.2. Rescisão Avulsos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.4.3. 13° Salário Avulsos",
+    "descricao": "4.4.3. 13° Salário Avulsos",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.9.1. Fretes - Adm",
+    "descricao": "6.9.1. Fretes - Adm",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.6.4 Tarifa de Importação",
+    "descricao": "1.6.4 Tarifa de Importação",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.6.1 Fornecedor Importação",
+    "descricao": "1.6.1 Fornecedor Importação",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.3 Venda cancelada - sem NF",
+    "descricao": "8.3 Venda cancelada - sem NF",
+    "natureza": "R"
+  },
+  {
+    "codigo": "Emprestimo Vical do Brasil",
+    "descricao": "Emprestimo Vical do Brasil",
+    "natureza": "D"
+  },
+  {
+    "codigo": "7.2. Empréstimo Itaú",
+    "descricao": "7.2. Empréstimo Itaú",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.9. Juros sobre Empréstimo",
+    "descricao": "8.9. Juros sobre Empréstimo",
+    "natureza": "D"
+  },
+  {
+    "codigo": "8.8. Tarifa PagBank",
+    "descricao": "8.8. Tarifa PagBank",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.3.2 Devolução de Empretismo Vical do Brasil",
+    "descricao": "9.3.2 Devolução de Empretismo Vical do Brasil",
+    "natureza": "R"
+  },
+  {
+    "codigo": "9.3.1 Devolução de Empretimo Diretoria",
+    "descricao": "9.3.1 Devolução de Empretimo Diretoria",
+    "natureza": "R"
+  },
+  {
+    "codigo": "3.4 Emprestimo Vical do Brasil",
+    "descricao": "3.4 Emprestimo Vical do Brasil",
+    "natureza": "R"
+  },
+  {
+    "codigo": "4.3.2 Vale Refeição Estagiário",
+    "descricao": "4.3.2 Vale Refeição Estagiário",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.3.3.1 Vale Transporte Estagiário",
+    "descricao": "4.3.3.1 Vale Transporte Estagiário",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.7. Prestação de Serviços de Venda",
+    "descricao": "3.7. Prestação de Serviços de Venda",
+    "natureza": "D"
+  },
+  {
+    "codigo": "7.3. Empréstimo Banco do Brasil",
+    "descricao": "7.3. Empréstimo Banco do Brasil",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.1.8 Software de disparo de e-mail",
+    "descricao": "3.1.8 Software de disparo de e-mail",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Reembolso de material extraviado",
+    "descricao": "Reembolso de material extraviado",
+    "natureza": "R"
+  },
+  {
+    "codigo": "Compra de material extraviado",
+    "descricao": "Compra de material extraviado",
+    "natureza": "D"
+  },
+  {
+    "codigo": "2.11. Rendimento Inter Investimento",
+    "descricao": "2.11. Rendimento Inter Investimento",
+    "natureza": "R"
+  },
+  {
+    "codigo": "3.1.7  Trafego Meta",
+    "descricao": "3.1.7  Trafego Meta",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.6.3 Serviço de despachante",
+    "descricao": "1.6.3 Serviço de despachante",
+    "natureza": "D"
+  },
+  {
+    "codigo": "1.6.2 Frete Importação",
+    "descricao": "1.6.2 Frete Importação",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Fretes recebidos",
+    "descricao": "Fretes recebidos",
+    "natureza": "R"
+  },
+  {
+    "codigo": "6.6.10 Dashboard Power BI",
+    "descricao": "6.6.10 Dashboard Power BI",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Compra",
+    "descricao": "Compra",
+    "natureza": "D"
+  },
+  {
+    "codigo": "Recebimento antecipado",
+    "descricao": "Recebimento antecipado",
+    "natureza": "R"
+  },
+  {
+    "codigo": "5.2.5 Telefonia",
+    "descricao": "5.2.5 Telefonia",
+    "natureza": "D"
+  },
+  {
+    "codigo": "4.9.6. Uniforme",
+    "descricao": "4.9.6. Uniforme",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.1.5. Serviço Gestão de E-mail Marketing",
+    "descricao": "3.1.5. Serviço Gestão de E-mail Marketing",
+    "natureza": "D"
+  },
+  {
+    "codigo": "3.1.10 - Transmissão Whatss",
+    "descricao": "3.1.10 - Transmissão Whatss",
+    "natureza": "D"
+  },
+  {
+    "codigo": "6.11. Agente de IA no WhtasApp.",
+    "descricao": "6.11. Agente de IA no WhtasApp.",
+    "natureza": "D"
+  },
+  {
+    "codigo": "9.9.9. Despesas a Identificar",
+    "descricao": "9.9.9. Despesas a Identificar",
+    "natureza": "D"
+  }
+]

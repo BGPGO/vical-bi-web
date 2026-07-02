@@ -45,8 +45,8 @@ let activeRun = null;      // Promise se está rodando
 let consecutiveFailures = 0;
 let alertSent = false;     // evita spam (1 email por sequência de falhas)
 const ALERT_THRESHOLD = parseInt(process.env.ALERT_FAILURE_THRESHOLD, 10) || 2;
-const BI_NAME = process.env.BI_CLIENT_NAME || 'ESA Gestão de Postos';
-const BI_URL = process.env.BI_PUBLIC_URL || 'https://esa-bi.187.77.238.125.sslip.io';
+const BI_NAME = process.env.BI_CLIENT_NAME || 'VICAL Instrumentos';
+const BI_URL = process.env.BI_PUBLIC_URL || 'https://vical-bi.187.77.238.125.sslip.io';
 
 async function maybeNotifyOnFailure(run) {
   consecutiveFailures += 1;
@@ -125,7 +125,10 @@ async function doRefresh(trigger) {
   activeRun = (async () => {
     const t0 = Date.now();
     try {
-      const a = await runScript('fetch-data.cjs', 'fetch');
+      // Fetch: só roda se extrato_path estiver acessível (Drive montado ou API token).
+      // No container Coolify sem Drive, pula fetch e rebuild a partir dos JSONs existentes.
+      try { await runScript('fetch-data.cjs', 'fetch'); }
+      catch (e) { console.warn(`[refresh] fetch-data pulado (${e.message.split('\n')[0]})`); }
       const b = await runScript('build-data.cjs', 'build');
       const c = await runScript('build-data-extras.cjs', 'extras');
       const dur = Date.now() - t0;

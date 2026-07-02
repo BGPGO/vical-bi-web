@@ -12,9 +12,12 @@
     "sync": "node bgp-bi.cjs sync"
   },
   "dependencies": {
-    "xlsx": "^0.18.5",
+    "dotenv": "^16.4.5",
     "esbuild": "^0.21.0",
-    "dotenv": "^16.4.5"
+    "express": "^5.2.1",
+    "node-cron": "^4.5.0",
+    "nodemailer": "^9.0.3",
+    "xlsx": "^0.18.5"
   },
   "engines": {
     "node": ">=18"

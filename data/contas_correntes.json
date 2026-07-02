@@ -1,0 +1,233 @@
+[
+  {
+    "id": "VICAL INSTRUMENTOS",
+    "nome": "VICAL INSTRUMENTOS",
+    "banco": "VICAL INSTRUMENTOS",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "BANCO INTER",
+    "nome": "BANCO INTER",
+    "banco": "BANCO INTER",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "DINHEIRO PÃO",
+    "nome": "DINHEIRO PÃO",
+    "banco": "DINHEIRO PÃO",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "ITAÚ - CONTA CORRENTE",
+    "nome": "ITAÚ - CONTA CORRENTE",
+    "banco": "ITAÚ - CONTA CORRENTE",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "MERCADO PAGO",
+    "nome": "MERCADO PAGO",
+    "banco": "MERCADO PAGO",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "BANCO INTER INVESTIMENTO",
+    "nome": "BANCO INTER INVESTIMENTO",
+    "banco": "BANCO INTER INVESTIMENTO",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "CAIXA CONTA CORRENTE",
+    "nome": "CAIXA CONTA CORRENTE",
+    "banco": "CAIXA CONTA CORRENTE",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "ITAU CONTA CORRENTE",
+    "nome": "ITAU CONTA CORRENTE",
+    "banco": "ITAU CONTA CORRENTE",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "POUPANÇA CAIXA",
+    "nome": "POUPANÇA CAIXA",
+    "banco": "POUPANÇA CAIXA",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "POUPANÇA ITAU",
+    "nome": "POUPANÇA ITAU",
+    "banco": "POUPANÇA ITAU",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "DINHEIRO",
+    "nome": "DINHEIRO",
+    "banco": "DINHEIRO",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "CAIXA INVESTIMENTO",
+    "nome": "CAIXA INVESTIMENTO",
+    "banco": "CAIXA INVESTIMENTO",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "FONSECA",
+    "nome": "FONSECA",
+    "banco": "FONSECA",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "Receba Fácil",
+    "nome": "Receba Fácil",
+    "banco": "Receba Fácil",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "INTER",
+    "nome": "INTER",
+    "banco": "INTER",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "ITAU - INVESTIMENTO",
+    "nome": "ITAU - INVESTIMENTO",
+    "banco": "ITAU - INVESTIMENTO",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "PAG BANK / INVESTIMENTO",
+    "nome": "PAG BANK / INVESTIMENTO",
+    "banco": "PAG BANK / INVESTIMENTO",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "PAG BANK",
+    "nome": "PAG BANK",
+    "banco": "PAG BANK",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "NUVEM SHOP",
+    "nome": "NUVEM SHOP",
+    "banco": "NUVEM SHOP",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "CARTÃO DE CRÉDITO - PORTO SEGURO",
+    "nome": "CARTÃO DE CRÉDITO - PORTO SEGURO",
+    "banco": "CARTÃO DE CRÉDITO - PORTO SEGURO",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "CARTÃO DE CRÉDITO - IPIRANGA",
+    "nome": "CARTÃO DE CRÉDITO - IPIRANGA",
+    "banco": "CARTÃO DE CRÉDITO - IPIRANGA",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "CARTÃO DE CRÉDITO - ITAÚ",
+    "nome": "CARTÃO DE CRÉDITO - ITAÚ",
+    "banco": "CARTÃO DE CRÉDITO - ITAÚ",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "CARTÃO DE CRÉDITO - PORTO VICAL",
+    "nome": "CARTÃO DE CRÉDITO - PORTO VICAL",
+    "banco": "CARTÃO DE CRÉDITO - PORTO VICAL",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "CARTÃO DE CRÉDITO - CAIXA",
+    "nome": "CARTÃO DE CRÉDITO - CAIXA",
+    "banco": "CARTÃO DE CRÉDITO - CAIXA",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "BANCO DO BRASIL",
+    "nome": "BANCO DO BRASIL",
+    "banco": "BANCO DO BRASIL",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "RF Simples Ágil 59",
+    "nome": "RF Simples Ágil 59",
+    "banco": "RF Simples Ágil 59",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "INTER - INVESTIMENTO",
+    "nome": "INTER - INVESTIMENTO",
+    "banco": "INTER - INVESTIMENTO",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "Conta PJ Conta Azul IP",
+    "nome": "Conta PJ Conta Azul IP",
+    "banco": "Conta PJ Conta Azul IP",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "MERCADO PAGO IMPORT.",
+    "nome": "MERCADO PAGO IMPORT.",
+    "banco": "MERCADO PAGO IMPORT.",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "COFRINHO PAG BANK",
+    "nome": "COFRINHO PAG BANK",
+    "banco": "COFRINHO PAG BANK",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "CARTÃO - DANIEL PÃO",
+    "nome": "CARTÃO - DANIEL PÃO",
+    "banco": "CARTÃO - DANIEL PÃO",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "CARTÃO - PRISCILA PÃO",
+    "nome": "CARTÃO - PRISCILA PÃO",
+    "banco": "CARTÃO - PRISCILA PÃO",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  },
+  {
+    "id": "CARTÃO INTER",
+    "nome": "CARTÃO INTER",
+    "banco": "CARTÃO INTER",
+    "codigo_banco": "",
+    "saldo_inicial": 0
+  }
+]

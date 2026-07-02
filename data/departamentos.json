@@ -1,0 +1,102 @@
+[
+  {
+    "codigo": "DESPESAS FIXAS",
+    "descricao": "DESPESAS FIXAS"
+  },
+  {
+    "codigo": "DESPESAS VARIAVEIS",
+    "descricao": "DESPESAS VARIAVEIS"
+  },
+  {
+    "codigo": "CUSTOS VARIAVEIS",
+    "descricao": "CUSTOS VARIAVEIS"
+  },
+  {
+    "codigo": "RECEITAS DE VENDA",
+    "descricao": "RECEITAS DE VENDA"
+  },
+  {
+    "codigo": "OUTRAS RECEITAS",
+    "descricao": "OUTRAS RECEITAS"
+  },
+  {
+    "codigo": "CUSTO FIXO",
+    "descricao": "CUSTO FIXO"
+  },
+  {
+    "codigo": "OUTRAS DESPESAS",
+    "descricao": "OUTRAS DESPESAS"
+  },
+  {
+    "codigo": "RECEITAS FINANCEIRAS",
+    "descricao": "RECEITAS FINANCEIRAS"
+  },
+  {
+    "codigo": "1.DESPESAS PRODUTOS VENDIDOS",
+    "descricao": "1.DESPESAS PRODUTOS VENDIDOS"
+  },
+  {
+    "codigo": "CUSTOS VARIÁVEIS",
+    "descricao": "CUSTOS VARIÁVEIS"
+  },
+  {
+    "codigo": "DESPESAS VARIÁVEIS",
+    "descricao": "DESPESAS VARIÁVEIS"
+  },
+  {
+    "codigo": "2.DESPESA FIXA",
+    "descricao": "2.DESPESA FIXA"
+  },
+  {
+    "codigo": "CUSTOS FIXOS",
+    "descricao": "CUSTOS FIXOS"
+  },
+  {
+    "codigo": "DESPESA FIXA",
+    "descricao": "DESPESA FIXA"
+  },
+  {
+    "codigo": "9. BENS",
+    "descricao": "9. BENS"
+  },
+  {
+    "codigo": "ACERTO DE SALDO",
+    "descricao": "ACERTO DE SALDO"
+  },
+  {
+    "codigo": "6.OUTRAS DESPESAS",
+    "descricao": "6.OUTRAS DESPESAS"
+  },
+  {
+    "codigo": "8. INFRAESTRUTURA",
+    "descricao": "8. INFRAESTRUTURA"
+  },
+  {
+    "codigo": "EMPRESTIMO / RECEBIMENTO",
+    "descricao": "EMPRESTIMO / RECEBIMENTO"
+  },
+  {
+    "codigo": "4.INVESTIMENTOS",
+    "descricao": "4.INVESTIMENTOS"
+  },
+  {
+    "codigo": "7.ACERTO DE SALDO",
+    "descricao": "7.ACERTO DE SALDO"
+  },
+  {
+    "codigo": "5.DINHEIRO EM CAIXA",
+    "descricao": "5.DINHEIRO EM CAIXA"
+  },
+  {
+    "codigo": "Laboratorio",
+    "descricao": "Laboratorio"
+  },
+  {
+    "codigo": "EMPRESTIMO",
+    "descricao": "EMPRESTIMO"
+  },
+  {
+    "codigo": "DEVOLUÇÃO",
+    "descricao": "DEVOLUÇÃO"
+  }
+]

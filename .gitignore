@@ -2,8 +2,7 @@
 .env
 .env.local
 
-# Build artifacts (tracked pra deploy Coolify — data.js, app.bundle.js, data-extras.js são commitados)
-data/
+# Build artifacts (tracked pra deploy Coolify)
 data-extras/
 
 # Reports cacheados (gerados por write-reports.cjs do cliente, ou por API on-the-fly)
