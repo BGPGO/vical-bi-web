@@ -6,7 +6,7 @@ module.exports = {
   cliente: {
     nome: "VICAL Instrumentos",
     subdomain: "vical-bi",
-    coolify_app_uuid: "",
+    coolify_app_uuid: "i127ccccxbb72ba1jqoaoi6p",
     cor_primaria: "#22d3ee",
   },
 
