@@ -1,44 +1,19 @@
-# Coolify deploy — Node Express serve static + cron interno (refresh hora em hora)
-# + endpoint /api/trigger-refresh pro botão Atualizar.
-# Toda a lógica fetch/build roda DENTRO do container — não depende mais do
-# GH Actions schedule (que era unreliable).
+# Coolify deploy — nginx static serve
+FROM nginx:alpine
 
-FROM node:20-alpine
-WORKDIR /app
+# Remove default config
+RUN rm /etc/nginx/conf.d/default.conf
 
-# Deps de runtime (express + node-cron + xlsx + esbuild pra build interno)
-COPY package.json package-lock.json* ./
-RUN npm install --omit=dev --no-audit --no-fund && npm cache clean --force
+# Custom nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Static frontend
-COPY index.html styles.css ./
-COPY data.js app.bundle.js data-extras.js ./
-COPY assets ./assets
-
-# Servidor + scripts de refresh (fetch CA API → build canonical → build extras)
-COPY server.cjs ./
-COPY fetch-data.cjs ./
-COPY build-data.cjs ./
-COPY build-data-extras.cjs ./
-COPY bi.config.js ./
-COPY adapters ./adapters
-COPY lib ./lib
-
-# Reports IA pré-rodados (anual 2026 + 12 mensais + YTD default)
-COPY report.json ./
-COPY report-2026.json ./
-COPY report-2026-01.json ./
-COPY report-2026-02.json ./
-COPY report-2026-03.json ./
-COPY report-2026-04.json ./
-COPY report-2026-05.json ./
-COPY report-2026-06.json ./
-COPY report-2026-07.json ./
-COPY report-2026-08.json ./
-COPY report-2026-09.json ./
-COPY report-2026-10.json ./
-COPY report-2026-11.json ./
-COPY report-2026-12.json ./
+# Static frontend files
+COPY index.html /usr/share/nginx/html/
+COPY styles.css /usr/share/nginx/html/
+COPY data.js /usr/share/nginx/html/
+COPY app.bundle.js /usr/share/nginx/html/
+COPY data-extras.js /usr/share/nginx/html/
+COPY assets /usr/share/nginx/html/assets
 
 EXPOSE 80
-CMD ["node", "server.cjs"]
+CMD ["nginx", "-g", "daemon off;"]

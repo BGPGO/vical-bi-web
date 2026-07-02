@@ -2,16 +2,13 @@
 .env
 .env.local
 
-# Build artifacts
+# Build artifacts (tracked pra deploy Coolify — data.js, app.bundle.js, data-extras.js são commitados)
 data/
 data-extras/
-data.js
-data-extras.js
-app.bundle.js
 
 # Reports cacheados (gerados por write-reports.cjs do cliente, ou por API on-the-fly)
-report.json
-report-*.json
+# report.json
+# report-*.json
 
 # bi.config.js é cliente-específico mas NÃO tem secrets — é tracked pra cada repo cliente.
 # Mantém aqui só pra referência (descomente se quiser experimentar local sem commitar).
