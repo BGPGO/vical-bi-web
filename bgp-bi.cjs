@@ -16,10 +16,6 @@ const path = require('node:path');
 const { execSync, spawnSync } = require('node:child_process');
 const readline = require('node:readline');
 
-// Carrega .env do projeto (se existir) — sem isso, COOLIFY_TOKEN/credenciais
-// definidas em .env do cliente não chegam aos comandos publish/init.
-try { require('dotenv').config(); } catch (_) { /* dotenv opcional */ }
-
 const ROOT = process.cwd();
 const TEMPLATE_REPO = 'git@github.com:BGPGO/bi-template.git';
 const COOLIFY_HOST = process.env.COOLIFY_HOST || '187.77.238.125:8000';
@@ -178,7 +174,7 @@ function cmdBuild() {
   const errors = [];
   const steps = [
     { name: 'data', script: 'build-data.cjs', required: true },
-    { name: 'data-extras', script: 'build-data-extras.cjs', required: (Array.isArray(cfg.pages?.outros) ? cfg.pages.outros.length : Object.keys(cfg.pages?.outros || {}).length) > 0 || (Array.isArray(cfg.fontes?.adapters) && cfg.fontes.adapters.includes('fin40')) },
+    { name: 'data-extras', script: 'build-data-extras.cjs', required: (Array.isArray(cfg.pages?.outros) ? cfg.pages.outros.length : Object.keys(cfg.pages?.outros || {}).length) > 0 || cfg.fontes?.adapters?.includes('fin40') },
     { name: 'jsx bundle', script: 'build-jsx.cjs', required: true },
   ];
   for (const step of steps) {

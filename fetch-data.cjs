@@ -57,35 +57,52 @@ fs.mkdirSync(DATA_DIR, { recursive: true });
       continue;
     }
 
-    // Pull pra subdir do adapter (preserva isolamento), depois merge
-    const subDir = adapters.length === 1 ? DATA_DIR : path.join(DATA_DIR, adapterId);
+    // Pull pra subdir do adapter (preserva isolamento), depois merge.
+    // Adapters podem declarar contributes_movimentos=false (side-channel only).
+    const contribui = adapter.contributes_movimentos !== false;
+    const subDir = (adapters.length === 1 || !contribui) ? DATA_DIR : path.join(DATA_DIR, adapterId);
     fs.mkdirSync(subDir, { recursive: true });
     try {
       const r = await adapter.pull(cfg, subDir);
       summaries.push(r.summary);
 
-      // Se múltiplos adapters, merge movimentos no DATA_DIR final
-      if (adapters.length > 1) {
-        const movs = JSON.parse(fs.readFileSync(path.join(subDir, 'movimentos.json'), 'utf8'));
-        allMovimentos.push(...movs);
+      // Se múltiplos adapters E esse adapter contribui pro canonical, junta no merge
+      if (adapters.length > 1 && contribui) {
+        const movsPath = path.join(subDir, 'movimentos.json');
+        if (fs.existsSync(movsPath)) {
+          const movs = JSON.parse(fs.readFileSync(movsPath, 'utf8'));
+          allMovimentos.push(...movs.map(m => ({ ...m, _src: adapterId })));
+        }
       }
     } catch (e) {
       console.error(`✖ Pull falhou: ${e.message}`);
     }
   }
 
-  if (adapters.length > 1) {
-    // Dedup por (fonte, id)
+  // Conta quantos adapters efetivamente contribuíram pro canonical
+  const contribuintes = adapters.filter(id => REGISTRY[id] && REGISTRY[id].contributes_movimentos !== false);
+  if (contribuintes.length > 1) {
+    // Dedup por (fonte, id) — só usado quando adapters retornam canonical com fonte+id
     const seen = new Set();
     const dedup = [];
     for (const m of allMovimentos) {
-      const k = `${m.fonte}:${m.id}`;
+      // Fallback: se adapter não preencheu fonte/id, usa _src + índice (preserva unicidade)
+      const k = (m.fonte && m.id) ? `${m.fonte}:${m.id}` : `${m._src}:${dedup.length}`;
       if (seen.has(k)) continue;
       seen.add(k);
+      delete m._src;
       dedup.push(m);
     }
     fs.writeFileSync(path.join(DATA_DIR, 'movimentos.json'), JSON.stringify(dedup, null, 2));
-    console.log(`\n=== Merge: ${dedup.length} movimentos únicos de ${adapters.length} fontes ===`);
+    console.log(`\n=== Merge: ${dedup.length} movimentos únicos de ${contribuintes.length} fontes contribuintes ===`);
+  } else if (contribuintes.length === 1 && adapters.length > 1) {
+    // Único adapter canonical com side-channels: copia o movimentos.json dele pro raiz
+    const single = contribuintes[0];
+    const src = path.join(DATA_DIR, single, 'movimentos.json');
+    if (fs.existsSync(src)) {
+      fs.copyFileSync(src, path.join(DATA_DIR, 'movimentos.json'));
+      console.log(`\n=== Copiado ${single}/movimentos.json → raiz (side-channels não contribuem) ===`);
+    }
   }
 
   fs.writeFileSync(path.join(DATA_DIR, '_summary.json'), JSON.stringify({

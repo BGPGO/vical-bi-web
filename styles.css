@@ -506,65 +506,6 @@ input, select { font-family: inherit; color: inherit; }
     0 0 0 1px rgba(0,0,0,0.4);
 }
 .kpi-tile:hover { background: rgba(12, 19, 24, 0.84); }
-.kpi-tile-clickable:hover { background: rgba(15, 23, 30, 0.92); border-color: rgba(34, 211, 238, 0.22); }
-.kpi-tile-clickable .kpi-expand-hint {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-mono, monospace);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--mute);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 4px;
-  opacity: 0.5;
-  transition: opacity 180ms, color 180ms, background 180ms;
-  z-index: 2;
-  pointer-events: none;
-}
-.kpi-tile-clickable:hover .kpi-expand-hint {
-  opacity: 1;
-  color: var(--cyan);
-  background: rgba(34, 211, 238, 0.10);
-  border-color: rgba(34, 211, 238, 0.30);
-}
-/* Indicador absoluto pra containers customizados (Overview cards, Fluxo metric-strip) */
-.kpi-clickable-container { position: relative; }
-.kpi-clickable-container .kpi-toggle-hint {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-mono, monospace);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--mute);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 4px;
-  opacity: 0.55;
-  transition: opacity 180ms, color 180ms, background 180ms;
-  z-index: 3;
-  pointer-events: none;
-}
-.kpi-clickable-container:hover .kpi-toggle-hint {
-  opacity: 1;
-  color: var(--cyan);
-  background: rgba(34, 211, 238, 0.10);
-  border-color: rgba(34, 211, 238, 0.30);
-}
 .kpi-tile::before {
   content: "";
   position: absolute;
@@ -1727,54 +1668,6 @@ table.t tr.total td {
   border-bottom: 1px solid var(--line-soft);
 }
 .report-section:last-of-type { border-bottom: 0; }
-
-/* Insight & alert boxes (PageRelatorio) */
-.report-insights .insight-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 12px;
-  margin: 8px 0 16px;
-}
-.insight-box {
-  border-radius: var(--radius-sm);
-  padding: 14px 16px;
-  border-left: 4px solid var(--mute);
-  background: var(--surface-2);
-}
-.insight-box .insight-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 13px;
-  margin-bottom: 6px;
-}
-.insight-box .insight-icon { font-size: 16px; line-height: 1; }
-.insight-box .insight-title { letter-spacing: -0.01em; }
-.insight-box .insight-body {
-  font-size: 12px;
-  line-height: 1.55;
-  color: var(--fg-2);
-}
-.insight-danger {
-  border-left-color: var(--red);
-  background: rgba(239, 68, 68, 0.06);
-}
-.insight-danger .insight-title { color: var(--red); }
-.insight-warning {
-  border-left-color: var(--amber, #f59e0b);
-  background: rgba(245, 158, 11, 0.06);
-}
-.insight-warning .insight-title { color: var(--amber, #f59e0b); }
-.insight-success {
-  border-left-color: var(--green);
-  background: rgba(34, 197, 94, 0.06);
-}
-.insight-success .insight-title { color: var(--green); }
-@media print {
-  .insight-box { break-inside: avoid; }
-}
-
 .report-section h2 {
   font-size: 18px;
   font-weight: 700;
@@ -2878,9 +2771,14 @@ table.t tr.total td {
   body.bi-print-mode .bi-print-root { display: block !important; }
   body.bi-print-mode .bi-print-page {
     background: var(--bg) !important;
-    padding: 14mm 10mm !important;
+    padding: 8mm 8mm !important;
     page-break-after: always;
     page-break-inside: auto;
+    /* Comprime tela inteira pra 1 página A4 (sem múltiplas A4 por tela do BI) */
+    transform: scale(0.78);
+    transform-origin: top left;
+    width: 128.2%;          /* 1/0.78 ≈ 1.282 → compensa scale pra ocupar largura cheia */
+    overflow: hidden;
   }
   body.bi-print-mode .bi-print-page:last-child { page-break-after: auto; }
   body.bi-print-mode .bi-print-header {
@@ -2912,11 +2810,16 @@ table.t tr.total td {
   }
   /* Cards não quebram no meio (mas se forem grandes demais, deixa) */
   body.bi-print-mode .card { break-inside: auto; page-break-inside: auto; }
+  /* Removido page-break-inside: avoid de .row pra evitar gaps grandes
+     (forçava nova página inteira quando o row não cabia onde estava) */
   body.bi-print-mode .kpi-row, body.bi-print-mode .row {
-    page-break-inside: avoid;
-    break-inside: avoid;
+    page-break-inside: auto;
+    break-inside: auto;
   }
-  @page { size: A4; margin: 8mm; }
+  /* Densifica conteúdo no print: menores paddings, font reduzido */
+  body.bi-print-mode .card { padding: 8px 10px !important; margin-bottom: 8px !important; }
+  body.bi-print-mode .page > * + * { margin-top: 8px !important; }
+  @page { size: A4; margin: 0; }
 }
 
 /* Escopa o @media print legado (Relatório IA standalone) pra não interferir
@@ -3282,3 +3185,6 @@ table.t tr.total td {
   margin-left: 6px;
   vertical-align: middle;
 }
+
+/* Spinner do RefreshButton (header) */
+@keyframes spin { to { transform: rotate(360deg); } }

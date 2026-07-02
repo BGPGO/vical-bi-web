@@ -23,23 +23,28 @@ const SOURCES = [
   'pages-2.jsx',
   'pages-3.jsx',
   'pages-4.jsx',
+  'pages-5.jsx',
   'upsell-pages.jsx',
 ];
 
-// Lê bi.config.js (se existir) pra injetar BI_PAGE_MODE
+// Lê bi.config.js (se existir) pra injetar BI_PAGE_MODE + BI_DEFAULT_STATUS
 let pageModes = {};
+let biCfg = null;
 try {
-  const cfg = require(path.join(ROOT, 'bi.config.js'));
+  biCfg = require(path.join(ROOT, 'bi.config.js'));
   const flat = (obj) => {
     const out = {};
     for (const k of Object.keys(obj || {})) out[k] = obj[k];
     return out;
   };
-  pageModes = { ...flat(cfg.pages?.geral), ...flat(cfg.pages?.outros) };
+  pageModes = { ...flat(biCfg.pages?.geral), ...flat(biCfg.pages?.outros) };
 } catch (e) {
   // Sem config — todas as pages ativas (default)
 }
-const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.js > pages\nwindow.BI_PAGE_MODE = ${JSON.stringify(pageModes)};\n`;
+const hasFin40 = !!(biCfg && biCfg.fontes && Array.isArray(biCfg.fontes.adapters) && biCfg.fontes.adapters.includes('fin40'));
+const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.js > pages\nwindow.BI_PAGE_MODE = ${JSON.stringify(pageModes)};\n` +
+  // fin40 não preenche conciliado/status → "realizado" mostra vazio. Default volta pra "a_pagar_receber".
+  `window.BI_DEFAULT_STATUS = ${JSON.stringify(hasFin40 ? 'a_pagar_receber' : 'realizado')};\n`;
 
 (async () => {
   // Cada .jsx redeclara `const { useState } = React;` no topo (era pra Babel-
@@ -73,6 +78,7 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
     curva_abc: '10 Curva ABC',
     marketing: '11 Marketing ADS',
     valuation: '12 Valuation',
+    fluxo_diario: '12b Fluxo Diário',
     hierarquia: '13 Hierarquia ADS',
     detalhado: '14 Detalhado',
     profunda_cliente: '15 Profunda Cliente',
@@ -84,7 +90,23 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
     var fo = useState(false); var filtersOpen = fo[0], setFiltersOpen = fo[1];
     var so = useState(false); var sidebarOpen = so[0], setSidebarOpen = so[1];
     var sf = useState(function () {
-      try { return localStorage.getItem('bi.statusFilter') || 'realizado'; } catch (e) { return 'realizado'; }
+      // Pega do localStorage. Mas se aquele segment tem dados=0 (ex: fin40 não preenche
+      // realizado), auto-fallback pra um segment com dados (default = BI_DEFAULT_STATUS).
+      var saved = null; try { saved = localStorage.getItem('bi.statusFilter'); } catch (e) {}
+      var fallback = window.BI_DEFAULT_STATUS || 'realizado';
+      var segHasData = function (k) {
+        try {
+          var s = (typeof SEGMENTS !== 'undefined') && SEGMENTS[k];
+          if (!s || !s.MONTH_DATA) return false;
+          return s.MONTH_DATA.some(function (m) { return (m.receita || 0) !== 0 || (m.despesa || 0) !== 0; });
+        } catch (e) { return false; }
+      };
+      if (saved && segHasData(saved)) return saved;
+      if (segHasData(fallback)) return fallback;
+      // Último recurso: testa todos
+      var keys = ['realizado', 'a_pagar_receber', 'tudo'];
+      for (var i = 0; i < keys.length; i++) if (segHasData(keys[i])) return keys[i];
+      return fallback;
     });
     var statusFilter = sf[0], setStatusFilter = sf[1];
     // Drilldown global: setado quando o usuario clica numa barra/linha de grafico.
@@ -95,22 +117,26 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
       try { var y = parseInt(localStorage.getItem('bi.year'), 10); return y > 1900 ? y : (window.REF_YEAR || new Date().getFullYear()); } catch (e) { return window.REF_YEAR || new Date().getFullYear(); }
     });
     var year = ys[0], setYear = ys[1];
-    // months: array de meses 1-12 selecionados; [] = "Ano completo" (= mostra tudo).
-    // Retrocompat com localStorage 'bi.month' (single number): migra pra 'bi.months' (JSON array).
     var ms = useState(function () {
-      try {
-        var raw = localStorage.getItem('bi.months');
-        if (raw) {
-          var arr = JSON.parse(raw);
-          if (Array.isArray(arr)) return arr.filter(function (m) { return m >= 1 && m <= 12; });
-        }
-        // legacy migration: 'bi.month' (number)
-        var m = parseInt(localStorage.getItem('bi.month'), 10);
-        if (m >= 1 && m <= 12) return [m];
-      } catch (e) {}
-      return [];
+      try { var m = parseInt(localStorage.getItem('bi.month'), 10); return (m >= 0 && m <= 12) ? m : 0; } catch (e) { return 0; }
     });
-    var months = ms[0], setMonths = ms[1];
+    var month = ms[0], setMonth = ms[1];
+    // Filtros globais Centro de Custo + Conta Bancária (Header) — multi-select
+    var cc = useState(function () {
+      try { var v = localStorage.getItem('bi.centro') || ''; return v ? JSON.parse(v) : []; }
+      catch (e) { return []; }
+    });
+    var centroFiltro = cc[0], setCentroFiltro = cc[1];
+    var cb = useState(function () {
+      try { var v = localStorage.getItem('bi.conta') || ''; return v ? JSON.parse(v) : []; }
+      catch (e) { return []; }
+    });
+    var contaFiltro = cb[0], setContaFiltro = cb[1];
+    var ef = useState(function () {
+      try { var v = localStorage.getItem('bi.empresa') || ''; return v ? JSON.parse(v) : []; }
+      catch (e) { return []; }
+    });
+    var empresaFiltro = ef[0], setEmpresaFiltro = ef[1];
 
     // BI export multi-tela: array de page-ids ou null. Quando setado, renderiza
     // todas as telas em sequencia + chama window.print() depois do layout pintar.
@@ -193,9 +219,33 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
     }, [year]);
 
     useEffect(function () {
-      try { localStorage.setItem('bi.months', JSON.stringify(months)); } catch (e) {}
+      try { localStorage.setItem('bi.month', String(month)); } catch (e) {}
       setDrilldown(null);
-    }, [months]);
+    }, [month]);
+
+    // CRÍTICO: sincronizar window.BI_*_FILTER DURANTE o render (não em useEffect).
+    // Razão: <PageComp key={fk}> abaixo remonta quando filtros mudam, e o
+    // useMemo do page faz getBit() → filterTx() que LÊ esses window globals.
+    // useEffect roda só APÓS commit, então o PageComp acabaria de remontar
+    // com o filtro ANTIGO ainda em vigor (efeito '1 click de atraso').
+    window.BI_CENTRO_FILTER = (centroFiltro && centroFiltro.length) ? centroFiltro : null;
+    window.BI_CONTA_FILTER = (contaFiltro && contaFiltro.length) ? contaFiltro : null;
+    window.BI_EMPRESA_FILTER = (empresaFiltro && empresaFiltro.length) ? empresaFiltro : null;
+
+    useEffect(function () {
+      try { localStorage.setItem('bi.centro', JSON.stringify(centroFiltro || [])); } catch (e) {}
+      setDrilldown(null);
+    }, [centroFiltro]);
+
+    useEffect(function () {
+      try { localStorage.setItem('bi.conta', JSON.stringify(contaFiltro || [])); } catch (e) {}
+      setDrilldown(null);
+    }, [contaFiltro]);
+
+    useEffect(function () {
+      try { localStorage.setItem('bi.empresa', JSON.stringify(empresaFiltro || [])); } catch (e) {}
+      setDrilldown(null);
+    }, [empresaFiltro]);
 
     var handleSetPage = function (newPage) {
       setPage(newPage);
@@ -216,6 +266,7 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
       curva_abc: PageCurvaABC,
       marketing: PageMarketing,
       valuation: PageValuation,
+      fluxo_diario: PageFluxoDiario,
       hierarquia: PageHierarquia,
       detalhado: PageDetalhado,
       profunda_cliente: PageProfundaCliente,
@@ -234,11 +285,8 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
       statusFilter: statusFilter,
       year: year,
       setYear: setYear,
-      months: months,
-      setMonths: setMonths,
-      // retrocompat: passa month (number) pras pages que nao migraram pra months.
-      // single-mes -> number; multi/vazio -> 0 (= ano completo legado).
-      month: months.length === 1 ? months[0] : 0,
+      month: month,
+      setMonth: setMonth,
       drilldown: drilldown,
       setDrilldown: setDrilldown,
     };
@@ -279,10 +327,27 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
             setStatusFilter={setStatusFilter}
             year={year}
             setYear={setYear}
-            months={months}
-            setMonths={setMonths}
+            month={month}
+            setMonth={setMonth}
+            empresaFiltro={empresaFiltro}
+            setEmpresaFiltro={setEmpresaFiltro}
+            centroFiltro={centroFiltro}
+            setCentroFiltro={setCentroFiltro}
+            contaFiltro={contaFiltro}
+            setContaFiltro={setContaFiltro}
           />
-          <PageComp {...commonProps} />
+          {(function () {
+            // Force re-render quando CC/Conta mudam pq pages usam useMemo
+            // com deps fixas [statusFilter, drilldown, year, month] — não
+            // sabem dos filtros globais. Mudar key remonta o componente,
+            // o que faz useMemo recomputar com window.BI_*_FILTER atualizados.
+            // EXCETO fluxo_diario que tem dataset próprio (não usa filterTx)
+            // e queremos preservar seus state locais (slicer, expansões).
+            var fk = page === 'fluxo_diario'
+              ? page
+              : page + '|' + JSON.stringify(centroFiltro || []) + '|' + JSON.stringify(contaFiltro || []) + '|' + JSON.stringify(empresaFiltro || []);
+            return <PageComp key={fk} {...commonProps} />;
+          })()}
         </div>
         <FiltersDrawer open={filtersOpen} onClose={function () { setFiltersOpen(false); }} filters={filters} setFilters={setFilters} />
       </div>

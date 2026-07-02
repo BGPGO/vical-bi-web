@@ -1,30 +1,44 @@
-# Coolify deploy — serve estática BI via nginx (mais previsível que Caddy
-# no setup do Coolify; veja issue de "exited:unhealthy" com caddy:2-alpine).
-#
-# Arquivos obrigatórios (sempre gerados por build-data.cjs + build-jsx.cjs):
-#   index.html, styles.css, data.js, app.bundle.js, nginx.conf
-#
-# Arquivos opcionais que cliente PODE não ter — placeholder gerado pelo
-# bgp-bi.cjs init (vazio) pra COPY não falhar:
-#   data-extras.js, saldos.json, assets/
-#
-# Reports IA pré-gerados (report*.json) NÃO são copiados aqui — são gerados
-# on-the-fly via backend ai-proxy. Cliente que cacheia local: adicionar COPYs.
+# Coolify deploy — Node Express serve static + cron interno (refresh hora em hora)
+# + endpoint /api/trigger-refresh pro botão Atualizar.
+# Toda a lógica fetch/build roda DENTRO do container — não depende mais do
+# GH Actions schedule (que era unreliable).
 
-FROM nginx:alpine
+FROM node:20-alpine
+WORKDIR /app
 
-# Obrigatórios
-COPY index.html /usr/share/nginx/html/
-COPY styles.css /usr/share/nginx/html/
-COPY data.js /usr/share/nginx/html/
-COPY app.bundle.js /usr/share/nginx/html/
+# Deps de runtime (express + node-cron + xlsx + esbuild pra build interno)
+COPY package.json package-lock.json* ./
+RUN npm install --omit=dev --no-audit --no-fund && npm cache clean --force
 
-# Opcionais (placeholder vazio criado por bgp-bi.cjs init)
-COPY data-extras.js /usr/share/nginx/html/
-COPY saldos.json /usr/share/nginx/html/
-COPY assets /usr/share/nginx/html/assets
+# Static frontend
+COPY index.html styles.css ./
+COPY data.js app.bundle.js data-extras.js ./
+COPY assets ./assets
 
-# Config nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Servidor + scripts de refresh (fetch CA API → build canonical → build extras)
+COPY server.cjs ./
+COPY fetch-data.cjs ./
+COPY build-data.cjs ./
+COPY build-data-extras.cjs ./
+COPY bi.config.js ./
+COPY adapters ./adapters
+COPY lib ./lib
+
+# Reports IA pré-rodados (anual 2026 + 12 mensais + YTD default)
+COPY report.json ./
+COPY report-2026.json ./
+COPY report-2026-01.json ./
+COPY report-2026-02.json ./
+COPY report-2026-03.json ./
+COPY report-2026-04.json ./
+COPY report-2026-05.json ./
+COPY report-2026-06.json ./
+COPY report-2026-07.json ./
+COPY report-2026-08.json ./
+COPY report-2026-09.json ./
+COPY report-2026-10.json ./
+COPY report-2026-11.json ./
+COPY report-2026-12.json ./
 
 EXPOSE 80
+CMD ["node", "server.cjs"]

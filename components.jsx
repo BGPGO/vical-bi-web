@@ -47,7 +47,7 @@ const Sidebar = ({ active, onSelect, open }) => {
     { id: "comparativo", icon: "compare", label: "Comparativo" },
     { id: "relatorio", icon: "fileText", label: "Relatório IA" },
     { id: "valuation", icon: "invest", label: "Valuation" },
-    { id: "diary", icon: "diary", label: "Diário", badge: "EM BREVE" },
+    { id: "fluxo_diario", icon: "flow", label: "Fluxo Diário" },
   ];
   const others = [
     { id: "indicators", icon: "chart", label: "Indicadores" },
@@ -95,7 +95,16 @@ const Sidebar = ({ active, onSelect, open }) => {
       {others.map(renderItem)}
       <div className="sb-spacer" />
       <div className="sb-user">
-        <div className="avatar">RK</div>
+        <div className="avatar">{(() => {
+          // Sigla derivada do nome do cliente (BIT_META.empresa.nome_fantasia).
+          // Regra: se 1ª palavra é toda CAPS e 2-4 chars → usa ela (acrônimo, ex: "ESA").
+          // Senão, iniciais das 2 primeiras palavras (ex: "Radke Soluções" → "RS").
+          const nome = (window.BIT_META && window.BIT_META.empresa && window.BIT_META.empresa.nome_fantasia) || '';
+          const parts = nome.trim().split(/\s+/).filter(Boolean);
+          if (parts.length === 0) return '?';
+          if (parts[0] === parts[0].toUpperCase() && parts[0].length >= 2 && parts[0].length <= 4) return parts[0];
+          return parts.slice(0, 2).map(p => p[0].toUpperCase()).join('');
+        })()}</div>
         <div className="who">
           <b>{(window.BIT_META && window.BIT_META.empresa && window.BIT_META.empresa.nome_fantasia) || "Cliente"}</b>
           <span>{(window.BIT_META && window.BIT_META.empresa && window.BIT_META.empresa.cidade) || "Cliente · BGP GO"}</span>
@@ -118,6 +127,7 @@ const PAGE_TITLES = {
   curva_abc: "Curva ABC de Produtos",
   marketing: "Marketing ADS",
   valuation: "Valuation",
+  fluxo_diario: "Fluxo Diário",
   hierarquia: "Hierarquia ADS",
   detalhado: "Detalhado",
   profunda_cliente: "Profunda Cliente",
@@ -186,79 +196,9 @@ const MonthSelect = ({ value, onChange }) => (
   </select>
 );
 
-// MultiMonthSelect: dropdown com checkboxes pra selecionar 1+ meses.
-// value = array de números (1-12); array vazio = "Ano completo" (= todos).
-const MONTH_LABELS_SHORT = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
-const MultiMonthSelect = ({ value, onChange }) => {
-  const months = Array.isArray(value) ? value : (value ? [value] : []);
-  const [open, setOpen] = useState(false);
-  const ref = useRef(null);
-  useEffect(() => {
-    if (!open) return;
-    const onDoc = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
-    document.addEventListener('mousedown', onDoc);
-    return () => document.removeEventListener('mousedown', onDoc);
-  }, [open]);
-  const toggle = (m) => {
-    const set = new Set(months);
-    if (set.has(m)) set.delete(m); else set.add(m);
-    onChange([...set].sort((a, b) => a - b));
-  };
-  const selectAll = () => onChange([]);  // [] == "Ano completo"
-  const clear = () => onChange([]);
-  const sorted = [...months].sort((a, b) => a - b);
-  let label;
-  if (sorted.length === 0) label = "Ano completo";
-  else if (sorted.length <= 3) label = sorted.map(m => MONTH_LABELS_SHORT[m - 1]).join(", ");
-  else label = sorted.length + " meses";
-  return (
-    <div className="multi-month-select" ref={ref} style={{ position: 'relative' }}>
-      <button
-        type="button"
-        className="header-year multi-month-trigger"
-        onClick={() => setOpen(o => !o)}
-        title="Meses (selecione vários — vazio = Ano completo)"
-        style={{ minWidth: 130, textAlign: 'left', display: 'inline-flex', alignItems: 'center', justifyContent: 'space-between', gap: 6, cursor: 'pointer' }}
-      >
-        <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{label}</span>
-        <span style={{ opacity: 0.6, fontSize: 10 }}>▾</span>
-      </button>
-      {open && (
-        <div className="multi-month-pop" style={{
-          position: 'absolute', top: 'calc(100% + 4px)', right: 0, zIndex: 50,
-          background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 8,
-          padding: 8, minWidth: 200, boxShadow: '0 8px 24px rgba(0,0,0,0.25)'
-        }}>
-          <div style={{ display: 'flex', gap: 6, marginBottom: 6, justifyContent: 'space-between' }}>
-            <button type="button" onClick={selectAll} className="btn-ghost" style={{ fontSize: 11, padding: '4px 8px' }}>Ano completo</button>
-            <button type="button" onClick={clear} className="btn-ghost" style={{ fontSize: 11, padding: '4px 8px' }} disabled={sorted.length === 0}>Limpar</button>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 4 }}>
-            {MONTH_LABELS_SHORT.map((lbl, i) => {
-              const m = i + 1;
-              const active = months.includes(m);
-              return (
-                <label key={m} style={{
-                  display: 'flex', alignItems: 'center', gap: 4, padding: '4px 6px',
-                  borderRadius: 4, cursor: 'pointer', fontSize: 12,
-                  background: active ? 'var(--surface-2)' : 'transparent',
-                  color: active ? 'var(--cyan)' : 'inherit',
-                  border: '1px solid ' + (active ? 'var(--cyan)' : 'transparent'),
-                }}>
-                  <input type="checkbox" checked={active} onChange={() => toggle(m)} style={{ accentColor: 'var(--cyan)' }} />
-                  {lbl}
-                </label>
-              );
-            })}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-// BiExportButton: modal com checkboxes pra exportar telas selecionadas como PDF
-const BI_EXPORT_PAGES = [
+// BiExportButton: modal com checkboxes pra exportar telas selecionadas como PDF.
+// Filtra automaticamente pelas pages 'active' do bi.config (window.BI_PAGE_MODE).
+const BI_EXPORT_PAGES_ALL = [
   { id: "overview", label: "01 Visão Geral" },
   { id: "receita", label: "02 Receita" },
   { id: "despesa", label: "03 Despesa" },
@@ -267,19 +207,26 @@ const BI_EXPORT_PAGES = [
   { id: "comparativo", label: "06 Comparativo" },
   { id: "relatorio", label: "07 Relatório IA" },
   { id: "valuation", label: "08 Valuation" },
-  { id: "indicators", label: "09 Indicadores" },
-  { id: "faturamento_produto", label: "10 Faturamento por Produto" },
-  { id: "curva_abc", label: "11 Curva ABC" },
-  { id: "marketing", label: "12 Marketing ADS" },
-  { id: "hierarquia", label: "13 Hierarquia ADS" },
-  { id: "detalhado", label: "14 Detalhado" },
-  { id: "profunda_cliente", label: "15 Profunda Cliente" },
-  { id: "crm", label: "16 CRM" },
+  { id: "fluxo_diario", label: "09 Fluxo Diário" },
+  { id: "indicators", label: "10 Indicadores" },
+  { id: "faturamento_produto", label: "11 Faturamento por Produto" },
+  { id: "curva_abc", label: "12 Curva ABC" },
+  { id: "marketing", label: "13 Marketing ADS" },
+  { id: "hierarquia", label: "14 Hierarquia ADS" },
+  { id: "detalhado", label: "15 Detalhado" },
+  { id: "profunda_cliente", label: "16 Profunda Cliente" },
+  { id: "crm", label: "17 CRM" },
 ];
+// Retorna só as pages ativas no bi.config (hidden + upsell ficam fora).
+const getExportablePages = () => {
+  const mode = (id) => (window.BI_PAGE_MODE && window.BI_PAGE_MODE[id]) || 'active';
+  return BI_EXPORT_PAGES_ALL.filter(p => mode(p.id) === 'active');
+};
 
 const BiExportButton = () => {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(() => new Set(BI_EXPORT_PAGES.map(p => p.id)));
+  const pages = getExportablePages();
+  const [selected, setSelected] = useState(() => new Set(pages.map(p => p.id)));
   const toggle = (id) => {
     setSelected(s => {
       const ns = new Set(s);
@@ -289,7 +236,7 @@ const BiExportButton = () => {
   };
   const submit = () => {
     if (selected.size === 0) return;
-    const ordered = BI_EXPORT_PAGES.filter(p => selected.has(p.id)).map(p => p.id);
+    const ordered = pages.filter(p => selected.has(p.id)).map(p => p.id);
     if (window.startBiExport) window.startBiExport(ordered);
     setOpen(false);
   };
@@ -306,7 +253,7 @@ const BiExportButton = () => {
               Selecione as telas para incluir no PDF. Cada tela vira uma página A4 com o tema escuro mantido.
             </p>
             <div className="bi-export-grid">
-              {BI_EXPORT_PAGES.map(p => (
+              {pages.map(p => (
                 <label key={p.id} className="bi-export-row">
                   <input
                     type="checkbox"
@@ -319,7 +266,7 @@ const BiExportButton = () => {
             </div>
             <div className="bi-export-actions">
               <div style={{ display: "flex", gap: 8 }}>
-                <button className="btn-ghost" onClick={() => setSelected(new Set(BI_EXPORT_PAGES.map(p => p.id)))}>Todas</button>
+                <button className="btn-ghost" onClick={() => setSelected(new Set(pages.map(p => p.id)))}>Todas</button>
                 <button className="btn-ghost" onClick={() => setSelected(new Set())}>Nenhuma</button>
               </div>
               <div style={{ display: "flex", gap: 8 }}>
@@ -336,32 +283,209 @@ const BiExportButton = () => {
   );
 };
 
-// Banner que aparece quando o filtro "A pagar/receber" está ativo mas
-// não há lançamentos abertos. Comum em clientes com `realizado_se_vencido: true`
-// que não cadastram parcelas futuras no fin40 — todos os títulos vencem antes
-// de hoje e viram realizado.
-const StatusEmptyHint = ({ statusFilter, bit }) => {
-  if (statusFilter !== 'a_pagar_receber') return null;
-  if (!bit) return null;
-  const empty = (bit.TOTAL_RECEITA || 0) === 0 && (bit.TOTAL_DESPESA || 0) === 0;
-  if (!empty) return null;
-  const hoje = new Date().toLocaleDateString('pt-BR');
+// Lê fetched_at do BIT_EXTRAS.fluxo_ca (gerado por build-data-extras.cjs).
+// Esse timestamp é o instante em que o pipeline rodou (fetch API CA → build).
+// Formato saída: "Atualizado em DD/MM HH:MM" (BRT).
+const getLastUpdate = () => {
+  try {
+    const iso = window.BIT_EXTRAS && window.BIT_EXTRAS.fluxo_ca && window.BIT_EXTRAS.fluxo_ca.fetched_at;
+    if (!iso) return null;
+    // ISO UTC → BRT (UTC-3)
+    const dt = new Date(iso);
+    const brt = new Date(dt.getTime() - 3 * 3600 * 1000);
+    const pad = (n) => String(n).padStart(2, '0');
+    return `${pad(brt.getUTCDate())}/${pad(brt.getUTCMonth() + 1)} ${pad(brt.getUTCHours())}:${pad(brt.getUTCMinutes())}`;
+  } catch (e) { return null; }
+};
+
+const RefreshButton = () => {
+  const [phase, setPhase] = React.useState('idle'); // idle | starting | running | finishing | done | error
+  const [errorMsg, setErrorMsg] = React.useState(null);
+
+  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+  const onClick = async () => {
+    if (phase !== 'idle' && phase !== 'done' && phase !== 'error') return;
+    setErrorMsg(null);
+    setPhase('running');   // POST espera o refresh completar inteiro no servidor
+    try {
+      // Server.cjs roda fetch+build+extras inline e retorna quando termina (~25s)
+      const r = await fetch('/api/trigger-refresh', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        signal: AbortSignal.timeout(180000),    // 3min timeout
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || !j.ok) throw new Error(j.error || `HTTP ${r.status}`);
+      setPhase('done');
+      await sleep(800);
+      const url = new URL(window.location.href);
+      url.searchParams.set('_t', String(Date.now()));
+      window.location.replace(url.toString());
+    } catch (e) {
+      setErrorMsg(String(e.message || e));
+      setPhase('error');
+    }
+  };
+
+  const busy = phase === 'running';
+  const tooltip = (() => {
+    if (phase === 'running') return 'Buscando Conta Azul + rebuilding (~25s)...';
+    if (phase === 'done') return '✓ Pronto — recarregando';
+    if (phase === 'error') return errorMsg ? `Erro: ${errorMsg}` : 'Erro';
+    return 'Forçar atualização (fetch CA → build → reload)';
+  })();
+  const color = phase === 'done' ? '#86efac' : phase === 'error' ? '#fca5a5' : 'currentColor';
+
   return (
-    <div className="card" style={{ background: 'rgba(34, 211, 238, 0.06)', borderLeft: '3px solid var(--cyan)', padding: 14, marginBottom: 16, display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-      <span style={{ fontSize: 20, lineHeight: 1 }}>ℹ️</span>
-      <div style={{ flex: 1 }}>
-        <strong style={{ color: 'var(--cyan)' }}>Nenhum lançamento a pagar/receber no período</strong>
-        <p style={{ margin: '4px 0 0', color: 'var(--fg-2)', fontSize: 13, lineHeight: 1.5 }}>
-          Todos os títulos têm data de vencimento até hoje ({hoje}) e foram classificados como <b>Realizados</b> por configuração do cliente. Para ver parcelas futuras, o operador precisa cadastrar lançamentos com vencimento posterior no fin40.
-        </p>
-      </div>
+    <button
+      className="hd-icon-btn"
+      title={tooltip}
+      onClick={onClick}
+      disabled={busy}
+      style={{
+        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+        width: 32, height: 32, padding: 0, borderRadius: 6,
+        background: 'transparent', border: '1px solid rgba(255,255,255,0.15)',
+        color, cursor: busy ? 'progress' : 'pointer',
+      }}>
+      {busy ? (
+        <span style={{
+          display: 'inline-block', width: 14, height: 14, borderRadius: '50%',
+          border: '2px solid currentColor', borderTopColor: 'transparent',
+          animation: 'spin 0.6s linear infinite',
+        }} />
+      ) : (
+        <span style={{ fontSize: 16, lineHeight: 1, fontWeight: 600 }}>
+          {phase === 'done' ? '✓' : phase === 'error' ? '⚠' : '↻'}
+        </span>
+      )}
+    </button>
+  );
+};
+
+// MultiSelect dropdown custom pro Header (CC + Conta).
+// - Botão estilo dark BI (igual aos outros filtros do header)
+// - Click abre popover com search + checkboxes (multi-seleção)
+// - value: array de strings; onChange: (array) => void
+const MultiSelectFilter = ({ label, value, onChange, options, width = 110 }) => {
+  if (!options || options.length === 0) return null;
+  const [open, setOpen] = React.useState(false);
+  const [search, setSearch] = React.useState('');
+  const wrapRef = React.useRef(null);
+  const sel = Array.isArray(value) ? value : (value ? [value] : []);
+  const has = sel.length > 0;
+
+  React.useEffect(() => {
+    if (!open) return;
+    const onDoc = (e) => { if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false); };
+    const onEsc = (e) => { if (e.key === 'Escape') setOpen(false); };
+    document.addEventListener('mousedown', onDoc);
+    document.addEventListener('keydown', onEsc);
+    return () => { document.removeEventListener('mousedown', onDoc); document.removeEventListener('keydown', onEsc); };
+  }, [open]);
+
+  const filtered = React.useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return options;
+    return options.filter(o => String(o).toLowerCase().includes(q));
+  }, [options, search]);
+
+  const toggle = (o) => {
+    const next = sel.includes(o) ? sel.filter(x => x !== o) : [...sel, o];
+    onChange(next);
+  };
+
+  const buttonLabel = has ? `${label} · ${sel.length}` : label;
+  const tooltip = has ? `${label}: ${sel.join(', ')}` : `${label} (todos)`;
+
+  return (
+    <div ref={wrapRef} style={{ position: 'relative', display: 'inline-block' }}>
+      <button
+        type="button"
+        title={tooltip}
+        onClick={() => setOpen(o => !o)}
+        style={{
+          height: 32, padding: '0 10px', borderRadius: 6, fontSize: 12,
+          background: has ? 'rgba(34,211,238,0.12)' : 'rgba(255,255,255,0.04)',
+          color: 'inherit',
+          border: '1px solid ' + (has ? 'rgba(34,211,238,0.4)' : 'rgba(255,255,255,0.12)'),
+          cursor: 'pointer', minWidth: width, display: 'inline-flex', alignItems: 'center', gap: 6,
+          whiteSpace: 'nowrap',
+        }}>
+        <span>{buttonLabel}</span>
+        <span style={{ fontSize: 10, opacity: 0.7 }}>{open ? '▴' : '▾'}</span>
+      </button>
+      {open && (
+        <div style={{
+          position: 'absolute', top: 'calc(100% + 4px)', right: 0, zIndex: 50,
+          minWidth: 260, maxHeight: 380, display: 'flex', flexDirection: 'column',
+          background: '#0c1117', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 8,
+          boxShadow: '0 10px 28px rgba(0,0,0,0.45)',
+        }}>
+          <div style={{ padding: 8, borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+            <input
+              type="text"
+              placeholder={`Buscar ${label.toLowerCase()}...`}
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              autoFocus
+              style={{
+                width: '100%', height: 28, padding: '0 8px', fontSize: 12,
+                background: 'rgba(255,255,255,0.04)', color: 'inherit',
+                border: '1px solid rgba(255,255,255,0.1)', borderRadius: 4,
+                outline: 'none',
+              }}
+            />
+          </div>
+          <div style={{
+            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+            padding: '6px 10px', fontSize: 11, color: 'rgba(255,255,255,0.55)',
+            borderBottom: '1px solid rgba(255,255,255,0.05)',
+          }}>
+            <span>{sel.length} selecionado{sel.length === 1 ? '' : 's'} · {filtered.length} de {options.length}</span>
+            <div style={{ display: 'flex', gap: 6 }}>
+              <button onClick={() => onChange([])} disabled={sel.length === 0}
+                style={{ padding: '2px 8px', fontSize: 11, background: 'transparent', border: '1px solid rgba(255,255,255,0.15)', color: 'inherit', borderRadius: 4, cursor: sel.length === 0 ? 'default' : 'pointer', opacity: sel.length === 0 ? 0.4 : 1 }}>
+                Limpar
+              </button>
+              <button onClick={() => onChange(filtered)} disabled={filtered.length === 0}
+                style={{ padding: '2px 8px', fontSize: 11, background: 'transparent', border: '1px solid rgba(255,255,255,0.15)', color: 'inherit', borderRadius: 4, cursor: 'pointer' }}>
+                Todos {search ? '(filtrados)' : ''}
+              </button>
+            </div>
+          </div>
+          <div style={{ overflowY: 'auto', flex: 1, padding: '4px 0' }}>
+            {filtered.length === 0 && (
+              <div style={{ padding: '12px 14px', fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>Nenhum resultado</div>
+            )}
+            {filtered.map(o => {
+              const checked = sel.includes(o);
+              return (
+                <label key={o}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: 8, padding: '5px 12px',
+                    cursor: 'pointer', fontSize: 12,
+                    background: checked ? 'rgba(34,211,238,0.08)' : 'transparent',
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.background = checked ? 'rgba(34,211,238,0.16)' : 'rgba(255,255,255,0.04)'}
+                  onMouseLeave={e => e.currentTarget.style.background = checked ? 'rgba(34,211,238,0.08)' : 'transparent'}>
+                  <input type="checkbox" checked={checked} onChange={() => toggle(o)}
+                    style={{ accentColor: '#22d3ee' }} />
+                  <span style={{ flex: 1 }} title={o}>{o}</span>
+                </label>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-// Header: breadcrumb + YearSelect + MultiMonthSelect + StatusFilter
-// months = array de meses 1-12 (vazio = ano completo). Retrocompat: aceita number.
-const Header = ({ page, onToggleSidebar, statusFilter, setStatusFilter, year, setYear, months, setMonths }) => {
+// Header: breadcrumb + LastUpdate + Filtros + YearSelect + MonthSelect + StatusFilter + Refresh
+const Header = ({ page, onToggleSidebar, statusFilter, setStatusFilter, year, setYear, month, setMonth, empresaFiltro, setEmpresaFiltro, centroFiltro, setCentroFiltro, contaFiltro, setContaFiltro }) => {
+  const lastUpdate = getLastUpdate();
   return (
     <header className="header">
       <button className="hd-icon-btn hd-menu-btn" title="Menu" onClick={onToggleSidebar}><Icon name="menu" /></button>
@@ -373,8 +497,42 @@ const Header = ({ page, onToggleSidebar, statusFilter, setStatusFilter, year, se
         <b>{PAGE_TITLES[page] || "Visão Geral"}</b>
       </div>
       <div style={{ flex: 1 }} />
+      {setEmpresaFiltro && (window.AVAILABLE_EMPRESAS || []).length > 0 && (
+        <MultiSelectFilter
+          label="Empresa"
+          value={empresaFiltro}
+          onChange={setEmpresaFiltro}
+          options={window.AVAILABLE_EMPRESAS || []}
+          width={140}
+        />
+      )}
+      {setCentroFiltro && (
+        <MultiSelectFilter
+          label="CC"
+          value={centroFiltro}
+          onChange={setCentroFiltro}
+          options={window.AVAILABLE_CENTROS || []}
+          width={90}
+        />
+      )}
+      {setContaFiltro && (
+        <MultiSelectFilter
+          label="Conta"
+          value={contaFiltro}
+          onChange={setContaFiltro}
+          options={window.AVAILABLE_CONTAS || []}
+          width={110}
+        />
+      )}
+      {lastUpdate && (
+        <span title="Hora do último fetch da API Conta Azul (BRT). Atualiza automático a cada hora cheia."
+              style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', marginRight: 8, whiteSpace: 'nowrap' }}>
+          🕒 {lastUpdate}
+        </span>
+      )}
+      <RefreshButton />
       {setYear && <YearSelect value={year} onChange={setYear} available={window.AVAILABLE_YEARS} />}
-      {setMonths && <MultiMonthSelect value={months} onChange={setMonths} />}
+      {setMonth && <MonthSelect value={month} onChange={setMonth} />}
       {setStatusFilter && <StatusFilterSeg value={statusFilter} onChange={setStatusFilter} />}
       <BiExportButton />
     </header>
@@ -778,18 +936,9 @@ const DivergingBars = ({ values, labels }) => {
 
 // KPI Tile (big numbers + sparkline). `tone` selects gradient: green / red / cyan / amber.
 // `nonMonetary` hides the R$ prefix (for counts: clients, suppliers, etc).
-const KpiTile = ({ label, value, unit, deltaPct, deltaDir, sparkValues, sparkColor, tone, nonMonetary, onClick, title, expanded }) => {
-  const clickable = typeof onClick === "function";
+const KpiTile = ({ label, value, unit, deltaPct, deltaDir, sparkValues, sparkColor, tone, nonMonetary }) => {
   return (
-    <div
-      className={`kpi-tile ${tone || ""} ${clickable ? "kpi-tile-clickable" : ""}`}
-      onClick={clickable ? onClick : undefined}
-      title={title}
-      style={clickable ? { cursor: "pointer", userSelect: "none", position: "relative" } : undefined}
-    >
-      {clickable && (
-        <span className="kpi-expand-hint" aria-hidden="true">{expanded ? "−" : "+"}</span>
-      )}
+    <div className={`kpi-tile ${tone || ""}`}>
       <div>
         <div className="kpi-label">{label}</div>
         <div className="kpi-value">
@@ -811,52 +960,6 @@ const KpiTile = ({ label, value, unit, deltaPct, deltaDir, sparkValues, sparkCol
       )}
     </div>
   );
-};
-
-// useKpiFormat — hook compartilhado pras Pages (Receita/Despesa/Tesouraria/etc).
-// Click no tile alterna entre formato detalhado (R$ X.XXX,XX, DEFAULT) e compacto (K/M).
-// Estado persiste em localStorage por pageId. Mostra tooltip on hover + indicador +/-.
-// Padrão BGP: começa expandido (mais claro), user pode compactar se quiser escaneio rápido.
-const useKpiFormat = (pageId) => {
-  const key = `bi.kpi.detailed.${pageId || 'default'}`;
-  const [detailed, setDetailed] = React.useState(() => {
-    // Default: expandido (detailed=true). Só compacta se user explicitamente salvou '0'.
-    try {
-      const saved = localStorage.getItem(key);
-      if (saved === '0') return false;
-      return true;
-    } catch (e) { return true; }
-  });
-  const toggle = () => {
-    setDetailed(d => {
-      const next = !d;
-      try { localStorage.setItem(key, next ? '1' : '0'); } catch (e) {}
-      return next;
-    });
-  };
-  // Formata valor pra detalhado (default) ou K/M (compacto)
-  const fmtVal = (n) => {
-    if (n == null || isNaN(n)) return { value: "0", unit: "" };
-    if (detailed) {
-      const abs = Math.abs(n);
-      const sign = n < 0 ? "-" : "";
-      const parts = abs.toFixed(2).split(".");
-      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-      return { value: `${sign}${parts.join(",")}`, unit: "" };
-    }
-    const abs = Math.abs(n);
-    const sign = n < 0 ? "-" : "";
-    if (abs >= 1e6) return { value: `${sign}${(abs / 1e6).toFixed(2).replace(".", ",")}`, unit: "M" };
-    if (abs >= 1e3) return { value: `${sign}${(abs / 1e3).toFixed(0)}`, unit: "K" };
-    return { value: `${sign}${abs.toFixed(0)}`, unit: "" };
-  };
-  return {
-    detailed,
-    toggle,
-    fmtVal,
-    tooltipHint: detailed ? "Clique para compactar (K/M)" : "Clique para ver valor completo",
-    expandIcon: detailed ? "−" : "+",
-  };
 };
 
 // Default filter state — used for active-count + clear-all

@@ -148,50 +148,189 @@ function buildFin40Cascade() {
   };
 }
 
-// Lê saldos_bancarios.json (puxado pelo adapter fin40) e devolve no shape
-// que PageTesouraria consome: { daily: [{data, total, contas:{}}], last, contas: [] }.
-function buildFin40Saldos() {
-  const p = path.join(DATA_DIR, 'saldos_bancarios.json');
-  if (!fs.existsSync(p)) return { daily: [], last: null, contas: [] };
+// ============================================================
+// Branch conta-azul-xlsx — agregados pra page Fluxo Diário
+// ============================================================
+function preserveFluxoCaFromPrevious() {
+  // Quando fluxo_ca.json não existe (GH Actions sem acesso ao Drive),
+  // preserva o branch fluxo_ca do data-extras.js gerado anteriormente
+  // (ele está commitado no repo via daily-refresh.yml).
   try {
-    const rows = JSON.parse(fs.readFileSync(p, 'utf8'));
-    if (!Array.isArray(rows) || !rows.length) return { daily: [], last: null, contas: [] };
-    const byDate = new Map();
-    for (const r of rows) {
-      const data = r.data || r.dt || r.data_saldo;
-      const conta = (r.conta || r.banco || r.descricao || 'Conta').trim();
-      const valor = Number(r.saldo || r.valor || 0) || 0;
-      if (!data) continue;
-      if (!byDate.has(data)) byDate.set(data, { data, total: 0, contas: {} });
-      const o = byDate.get(data);
-      o.contas[conta] = valor;
-      o.total += valor;
-    }
-    const daily = [...byDate.values()].sort((a, b) => a.data.localeCompare(b.data));
-    const last = daily[daily.length - 1] || null;
-    const contas = [...new Set(rows.map(r => (r.conta || r.banco || r.descricao || '').trim()).filter(Boolean))];
-    console.log(`\n=== Saldos (fin40) ===\n  ${daily.length} dias | ultima data: ${last && last.data} | total: R$ ${last && last.total.toFixed(2)}`);
-    return { daily, last, contas };
+    const prevPath = path.join(__dirname, 'data-extras.js');
+    if (!fs.existsSync(prevPath)) return null;
+    const src = fs.readFileSync(prevPath, 'utf8');
+    const m = src.match(/window\.BIT_EXTRAS\s*=\s*(.+?);\s*$/s);
+    if (!m) return null;
+    const prev = JSON.parse(m[1]);
+    return prev && prev.fluxo_ca ? prev.fluxo_ca : null;
   } catch (e) {
-    console.error('  saldos (fin40) erro:', e.message);
-    return { daily: [], last: null, contas: [] };
+    return null;
   }
 }
 
-// Se branch XLSX desabilitada, gera só fin40 e termina.
-if (!XLSX_BRANCH_ENABLED) {
+function buildFluxoCa() {
+  const fluxoPath = path.join(DATA_DIR, 'fluxo_ca.json');
+  if (!fs.existsSync(fluxoPath)) {
+    const preserved = preserveFluxoCaFromPrevious();
+    if (preserved) {
+      console.log(`  [fluxo_ca] sem fluxo_ca.json local — preservando do build anterior`);
+    }
+    return preserved;
+  }
+  const rows = JSON.parse(fs.readFileSync(fluxoPath, 'utf8'));
+  if (!Array.isArray(rows) || rows.length === 0) return null;
+
+  console.log(`\n=== Fluxo Diário (conta-azul-xlsx) — projeção futura ===`);
+  console.log(`  movs: ${rows.length}`);
+
+  const realizado = new Set(['Quitado', 'Conciliado', 'Transferido']);
+  const aberto = new Set(['Em aberto']);
+  const HOJE = new Date().toISOString().slice(0, 10);
+
+  // --- 1. Saldo INICIAL (HOJE) por conta = soma de TODAS as movs realizadas
+  //     (independente da data — o extrato é cumulativo desde o início do CA)
+  const saldoInicialPorConta = {};
+  const contasMeta = {};        // {conta: {is_investimento}}
+  for (const m of rows) {
+    if (!realizado.has(m.situacao)) continue;
+    const c = m.conta;
+    saldoInicialPorConta[c] = (saldoInicialPorConta[c] || 0) + m.valor;
+    if (!contasMeta[c]) contasMeta[c] = { is_investimento: m.is_investimento };
+  }
+
+  // Totais hoje
+  let saldoHojeNormais = 0, saldoHojeInvest = 0;
+  for (const [c, v] of Object.entries(saldoInicialPorConta)) {
+    if (contasMeta[c].is_investimento) saldoHojeInvest += v;
+    else saldoHojeNormais += v;
+  }
+  console.log(`  saldo hoje: normais=${saldoHojeNormais.toFixed(2)} | invest=${saldoHojeInvest.toFixed(2)} | total=${(saldoHojeNormais + saldoHojeInvest).toFixed(2)}`);
+
+  // --- 2. Movs em aberto FUTURAS (data_prevista >= hoje, ou data >= hoje)
+  //     Em aberto + data passada (atrasado) entra no "atrasado" mas ainda é a-receber/a-pagar.
+  //     Pra simplicidade: tudo em aberto vai pro dia da data_prevista (cap em hoje se passado).
+  const abertoPorContaDia = {};   // {conta: {data: {a_receber, a_pagar, movs:[...]}}}
+  const movsAbertoLista = [];
+  for (const m of rows) {
+    if (!aberto.has(m.situacao)) continue;
+    let d = m.data_prevista || m.data;
+    if (!d) continue;
+    // Atrasado (data < hoje) → empurra pra hoje
+    if (d < HOJE) d = HOJE;
+    const c = m.conta;
+    if (!contasMeta[c]) contasMeta[c] = { is_investimento: m.is_investimento };
+    abertoPorContaDia[c] = abertoPorContaDia[c] || {};
+    abertoPorContaDia[c][d] = abertoPorContaDia[c][d] || { a_receber: 0, a_pagar: 0, n: 0 };
+    if (m.valor >= 0) abertoPorContaDia[c][d].a_receber += m.valor;
+    else abertoPorContaDia[c][d].a_pagar += m.valor;
+    abertoPorContaDia[c][d].n += 1;
+    movsAbertoLista.push({
+      d, dp_orig: m.data_prevista || m.data, c, cat: m.categoria,
+      cc: m.centro_custo || '',
+      v: m.valor, contato: m.contato, desc: m.descricao,
+      is_inv: m.is_investimento ? 1 : 0,
+    });
+  }
+
+  // --- 3. SALDO INICIAL: saldo OFICIAL do CA (saldos_ca.json) é a fonte de verdade
+  //     (bate ao centavo com a tela de Saldos do CA). Some-movimentos só é fallback.
+  //     O cross-plug de cartão/aplicação já vem agrupado igual aos movimentos.
+  const saldosCa = loadSaldosCa();
+  let contasOut, saldoHojeNormais2, saldoHojeInvest2, saldoSrc;
+
+  if (saldosCa && saldosCa.por_conta && Object.keys(saldosCa.por_conta).length) {
+    saldoSrc = 'conta-azul-oficial';
+    const pc = saldosCa.por_conta;
+    const metaCa = saldosCa.meta || {};
+    // Contas = chaves do CA (fonte de verdade) ∪ contas com movimento/projeção
+    const allContas = new Set([
+      ...Object.keys(pc),
+      ...Object.keys(saldoInicialPorConta),
+      ...Object.keys(abertoPorContaDia),
+    ]);
+    contasOut = [...allContas].map(c => {
+      const isInv = metaCa[c] ? metaCa[c].is_investimento
+        : (contasMeta[c] ? contasMeta[c].is_investimento : /^Investimento - /i.test(c));
+      return {
+        conta: c,
+        saldo_inicial: pc[c] || 0,        // saldo OFICIAL do CA (0 se conta só tem projeção)
+        is_investimento: isInv,
+      };
+    }).sort((a, b) => Math.abs(b.saldo_inicial) - Math.abs(a.saldo_inicial));
+    saldoHojeNormais2 = contasOut.filter(c => !c.is_investimento).reduce((s, c) => s + c.saldo_inicial, 0);
+    saldoHojeInvest2 = contasOut.filter(c => c.is_investimento).reduce((s, c) => s + c.saldo_inicial, 0);
+    console.log(`  [fluxo_ca] saldo via CA OFICIAL (${saldosCa.fonte}) — total R$ ${(saldoHojeNormais2 + saldoHojeInvest2).toFixed(2)}`);
+  } else {
+    saldoSrc = 'soma-movimentos';
+    contasOut = Object.entries(saldoInicialPorConta).map(([c, saldo]) => ({
+      conta: c,
+      saldo_inicial: saldo,
+      is_investimento: contasMeta[c].is_investimento,
+    })).sort((a, b) => Math.abs(b.saldo_inicial) - Math.abs(a.saldo_inicial));
+    saldoHojeNormais2 = saldoHojeNormais;
+    saldoHojeInvest2 = saldoHojeInvest;
+    console.log(`  [fluxo_ca] saldo via SOMA-MOVIMENTOS (fallback — saldos_ca.json ausente)`);
+  }
+
+  // --- 4. Listas pra filtros
+  const todasContas = contasOut.map(c => c.conta);
+  const categorias = [...new Set(rows.map(r => r.categoria).filter(Boolean))].sort();
+
+  console.log(`  contas: ${contasOut.length} (${contasOut.filter(c => !c.is_investimento).length} normais + ${contasOut.filter(c => c.is_investimento).length} investimento)`);
+  console.log(`  em aberto: ${movsAbertoLista.length} movs`);
+
+  return {
+    fetched_at: new Date().toISOString(),
+    hoje: HOJE,
+    saldo_fonte: saldoSrc,                // 'conta-azul-oficial' | 'soma-movimentos'
+    saldos_ca: saldosCa || null,          // snapshot oficial (pra preservar em build sem token)
+    contas: contasOut,                   // {conta, saldo_inicial, is_investimento}
+    aberto_por_conta_dia: abertoPorContaDia,   // {conta: {data: {a_receber, a_pagar, n}}}
+    aberto_lista: movsAbertoLista,        // lista detalhada movs em aberto
+    filtros: { contas: todasContas, categorias },
+    totais: {
+      saldo_hoje_normais: saldoHojeNormais2,
+      saldo_hoje_invest: saldoHojeInvest2,
+      saldo_hoje_total: saldoHojeNormais2 + saldoHojeInvest2,
+    },
+  };
+}
+
+// Saldo oficial do CA: lê data/saldos_ca.json; se ausente (build sem token, ex.
+// GH Actions), recupera do data-extras.js anterior (preserva último snapshot bom).
+function loadSaldosCa() {
+  try {
+    const p = path.join(DATA_DIR, 'saldos_ca.json');
+    if (fs.existsSync(p)) return JSON.parse(fs.readFileSync(p, 'utf8'));
+  } catch (e) { /* cai no preserve */ }
+  try {
+    const prevPath = path.join(__dirname, 'data-extras.js');
+    if (!fs.existsSync(prevPath)) return null;
+    const m = fs.readFileSync(prevPath, 'utf8').match(/window\.BIT_EXTRAS\s*=\s*(.+?);\s*$/s);
+    if (!m) return null;
+    const prev = JSON.parse(m[1]);
+    const s = prev && prev.fluxo_ca ? prev.fluxo_ca.saldos_ca : null;
+    if (s) console.log('  [fluxo_ca] saldos_ca.json ausente — preservando saldo oficial do build anterior');
+    return s || null;
+  } catch (e) {
+    return null;
+  }
+}
+
+// VICAL: sem XLSX extras (Curva ABC, Faturamento, ADS, CRM). Gera só fluxo_ca.
+if (true || !XLSX_BRANCH_ENABLED) {
   const dre = HAS_FIN40 ? buildFin40Cascade() : null;
-  const saldos = HAS_FIN40 ? buildFin40Saldos() : { daily: [], last: null, contas: [] };
+  const fluxo_ca = buildFluxoCa();
   const out = {
     fetched_at: new Date().toISOString(),
-    dre,    // fin40 cascade
-    saldos, // PageTesouraria consome esse shape
+    dre,
+    fluxo_ca,
   };
   fs.writeFileSync(OUT, JSON.stringify(out, null, 2));
-  const js = '/* BI EXTRAS — gerado por build-data-extras.cjs (branch fin40-only). */\n' +
+  const js = '/* BI EXTRAS — gerado por build-data-extras.cjs (branch fin40+xlsx). */\n' +
     'window.BIT_EXTRAS = ' + JSON.stringify(out) + ';\n';
   fs.writeFileSync(path.join(__dirname, 'data-extras.js'), js);
-  console.log(`\n=== OK (fin40-only) ===`);
+  console.log(`\n=== OK (fin40 + fluxo_ca${fluxo_ca ? '' : ' [skipped]'}) ===`);
   console.log(`  ${OUT}`);
   console.log(`  ${path.join(__dirname, 'data-extras.js')}`);
   process.exit(0);

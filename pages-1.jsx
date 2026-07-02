@@ -35,26 +35,26 @@ const SectionHeading = ({ strong, soft }) => (
 const OverviewBars = ({ data, height = 220, year = "2026", onBarClick, activeIdx }) => {
   const B = window.BIT;
   const max = Math.max(...data.map(d => Math.max(d.receita, d.despesa)), 1);
-  // Step adaptativo: ~6 ticks alinhados a 1/2/5 × 10^n (evita aglomeração quando max varia de 200K a 50M)
-  const niceStep = (rawMax, target = 6) => {
-    const rough = rawMax / target;
-    const pow = Math.pow(10, Math.floor(Math.log10(rough)));
-    const norm = rough / pow;
-    const mult = norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 5 ? 5 : 10;
-    return mult * pow;
+  // Nice-number algorithm: 5 ticks, passos 1/2/5 × 10^N
+  const niceStep = (range, targetTicks = 5) => {
+    const raw = range / targetTicks;
+    const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    const norm = raw / mag;
+    const m = norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 5 ? 5 : 10;
+    return m * mag;
   };
-  const step = niceStep(max, 6);
-  const niceMax = Math.ceil(max / step) * step;
+  const step = niceStep(max, 5);
+  const niceMax = Math.ceil(max / step) * step || step;
   const ticks = [];
   for (let v = 0; v <= niceMax + step / 2; v += step) ticks.push(v);
+  // Format por magnitude
   const fmtTick = (v) => {
-    if (v >= 1e6) {
-      const m = v / 1e6;
-      const dec = m % 1 === 0 ? 0 : 1;
-      return `R$${m.toFixed(dec).replace(".", ",")} M`;
-    }
-    if (v >= 1e3) return `R$${Math.round(v / 1e3)} K`;
-    return `R$${v}`;
+    if (v === 0) return 'R$ 0';
+    const a = Math.abs(v);
+    if (a >= 1e9) return 'R$ ' + (v / 1e9).toFixed(1).replace('.', ',').replace(',0', '') + ' B';
+    if (a >= 1e6) return 'R$ ' + (v / 1e6).toFixed(1).replace('.', ',').replace(',0', '') + ' M';
+    if (a >= 1e3) return 'R$ ' + (v / 1e3).toFixed(0) + ' K';
+    return 'R$ ' + v.toFixed(0);
   };
   const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1, 3);
   const hasActive = activeIdx != null && activeIdx >= 0;
@@ -83,10 +83,10 @@ const OverviewBars = ({ data, height = 220, year = "2026", onBarClick, activeIdx
               >
                 <div className="ov-bar-stack">
                   <div className="ov-bar green" style={{ height: `${rH}%` }} title={`Receita: ${B.fmt(d.receita)}`}>
-                    <span className="ov-bar-chip">R${Math.round(d.receita / 1000)} K</span>
+                    <span className="ov-bar-chip">{fmtTick(d.receita)}</span>
                   </div>
                   <div className="ov-bar red" style={{ height: `${dH}%` }} title={`Despesa: ${B.fmt(d.despesa)}`}>
-                    <span className="ov-bar-chip">R${Math.round(d.despesa / 1000)} K</span>
+                    <span className="ov-bar-chip">{fmtTick(d.despesa)}</span>
                   </div>
                 </div>
               </div>
@@ -184,15 +184,9 @@ const IndicatorLine = ({ values, labels, height = 240, color = "var(--cyan)", fo
   );
 };
 
-const PageOverview = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown, setDrilldown, year, months }) => {
-  const B = useMemo(() => window.getBit(statusFilter, drilldown, year, months), [statusFilter, drilldown, year, months]);
+const PageOverview = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown, setDrilldown, year, month }) => {
+  const B = useMemo(() => window.getBit(statusFilter, drilldown, year, month), [statusFilter, drilldown, year, month]);
   const [indicator, setIndicator] = useState("Valor líquido");
-  const kpiFmt = useKpiFormat('overview');
-  // Helper pra renderizar valor monetário no formato escolhido pelo user (compact/detailed)
-  const fmtKpi = (n) => {
-    const { value, unit } = kpiFmt.fmtVal(n);
-    return `R$ ${value}${unit ? ` ${unit}` : ''}`;
-  };
   const refYear = (B.META && B.META.ref_year) || new Date().getFullYear();
   // descobre o indice ativo se o drilldown for de mes (pra destacar a barra)
   const activeMonthIdx = (drilldown && drilldown.type === "mes")
@@ -242,30 +236,27 @@ const PageOverview = ({ filters, setFilters, onOpenFilters, statusFilter, drilld
       </div>
 
       <DrilldownBadge drilldown={drilldown} onClear={() => setDrilldown(null)} />
-      <StatusEmptyHint statusFilter={statusFilter} bit={B} />
 
       <div className="row" style={{ gridTemplateColumns: "minmax(280px, 3fr) minmax(0, 9fr)" }}>
         {/* LEFT: Indicadores Principais + Resultado Geral */}
         <div style={{ display: "grid", gap: 16, alignContent: "start" }}>
-          <div className="card kpi-clickable-container" onClick={kpiFmt.toggle} title={kpiFmt.tooltipHint} style={{ cursor: "pointer", userSelect: "none" }}>
-            <span className="kpi-toggle-hint" aria-hidden="true">{kpiFmt.expandIcon}</span>
+          <div className="card">
             <SectionHeading strong="INDICADORES" soft="PRINCIPAIS" />
             <div className="kpi-stack">
               {indicadores.map((it, i) => (
                 <div key={i} className={`kpi-stack-item ${it.kind}`}>
-                  <div className="kpi-stack-value">{fmtKpi(it.value)}</div>
+                  <div className="kpi-stack-value">{B.fmt(it.value)}</div>
                   <div className="kpi-stack-label">{it.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className={`card resultado-card kpi-clickable-container ${B.VALOR_LIQUIDO >= 0 ? "resultado-positivo" : "resultado-negativo"}`} onClick={kpiFmt.toggle} title={kpiFmt.tooltipHint} style={{ cursor: "pointer", userSelect: "none" }}>
-            <span className="kpi-toggle-hint" aria-hidden="true">{kpiFmt.expandIcon}</span>
+          <div className="card resultado-card">
             <SectionHeading strong="RESULTADO" soft="GERAL" />
-            <div className="kpi-stack-value resultado-val" style={{ color: B.VALOR_LIQUIDO >= 0 ? "var(--green)" : "var(--red)" }}>{fmtKpi(B.VALOR_LIQUIDO)}</div>
+            <div className="kpi-stack-value resultado-val">{B.fmt(B.VALOR_LIQUIDO)}</div>
             <div className="kpi-stack-label">Valor líquido</div>
-            <div className="kpi-stack-pct" style={{ color: B.MARGEM_LIQUIDA >= 0 ? "var(--green)" : "var(--red)" }}>{B.MARGEM_LIQUIDA.toFixed(2).replace(".", ",")}%</div>
+            <div className="kpi-stack-pct">{B.MARGEM_LIQUIDA.toFixed(2).replace(".", ",")}%</div>
             <div className="kpi-stack-label">Margem Líquida</div>
           </div>
         </div>
@@ -276,17 +267,16 @@ const PageOverview = ({ filters, setFilters, onOpenFilters, statusFilter, drilld
             <div className="card-title-row" style={{ marginBottom: 10 }}>
               <h2 className="card-title">Receitas e despesas</h2>
             </div>
-            <div className="legend-pills kpi-clickable-container" onClick={kpiFmt.toggle} title={kpiFmt.tooltipHint} style={{ cursor: "pointer", userSelect: "none" }}>
-              <span className="kpi-toggle-hint" aria-hidden="true">{kpiFmt.expandIcon}</span>
+            <div className="legend-pills">
               <span className="legend-pill green">
                 <span className="dot" />
                 <span className="lbl">Soma de receita</span>
-                <span className="val">{fmtKpi(B.TOTAL_RECEITA)}</span>
+                <span className="val">{B.fmtK(B.TOTAL_RECEITA)}</span>
               </span>
               <span className="legend-pill red">
                 <span className="dot" />
                 <span className="lbl">Soma de despesas</span>
-                <span className="val">{fmtKpi(B.TOTAL_DESPESA)}</span>
+                <span className="val">{B.fmtK(B.TOTAL_DESPESA)}</span>
               </span>
             </div>
             <OverviewBars data={B.MONTH_DATA} height={220} year={String(refYear)} onBarClick={handleBarMes} activeIdx={activeMonthIdx} />
@@ -318,8 +308,8 @@ const PageOverview = ({ filters, setFilters, onOpenFilters, statusFilter, drilld
   );
 };
 
-const PageIndicators = ({ statusFilter, drilldown, setDrilldown, year, months }) => {
-  const B = useMemo(() => window.getBit(statusFilter, drilldown, year, months), [statusFilter, drilldown, year, months]);
+const PageIndicators = ({ statusFilter, drilldown, setDrilldown, year, month }) => {
+  const B = useMemo(() => window.getBit(statusFilter, drilldown, year, month), [statusFilter, drilldown, year, month]);
   const totalReceita = B.TOTAL_RECEITA;
   const totalDespesa = B.TOTAL_DESPESA;
   const valorLiq = B.VALOR_LIQUIDO;
@@ -349,7 +339,6 @@ const PageIndicators = ({ statusFilter, drilldown, setDrilldown, year, months })
       </div>
 
       <DrilldownBadge drilldown={drilldown} onClear={() => setDrilldown(null)} />
-      <StatusEmptyHint statusFilter={statusFilter} bit={B} />
 
       <div className="metric-strip">
         <div className="metric">
@@ -398,15 +387,11 @@ const PageIndicators = ({ statusFilter, drilldown, setDrilldown, year, months })
   );
 };
 
-const PageReceita = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown, setDrilldown, year, months }) => {
-  const B = useMemo(() => window.getBit(statusFilter, drilldown, year, months), [statusFilter, drilldown, year, months]);
-  // Média mensal sobre meses com atividade (não dividir por 12 quando ano em curso ou cliente sazonal)
-  const mesesAtivos = Math.max(B.MONTH_DATA.filter(m => m.receita > 0).length, 1);
-  const mediaMes = B.TOTAL_RECEITA / mesesAtivos;
-  const numClientes = B.RECEITA_CLIENTES_COUNT || B.RECEITA_CLIENTES.length;
+const PageReceita = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown, setDrilldown, year, month }) => {
+  const B = useMemo(() => window.getBit(statusFilter, drilldown, year, month), [statusFilter, drilldown, year, month]);
+  const mediaMes = B.TOTAL_RECEITA / 12;
+  const numClientes = B.RECEITA_CLIENTES.length;
   const ticket = numClientes > 0 ? B.TOTAL_RECEITA / numClientes : 0;
-  const kpiFmt = useKpiFormat('receita');
-  const fv = kpiFmt.fmtVal;
   const [range, setRange] = useState("12M");
   const refYear = (B.META && B.META.ref_year) || new Date().getFullYear();
 
@@ -446,13 +431,12 @@ const PageReceita = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
       </div>
 
       <DrilldownBadge drilldown={drilldown} onClear={() => setDrilldown(null)} />
-      <StatusEmptyHint statusFilter={statusFilter} bit={B} />
 
       <div className="row row-4">
-        <KpiTile label="Receita total" value={fv(B.TOTAL_RECEITA).value} unit={fv(B.TOTAL_RECEITA).unit} sparkValues={B.MONTH_DATA.map(m => m.receita)} sparkColor="var(--green)" tone="green" onClick={kpiFmt.toggle} title={kpiFmt.tooltipHint} expanded={kpiFmt.detailed} />
-        <KpiTile label="Média por mês" value={fv(mediaMes).value} unit={fv(mediaMes).unit} sparkValues={B.MONTH_DATA.map(m => m.receita)} sparkColor="var(--cyan)" tone="cyan" onClick={kpiFmt.toggle} title={kpiFmt.tooltipHint} expanded={kpiFmt.detailed} />
+        <KpiTile label="Receita total" value={(B.TOTAL_RECEITA / 1e6).toFixed(2).replace(".", ",")} unit="M" sparkValues={B.MONTH_DATA.map(m => m.receita)} sparkColor="var(--green)" tone="green" />
+        <KpiTile label="Média por mês" value={(mediaMes / 1e3).toFixed(0)} unit="K" sparkValues={B.MONTH_DATA.map(m => m.receita)} sparkColor="var(--cyan)" tone="cyan" />
         <KpiTile label="Clientes" value={String(numClientes)} sparkValues={B.MONTH_DATA.map(m => m.receita > 0 ? 1 : 0)} sparkColor="var(--cyan)" tone="cyan" nonMonetary />
-        <KpiTile label="Ticket médio" value={fv(ticket).value} unit={fv(ticket).unit} sparkValues={B.MONTH_DATA.map(m => m.receita / 30)} sparkColor="var(--green)" tone="green" onClick={kpiFmt.toggle} title={kpiFmt.tooltipHint} expanded={kpiFmt.detailed} />
+        <KpiTile label="Ticket médio" value={ticket > 0 ? (ticket / 1e3).toFixed(2).replace(".", ",") : "0,00"} unit="K" sparkValues={B.MONTH_DATA.map(m => m.receita / 30)} sparkColor="var(--green)" tone="green" />
       </div>
 
       <div className="card">
@@ -506,15 +490,11 @@ const PageReceita = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
   );
 };
 
-const PageDespesa = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown, setDrilldown, year, months }) => {
-  const kpiFmt = useKpiFormat('despesa');
-  const fv = kpiFmt.fmtVal;
-  const B = useMemo(() => window.getBit(statusFilter, drilldown, year, months), [statusFilter, drilldown, year, months]);
+const PageDespesa = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown, setDrilldown, year, month }) => {
+  const B = useMemo(() => window.getBit(statusFilter, drilldown, year, month), [statusFilter, drilldown, year, month]);
   const totalDespesa = B.TOTAL_DESPESA;
-  // Média mensal sobre meses com atividade (não dividir por 12 quando ano em curso ou cliente sazonal)
-  const mesesAtivos = Math.max(B.MONTH_DATA.filter(m => m.despesa > 0).length, 1);
-  const mediaMes = totalDespesa / mesesAtivos;
-  const numFornec = B.DESPESA_FORNECEDORES_COUNT || B.DESPESA_FORNECEDORES.length;
+  const mediaMes = totalDespesa / 12;
+  const numFornec = B.DESPESA_FORNECEDORES.length;
   const mediaDesp = numFornec > 0 ? totalDespesa / numFornec : 0;
   const [range, setRange] = useState("12M");
   const refYear = (B.META && B.META.ref_year) || new Date().getFullYear();
@@ -552,13 +532,12 @@ const PageDespesa = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
       </div>
 
       <DrilldownBadge drilldown={drilldown} onClear={() => setDrilldown(null)} />
-      <StatusEmptyHint statusFilter={statusFilter} bit={B} />
 
       <div className="row row-4">
-        <KpiTile label="Despesas totais" value={fv(totalDespesa).value} unit={fv(totalDespesa).unit} sparkValues={B.MONTH_DATA.map(m => m.despesa)} sparkColor="var(--red)" tone="red" onClick={kpiFmt.toggle} title={kpiFmt.tooltipHint} expanded={kpiFmt.detailed} />
-        <KpiTile label="Média por mês" value={fv(mediaMes).value} unit={fv(mediaMes).unit} sparkValues={B.MONTH_DATA.map(m => m.despesa)} sparkColor="var(--red)" tone="red" onClick={kpiFmt.toggle} title={kpiFmt.tooltipHint} expanded={kpiFmt.detailed} />
+        <KpiTile label="Despesas totais" value={(totalDespesa / 1e6).toFixed(2).replace(".", ",")} unit="M" sparkValues={B.MONTH_DATA.map(m => m.despesa)} sparkColor="var(--red)" tone="red" />
+        <KpiTile label="Média por mês" value={(mediaMes / 1e3).toFixed(0)} unit="K" sparkValues={B.MONTH_DATA.map(m => m.despesa)} sparkColor="var(--red)" tone="red" />
         <KpiTile label="Fornecedores" value={String(numFornec)} sparkValues={B.MONTH_DATA.map(m => m.despesa > 0 ? 1 : 0)} sparkColor="var(--cyan)" tone="cyan" nonMonetary />
-        <KpiTile label="Média de despesa" value={fv(mediaDesp).value} unit={fv(mediaDesp).unit} sparkValues={B.MONTH_DATA.map(m => m.despesa / 30)} sparkColor="var(--red)" tone="red" onClick={kpiFmt.toggle} title={kpiFmt.tooltipHint} expanded={kpiFmt.detailed} />
+        <KpiTile label="Média de despesa" value={mediaDesp > 0 ? (mediaDesp / 1e3).toFixed(2).replace(".", ",") : "0,00"} unit="K" sparkValues={B.MONTH_DATA.map(m => m.despesa / 30)} sparkColor="var(--red)" tone="red" />
       </div>
 
       <div className="card">
