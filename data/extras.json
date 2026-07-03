@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-07-02T18:02:18.065Z",
+  "fetched_at": "2026-07-03T13:47:02.200Z",
   "dre": null,
   "fluxo_ca": {
-    "fetched_at": "2026-07-02T18:02:18.065Z",
-    "hoje": "2026-07-02",
+    "fetched_at": "2026-07-03T13:47:02.200Z",
+    "hoje": "2026-07-03",
     "saldo_fonte": "soma-movimentos",
     "saldos_ca": null,
     "contas": [
@@ -727,7 +727,7 @@
         }
       },
       "CAIXA INVESTIMENTO": {
-        "2026-07-02": {
+        "2026-07-03": {
           "a_receber": 1.64,
           "a_pagar": 0,
           "n": 1
@@ -764,15 +764,10 @@
         }
       },
       "ITAU CONTA CORRENTE": {
-        "2026-07-02": {
-          "a_receber": 6948.5199999999995,
-          "a_pagar": -7544.67,
-          "n": 12
-        },
         "2026-07-03": {
-          "a_receber": 0,
-          "a_pagar": -0.01,
-          "n": 1
+          "a_receber": 6948.5199999999995,
+          "a_pagar": -7544.68,
+          "n": 13
         },
         "2026-07-04": {
           "a_receber": 0,
@@ -1916,7 +1911,7 @@
         }
       },
       "INTER": {
-        "2026-07-02": {
+        "2026-07-03": {
           "a_receber": 160,
           "a_pagar": -11680.59,
           "n": 7
@@ -2343,7 +2338,7 @@
         }
       },
       "DINHEIRO": {
-        "2026-07-02": {
+        "2026-07-03": {
           "a_receber": 0,
           "a_pagar": -106.35,
           "n": 1
@@ -4915,7 +4910,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-06-30",
         "c": "CAIXA INVESTIMENTO",
         "cat": "2.1.1. CDB Caixa",
@@ -4926,7 +4921,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-06-30",
         "c": "ITAU CONTA CORRENTE",
         "cat": "1.1. Prestação de Serviços",
@@ -4937,7 +4932,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-06-30",
         "c": "ITAU CONTA CORRENTE",
         "cat": "1.2. Venda de Mercadorias",
@@ -4948,7 +4943,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-06-30",
         "c": "ITAU CONTA CORRENTE",
         "cat": "1.2. Venda de Mercadorias",
@@ -4959,7 +4954,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-06-30",
         "c": "ITAU CONTA CORRENTE",
         "cat": "1.2. Venda de Mercadorias",
@@ -4970,7 +4965,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-01",
         "c": "ITAU CONTA CORRENTE",
         "cat": "7.2. Empréstimo Itaú",
@@ -4981,7 +4976,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-01",
         "c": "ITAU CONTA CORRENTE",
         "cat": "8.9. Juros sobre Empréstimo",
@@ -4992,7 +4987,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-01",
         "c": "ITAU CONTA CORRENTE",
         "cat": "6.1.1. Aluguel Empresa",
@@ -5003,7 +4998,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-01",
         "c": "INTER",
         "cat": "5.3.5. Seguro Carro Diretoria",
@@ -5014,7 +5009,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-01",
         "c": "INTER",
         "cat": "3.7. Prestação de Serviços de Venda",
@@ -5025,7 +5020,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-01",
         "c": "INTER",
         "cat": "3.7. Prestação de Serviços de Venda",
@@ -5036,7 +5031,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-01",
         "c": "ITAU CONTA CORRENTE",
         "cat": "3.1.5. Serviço Gestão de E-mail Marketing",
@@ -5047,7 +5042,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-01",
         "c": "ITAU CONTA CORRENTE",
         "cat": "1.1. Fornecedor Mercadoria",
@@ -5058,7 +5053,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-01",
         "c": "ITAU CONTA CORRENTE",
         "cat": "1.2. Fornecedor Serviços",
@@ -5069,7 +5064,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-01",
         "c": "ITAU CONTA CORRENTE",
         "cat": "1.2. Fornecedor Serviços",
@@ -5080,7 +5075,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-01",
         "c": "INTER",
         "cat": "1.2. Venda de Mercadorias",
@@ -5091,7 +5086,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-02",
         "c": "DINHEIRO",
         "cat": "6.9.2. Alimentação",
@@ -5102,7 +5097,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-02",
         "c": "INTER",
         "cat": "5.1.1. Antecipação de Lucro",
@@ -5113,7 +5108,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-02",
         "c": "INTER",
         "cat": "5.1.2. Pró-labore",
@@ -5124,7 +5119,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-02",
         "c": "INTER",
         "cat": "3.6.3. Nuvem Shop",
@@ -5135,7 +5130,7 @@
         "is_inv": 0
       },
       {
-        "d": "2026-07-02",
+        "d": "2026-07-03",
         "dp_orig": "2026-07-02",
         "c": "ITAU CONTA CORRENTE",
         "cat": "6.1.7. IPTU",
