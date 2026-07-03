@@ -147,6 +147,8 @@ async function doRefresh(trigger) {
       catch (e) { console.warn(`[refresh] fetch-data pulado (${e.message.split('\n')[0]})`); }
       const b = await runScript('build-data.cjs', 'build');
       const c = await runScript('build-data-extras.cjs', 'extras');
+      try { await runScript('build-dre.cjs', 'dre'); }
+      catch (e) { console.warn(`[refresh] build-dre pulado (${e.message.split('\n')[0]})`); }
       const dur = Date.now() - t0;
       lastRun = {
         status: 'success',
@@ -222,7 +224,7 @@ app.post('/api/test-alert', async (req, res) => {
 });
 
 // --- Static
-const NO_CACHE = new Set(['/data.js', '/data-extras.js', '/app.bundle.js', '/', '/index.html']);
+const NO_CACHE = new Set(['/data.js', '/data-extras.js', '/dre-data.js', '/app.bundle.js', '/', '/index.html']);
 app.use((req, res, next) => {
   if (NO_CACHE.has(req.path)) res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
   next();

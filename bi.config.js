@@ -55,6 +55,7 @@ module.exports = {
       fluxo: "active",
       tesouraria: "hidden",
       comparativo: "active",
+      dre: "active",
       relatorio: "active",
       valuation: "hidden",
     },

@@ -40,4 +40,7 @@ echo "[$(TS)] download-xlsx: baixando bases VICAL..."
 download "vical-brasil.xlsx"        "${BASES_DIR}/extrato_financeiroVicalBrasil.xlsx"
 download "vical-instrumentos.xlsx"  "${BASES_DIR}/extrato_financeiroVicalinstrumentos.xlsx"
 
+download "dre-vical-brasil.xlsx"        "${BASES_DIR}/DRE Vical Brasil.xlsx"
+download "dre-vical-instrumentos.xlsx"  "${BASES_DIR}/DRE Vical Instrumentos.xlsx"
+
 echo "[$(TS)] download-xlsx: concluido"

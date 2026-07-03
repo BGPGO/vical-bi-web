@@ -83,6 +83,7 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
     detalhado: '14 Detalhado',
     profunda_cliente: '15 Profunda Cliente',
     crm: '16 CRM',
+    dre: '09 DRE',
   };
   function App() {
     var p = useState('overview'); var page = p[0], setPage = p[1];
@@ -271,6 +272,7 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
       detalhado: PageDetalhado,
       profunda_cliente: PageProfundaCliente,
       crm: PageCRM,
+      dre: PageDRE,
     };
     // Modo da page atual: 'active' (default), 'upsell' (mostra UpsellPage), 'hidden' (não renderiza)
     var pageMode = (window.BI_PAGE_MODE && window.BI_PAGE_MODE[page]) || 'active';

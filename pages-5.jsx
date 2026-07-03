@@ -464,3 +464,161 @@ const PageFluxoDiario = () => {
     </div>
   );
 };
+
+/* ===== PageDRE — Demonstração do Resultado do Exercício ===== */
+const PageDRE = () => {
+  const { useState, useMemo } = React;
+  const DRE = (typeof window !== 'undefined' && window.DRE_DATA) || null;
+
+  const [empresa, setEmpresa] = useState('Vical Instrumentos');
+
+  if (!DRE) {
+    return (
+      <div className="page">
+        <div className="page-title"><div><h1>DRE</h1></div></div>
+        <div className="card"><p style={{ padding: 16, color: 'var(--muted)' }}>Dados de DRE indisponveis. Rode build-dre.cjs.</p></div>
+      </div>
+    );
+  }
+
+  const fmtBRL = (v) => {
+    if (v === 0) return '\u2014';
+    return 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  };
+
+  const rows = useMemo(() => {
+    if (empresa === 'Consolidado') {
+      // Sum both companies row-by-row (same structure)
+      const a = DRE.dados[DRE.empresas[0]] || [];
+      const b = DRE.dados[DRE.empresas[1]] || [];
+      const len = Math.max(a.length, b.length);
+      const merged = [];
+      for (let i = 0; i < len; i++) {
+        const ra = a[i] || { cat: '', level: 2, isTotal: false, valores: [] };
+        const rb = b[i] || { cat: '', level: 2, isTotal: false, valores: [] };
+        const vals = [];
+        const numCols = Math.max(ra.valores.length, rb.valores.length);
+        for (let c = 0; c < numCols; c++) {
+          vals.push((ra.valores[c] || 0) + (rb.valores[c] || 0));
+        }
+        merged.push({ cat: ra.cat || rb.cat, level: ra.level, isTotal: ra.isTotal, valores: vals });
+      }
+      return merged;
+    }
+    return DRE.dados[empresa] || [];
+  }, [empresa]);
+
+  const colunas = DRE.colunas || [];
+
+  // Check if a row is "receita" related (sections 01, 05, 06 with positive orientation)
+  const isReceitaSection = (cat) => /^(01|05|06)/.test(cat);
+
+  const valColor = (v, cat) => {
+    if (v === 0) return 'rgba(255,255,255,0.3)';
+    if (v < 0) return '#fca5a5';
+    if (v > 0 && isReceitaSection(cat)) return '#86efac';
+    return 'rgba(255,255,255,0.85)';
+  };
+
+  const rowStyle = (row) => {
+    if (row.isTotal) {
+      return {
+        fontWeight: 700,
+        background: 'rgba(226,232,240,0.08)',
+        borderTop: '2px solid rgba(255,255,255,0.18)',
+        fontSize: 12,
+      };
+    }
+    if (row.level === 0) {
+      return {
+        fontWeight: 700,
+        background: 'rgba(248,249,250,0.04)',
+        fontSize: 12,
+      };
+    }
+    if (row.level === 1) {
+      return {
+        fontWeight: 600,
+        paddingLeft: 20,
+        fontSize: 11.5,
+      };
+    }
+    // level 2 detail
+    return {
+      fontWeight: 400,
+      paddingLeft: 36,
+      fontSize: 11,
+      color: 'rgba(255,255,255,0.75)',
+    };
+  };
+
+  return (
+    <div className="page">
+      <div className="page-title">
+        <div>
+          <h1>DRE</h1>
+          <div className="status-line">Demonstrativo do Resultado do Exercicio</div>
+        </div>
+      </div>
+
+      {/* Company filter */}
+      <div style={{ display: 'flex', gap: 6, marginBottom: 12, flexWrap: 'wrap' }}>
+        {DRE.empresas.concat(['Consolidado']).map(e => (
+          <button key={e}
+            onClick={() => setEmpresa(e)}
+            style={{
+              padding: '6px 16px', fontSize: 12, borderRadius: 6, cursor: 'pointer',
+              background: empresa === e ? '#22d3ee' : 'rgba(255,255,255,0.06)',
+              color: empresa === e ? '#0c1117' : 'inherit',
+              border: '1px solid ' + (empresa === e ? '#22d3ee' : 'rgba(255,255,255,0.12)'),
+              fontWeight: empresa === e ? 700 : 400,
+            }}>
+            {e}
+          </button>
+        ))}
+      </div>
+
+      {/* DRE Table */}
+      <div className="card">
+        <h2 className="card-title">DRE — {empresa}</h2>
+        <div style={{ overflow: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+            <thead>
+              <tr style={{ borderBottom: '2px solid rgba(255,255,255,0.15)' }}>
+                <th style={{ textAlign: 'left', padding: '10px 12px', fontWeight: 700, fontSize: 12, color: 'rgba(255,255,255,0.9)' }}>Categoria</th>
+                {colunas.map((col, ci) => (
+                  <th key={ci} style={{ textAlign: 'right', padding: '10px 12px', fontWeight: 700, fontSize: 12, color: 'rgba(255,255,255,0.9)', whiteSpace: 'nowrap' }}>{col}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, ri) => {
+                const rs = rowStyle(row);
+                return (
+                  <tr key={ri} style={{ borderTop: '1px solid rgba(255,255,255,0.06)', ...rs }}>
+                    <td style={{ padding: '6px 12px', paddingLeft: rs.paddingLeft || 12, fontWeight: rs.fontWeight, fontSize: rs.fontSize, color: rs.color || 'inherit' }}>
+                      {row.cat}
+                    </td>
+                    {row.valores.map((v, ci) => (
+                      <td key={ci} style={{
+                        padding: '6px 12px',
+                        textAlign: 'right',
+                        fontWeight: rs.fontWeight,
+                        fontSize: rs.fontSize,
+                        color: valColor(v, row.cat),
+                        fontFamily: "'JetBrains Mono', monospace",
+                        whiteSpace: 'nowrap',
+                      }}>
+                        {fmtBRL(v)}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+};
