@@ -467,16 +467,17 @@ const PageFluxoDiario = () => {
 
 /* ===== PageDRE — Demonstração do Resultado do Exercício ===== */
 const PageDRE = () => {
-  const { useState, useMemo } = React;
   const DRE = (typeof window !== 'undefined' && window.DRE_DATA) || null;
 
   const [empresa, setEmpresa] = useState('Vical Instrumentos');
+  // Collapsed sections: tracks which section/sub-header indices are collapsed
+  const [collapsed, setCollapsed] = useState({});
 
   if (!DRE) {
     return (
       <div className="page">
         <div className="page-title"><div><h1>DRE</h1></div></div>
-        <div className="card"><p style={{ padding: 16, color: 'var(--muted)' }}>Dados de DRE indisponveis. Rode build-dre.cjs.</p></div>
+        <div className="card"><p style={{ padding: 16, color: 'var(--muted)' }}>Dados de DRE indisponíveis. Rode build-dre.cjs.</p></div>
       </div>
     );
   }
@@ -488,17 +489,16 @@ const PageDRE = () => {
 
   const rows = useMemo(() => {
     if (empresa === 'Consolidado') {
-      // Sum both companies row-by-row (same structure)
-      const a = DRE.dados[DRE.empresas[0]] || [];
-      const b = DRE.dados[DRE.empresas[1]] || [];
-      const len = Math.max(a.length, b.length);
-      const merged = [];
-      for (let i = 0; i < len; i++) {
-        const ra = a[i] || { cat: '', level: 2, isTotal: false, valores: [] };
-        const rb = b[i] || { cat: '', level: 2, isTotal: false, valores: [] };
-        const vals = [];
-        const numCols = Math.max(ra.valores.length, rb.valores.length);
-        for (let c = 0; c < numCols; c++) {
+      var a = DRE.dados[DRE.empresas[0]] || [];
+      var b = DRE.dados[DRE.empresas[1]] || [];
+      var len = Math.max(a.length, b.length);
+      var merged = [];
+      for (var i = 0; i < len; i++) {
+        var ra = a[i] || { cat: '', level: 2, isTotal: false, valores: [] };
+        var rb = b[i] || { cat: '', level: 2, isTotal: false, valores: [] };
+        var vals = [];
+        var numCols = Math.max(ra.valores.length, rb.valores.length);
+        for (var c = 0; c < numCols; c++) {
           vals.push((ra.valores[c] || 0) + (rb.valores[c] || 0));
         }
         merged.push({ cat: ra.cat || rb.cat, level: ra.level, isTotal: ra.isTotal, valores: vals });
@@ -508,48 +508,65 @@ const PageDRE = () => {
     return DRE.dados[empresa] || [];
   }, [empresa]);
 
-  const colunas = DRE.colunas || [];
+  var colunas = DRE.colunas || [];
 
-  // Check if a row is "receita" related (sections 01, 05, 06 with positive orientation)
-  const isReceitaSection = (cat) => /^(01|05|06)/.test(cat);
+  // Determine visibility based on collapsed state
+  // A row is hidden if its parent section or sub-header is collapsed
+  var visibleRows = useMemo(() => {
+    var result = [];
+    var currentSection = null;  // index of current level-0 section
+    var currentSubHeader = null; // index of current level-1 sub-header
+    for (var i = 0; i < rows.length; i++) {
+      var row = rows[i];
+      if (row.level === 0 && !row.isTotal) {
+        currentSection = i;
+        currentSubHeader = null;
+        result.push({ ...row, idx: i, canToggle: true });
+      } else if (row.level === 0 && row.isTotal) {
+        // Subtotals always show
+        result.push({ ...row, idx: i, canToggle: false });
+        currentSection = null;
+        currentSubHeader = null;
+      } else if (row.level === 1) {
+        currentSubHeader = i;
+        // Hidden if parent section is collapsed
+        if (currentSection != null && collapsed[currentSection]) continue;
+        result.push({ ...row, idx: i, canToggle: true });
+      } else {
+        // level 2 detail
+        // Hidden if parent section is collapsed OR parent sub-header is collapsed
+        if (currentSection != null && collapsed[currentSection]) continue;
+        if (currentSubHeader != null && collapsed[currentSubHeader]) continue;
+        result.push({ ...row, idx: i, canToggle: false });
+      }
+    }
+    return result;
+  }, [rows, collapsed]);
 
-  const valColor = (v, cat) => {
+  var toggleCollapse = (idx) => {
+    setCollapsed(function(prev) {
+      var next = Object.assign({}, prev);
+      if (next[idx]) delete next[idx]; else next[idx] = true;
+      return next;
+    });
+  };
+
+  var expandAll = () => setCollapsed({});
+  var collapseAll = () => {
+    var c = {};
+    for (var i = 0; i < rows.length; i++) {
+      if (rows[i].level === 0 && !rows[i].isTotal) c[i] = true;
+    }
+    setCollapsed(c);
+  };
+
+  var isReceitaSection = (cat) => /^(01|05|06)/.test(cat);
+
+  var valColor = (v, cat) => {
     if (v === 0) return 'rgba(255,255,255,0.3)';
     if (v < 0) return '#fca5a5';
     if (v > 0 && isReceitaSection(cat)) return '#86efac';
     return 'rgba(255,255,255,0.85)';
-  };
-
-  const rowStyle = (row) => {
-    if (row.isTotal) {
-      return {
-        fontWeight: 700,
-        background: 'rgba(226,232,240,0.08)',
-        borderTop: '2px solid rgba(255,255,255,0.18)',
-        fontSize: 12,
-      };
-    }
-    if (row.level === 0) {
-      return {
-        fontWeight: 700,
-        background: 'rgba(248,249,250,0.04)',
-        fontSize: 12,
-      };
-    }
-    if (row.level === 1) {
-      return {
-        fontWeight: 600,
-        paddingLeft: 20,
-        fontSize: 11.5,
-      };
-    }
-    // level 2 detail
-    return {
-      fontWeight: 400,
-      paddingLeft: 36,
-      fontSize: 11,
-      color: 'rgba(255,255,255,0.75)',
-    };
   };
 
   return (
@@ -557,61 +574,96 @@ const PageDRE = () => {
       <div className="page-title">
         <div>
           <h1>DRE</h1>
-          <div className="status-line">Demonstrativo do Resultado do Exercicio</div>
+          <div className="status-line">Demonstração do Resultado do Exercício — {DRE.ano}</div>
         </div>
       </div>
 
-      {/* Company filter */}
-      <div style={{ display: 'flex', gap: 6, marginBottom: 12, flexWrap: 'wrap' }}>
-        {DRE.empresas.concat(['Consolidado']).map(e => (
-          <button key={e}
-            onClick={() => setEmpresa(e)}
-            style={{
-              padding: '6px 16px', fontSize: 12, borderRadius: 6, cursor: 'pointer',
-              background: empresa === e ? '#22d3ee' : 'rgba(255,255,255,0.06)',
-              color: empresa === e ? '#0c1117' : 'inherit',
-              border: '1px solid ' + (empresa === e ? '#22d3ee' : 'rgba(255,255,255,0.12)'),
-              fontWeight: empresa === e ? 700 : 400,
-            }}>
-            {e}
-          </button>
-        ))}
+      {/* Company filter + expand/collapse */}
+      <div style={{ display: 'flex', gap: 6, marginBottom: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+        {DRE.empresas.concat(['Consolidado']).map(function(e) {
+          return (
+            <button key={e}
+              onClick={function() { setEmpresa(e); }}
+              style={{
+                padding: '6px 16px', fontSize: 12, borderRadius: 6, cursor: 'pointer',
+                background: empresa === e ? '#22d3ee' : 'rgba(255,255,255,0.06)',
+                color: empresa === e ? '#0c1117' : 'inherit',
+                border: '1px solid ' + (empresa === e ? '#22d3ee' : 'rgba(255,255,255,0.12)'),
+                fontWeight: empresa === e ? 700 : 400,
+              }}>
+              {e}
+            </button>
+          );
+        })}
+        <span style={{ margin: '0 8px', color: 'rgba(255,255,255,0.2)' }}>|</span>
+        <button onClick={expandAll} style={{ padding: '4px 10px', fontSize: 11, borderRadius: 4, cursor: 'pointer', background: 'rgba(255,255,255,0.06)', color: 'inherit', border: '1px solid rgba(255,255,255,0.12)' }}>
+          Expandir tudo
+        </button>
+        <button onClick={collapseAll} style={{ padding: '4px 10px', fontSize: 11, borderRadius: 4, cursor: 'pointer', background: 'rgba(255,255,255,0.06)', color: 'inherit', border: '1px solid rgba(255,255,255,0.12)' }}>
+          Recolher tudo
+        </button>
       </div>
 
       {/* DRE Table */}
       <div className="card">
         <h2 className="card-title">DRE — {empresa}</h2>
         <div style={{ overflow: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+          <table style={{ width: 'max-content', minWidth: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
             <thead>
-              <tr style={{ borderBottom: '2px solid rgba(255,255,255,0.15)' }}>
-                <th style={{ textAlign: 'left', padding: '10px 12px', fontWeight: 700, fontSize: 12, color: 'rgba(255,255,255,0.9)' }}>Categoria</th>
-                {colunas.map((col, ci) => (
-                  <th key={ci} style={{ textAlign: 'right', padding: '10px 12px', fontWeight: 700, fontSize: 12, color: 'rgba(255,255,255,0.9)', whiteSpace: 'nowrap' }}>{col}</th>
-                ))}
+              <tr style={{ borderBottom: '2px solid rgba(255,255,255,0.15)', position: 'sticky', top: 0, background: '#0c1117', zIndex: 2 }}>
+                <th style={{ textAlign: 'left', padding: '10px 12px', fontWeight: 700, fontSize: 12, color: 'rgba(255,255,255,0.9)', position: 'sticky', left: 0, background: '#0c1117', zIndex: 3, minWidth: 280 }}>Categoria</th>
+                {colunas.map(function(col, ci) {
+                  var isTotal = ci === colunas.length - 1;
+                  return (
+                    <th key={ci} style={{ textAlign: 'right', padding: '10px 10px', fontWeight: isTotal ? 800 : 700, fontSize: 11, color: 'rgba(255,255,255,0.9)', whiteSpace: 'nowrap', minWidth: 90, background: isTotal ? 'rgba(34,211,238,0.06)' : 'transparent' }}>{col}</th>
+                  );
+                })}
               </tr>
             </thead>
             <tbody>
-              {rows.map((row, ri) => {
-                const rs = rowStyle(row);
+              {visibleRows.map(function(row) {
+                var isT = row.isTotal;
+                var l0 = row.level === 0 && !isT;
+                var l1 = row.level === 1;
+                var l2 = row.level === 2;
+                var isCollapsed = collapsed[row.idx];
+                var bgColor = isT ? 'rgba(34,211,238,0.08)' : l0 ? 'rgba(255,255,255,0.03)' : 'transparent';
+                var bTop = isT ? '2px solid rgba(34,211,238,0.3)' : '1px solid rgba(255,255,255,0.06)';
+                var fw = isT ? 700 : l0 ? 700 : l1 ? 600 : 400;
+                var fs = isT ? 12 : l0 ? 12 : l1 ? 11.5 : 11;
+                var pl = l2 ? 40 : l1 ? 24 : 12;
+                var tc = l2 ? 'rgba(255,255,255,0.7)' : 'inherit';
+
                 return (
-                  <tr key={ri} style={{ borderTop: '1px solid rgba(255,255,255,0.06)', ...rs }}>
-                    <td style={{ padding: '6px 12px', paddingLeft: rs.paddingLeft || 12, fontWeight: rs.fontWeight, fontSize: rs.fontSize, color: rs.color || 'inherit' }}>
+                  <tr key={row.idx} style={{ borderTop: bTop, background: bgColor }}>
+                    <td
+                      onClick={row.canToggle ? function() { toggleCollapse(row.idx); } : undefined}
+                      style={{
+                        padding: '6px 12px', paddingLeft: pl, fontWeight: fw, fontSize: fs, color: tc,
+                        cursor: row.canToggle ? 'pointer' : 'default', userSelect: 'none',
+                        position: 'sticky', left: 0, background: bgColor === 'transparent' ? '#0c1117' : bgColor, zIndex: 1,
+                      }}>
+                      {row.canToggle && (
+                        <span style={{ display: 'inline-block', width: 14, fontSize: 9, color: '#22d3ee', marginRight: 4 }}>
+                          {isCollapsed ? '▶' : '▼'}
+                        </span>
+                      )}
                       {row.cat}
                     </td>
-                    {row.valores.map((v, ci) => (
-                      <td key={ci} style={{
-                        padding: '6px 12px',
-                        textAlign: 'right',
-                        fontWeight: rs.fontWeight,
-                        fontSize: rs.fontSize,
-                        color: valColor(v, row.cat),
-                        fontFamily: "'JetBrains Mono', monospace",
-                        whiteSpace: 'nowrap',
-                      }}>
-                        {fmtBRL(v)}
-                      </td>
-                    ))}
+                    {row.valores.map(function(v, ci) {
+                      var isTotalCol = ci === row.valores.length - 1;
+                      return (
+                        <td key={ci} style={{
+                          padding: '6px 10px', textAlign: 'right', fontWeight: fw, fontSize: fs,
+                          color: valColor(v, row.cat),
+                          fontFamily: "'JetBrains Mono', monospace",
+                          whiteSpace: 'nowrap',
+                          background: isTotalCol ? 'rgba(34,211,238,0.04)' : 'transparent',
+                        }}>
+                          {fmtBRL(v)}
+                        </td>
+                      );
+                    })}
                   </tr>
                 );
               })}

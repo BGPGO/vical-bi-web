@@ -1,14 +1,9 @@
 #!/usr/bin/env node
 /**
- * build-dre.cjs — Le os XLSX de DRE (Vical Brasil + Vical Instrumentos)
- * e gera dre-data.js com window.DRE_DATA.
+ * build-dre.cjs — Constrói DRE a partir dos movimentos (data/movimentos.json)
+ * usando a estrutura hierárquica dos XLSX como template.
  *
- * Hierarquia:
- *   "01 ...", "02 ..." etc → SECTION HEADER (level 0)
- *   "01.1", "02.1" etc    → SUB-HEADER (level 1)
- *   "01T", "02T" etc      → SUBTOTAL (level 0, isTotal)
- *   outros                → DETAIL (level 2)
- *   "Sem lançamentos"     → skip
+ * Gera dre-data.js com window.DRE_DATA contendo todos os meses do ano corrente.
  */
 'use strict';
 
@@ -18,8 +13,11 @@ const XLSX = require('xlsx');
 
 const cfg = require('./bi.config.js');
 const DRIVE = (cfg.fontes && cfg.fontes.drive && cfg.fontes.drive.base_path) || '';
+const ANO = (cfg.meta && cfg.meta.ano_corrente) || new Date().getFullYear();
 
-const FILES = [
+const MONTH_NAMES = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+
+const DRE_FILES = [
   {
     empresa: 'Vical Brasil',
     path: process.env.VICAL_BASES_DIR
@@ -34,88 +32,180 @@ const FILES = [
   },
 ];
 
-function parseVal(v) {
-  if (v == null || v === '') return 0;
-  if (typeof v === 'number') return v;
-  // "0,00" or "-1.234,56" → number
-  const s = String(v).trim().replace(/\./g, '').replace(',', '.');
-  const n = parseFloat(s);
-  return isNaN(n) ? 0 : n;
+// ---------- Lê movimentos ----------
+const MOVS_FILE = path.join(__dirname, 'data', 'movimentos.json');
+if (!fs.existsSync(MOVS_FILE)) {
+  console.error('[build-dre] movimentos.json não encontrado. Rode build-data primeiro.');
+  process.exit(1);
+}
+const movimentos = JSON.parse(fs.readFileSync(MOVS_FILE, 'utf8'));
+
+// ---------- Agrupa movimentos por empresa + categoria + mês ----------
+// Cada movimento tem: detalhes.cCodCateg (categoria), _ca.empresa (tag empresa),
+// detalhes.dDtPagamento ou dDtEmissao (data), resumo.nValLiquido (valor com sinal)
+function buildCatMonthMap(movs, empresaTag) {
+  const map = {}; // { categoria: { '01': valor, '02': valor, ... } }
+  for (const m of movs) {
+    // Filtra por empresa se especificada
+    if (empresaTag && m._ca && m._ca.empresa !== empresaTag) continue;
+    // Só movimentos realizados (PAGO/RECEBIDO)
+    const st = m.detalhes && m.detalhes.cStatus;
+    if (st !== 'PAGO' && st !== 'RECEBIDO') continue;
+
+    const cat = (m.detalhes && m.detalhes.cCodCateg) || '(Sem categoria)';
+    // Data: usa dDtPagamento se disponível, senão dDtEmissao
+    const dtStr = (m.detalhes && (m.detalhes.dDtPagamento || m.detalhes.dDtEmissao)) || '';
+    // Formato dd/mm/yyyy
+    const parts = dtStr.split('/');
+    if (parts.length !== 3) continue;
+    const yr = parseInt(parts[2], 10);
+    if (yr !== ANO) continue;
+    const mes = parts[1]; // '01'..'12'
+
+    const valor = m.resumo && m.resumo.nValLiquido != null ? m.resumo.nValLiquido : 0;
+
+    if (!map[cat]) map[cat] = {};
+    map[cat][mes] = (map[cat][mes] || 0) + valor;
+  }
+  return map;
 }
 
+// ---------- Lê estrutura DRE do XLSX ----------
 function detectLevel(cat) {
-  // Subtotal: "01T", "02T", etc
   if (/^\d{2}T\s/.test(cat)) return { level: 0, isTotal: true };
-  // Sub-header: "01.1", "02.1", etc
   if (/^\d{2}\.\d/.test(cat)) return { level: 1, isTotal: false };
-  // Section header: "01 ", "02 ", etc
   if (/^\d{2}\s/.test(cat)) return { level: 0, isTotal: false };
-  // Detail
   return { level: 2, isTotal: false };
 }
 
-function parseFile(filePath) {
+function parseStructure(filePath) {
   if (!fs.existsSync(filePath)) {
-    console.warn(`  WARN: ${filePath} nao encontrado — pulando`);
-    return { colunas: [], rows: [] };
+    console.warn(`  WARN: ${filePath} não encontrado`);
+    return [];
   }
   const wb = XLSX.readFile(filePath);
   const ws = wb.Sheets[wb.SheetNames[0]];
   const raw = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' });
-
-  if (raw.length < 2) {
-    console.warn(`  WARN: ${filePath} vazio ou sem dados`);
-    return { colunas: [], rows: [] };
-  }
-
-  // Row 1 has column headers: ["Categoria", "Jun/2026", "Jul/2026", "Valor"]
-  const headerRow = raw[1];
-  const colunas = headerRow.slice(1); // remove "Categoria"
-
   const rows = [];
   for (let i = 2; i < raw.length; i++) {
-    const r = raw[i];
-    const cat = String(r[0] || '').trim();
-    if (!cat) continue;
-    if (cat === 'Sem lançamentos') continue;
-
+    const cat = String(raw[i][0] || '').trim();
+    if (!cat || cat === 'Sem lançamentos') continue;
     const { level, isTotal } = detectLevel(cat);
-    const valores = [];
-    for (let c = 1; c < headerRow.length; c++) {
-      valores.push(parseVal(r[c]));
+    rows.push({ cat, level, isTotal });
+  }
+  return rows;
+}
+
+// ---------- Monta DRE com valores dos movimentos ----------
+function buildDRE(structure, catMonthMap) {
+  // Para cada linha da estrutura, se é detalhe (level 2), busca valores no map
+  // Se é header/subtotal, os valores serão computados pela hierarquia
+
+  const meses = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+  const result = [];
+
+  // Primeiro: preenche detalhes com valores dos movimentos
+  for (const row of structure) {
+    const valores = meses.map(m => {
+      if (row.level === 2 && !row.isTotal) {
+        return (catMonthMap[row.cat] && catMonthMap[row.cat][m]) || 0;
+      }
+      return 0; // headers e totals serão computados depois
+    });
+    // Total (última coluna)
+    const total = valores.reduce((s, v) => s + v, 0);
+    result.push({ ...row, valores: [...valores, total] });
+  }
+
+  // Agora: computa sub-headers (level 1) como soma dos seus filhos (level 2)
+  // e sections (level 0, não total) como soma dos sub-headers
+  // e subtotais (isTotal) como soma acumulada da seção
+
+  // Hierarquia: section(0) -> subheader(1) -> detail(2)
+  // Subtotal(0,isTotal) = soma de toda a seção acima até o subtotal anterior
+
+  // Passo 1: sub-headers = soma dos filhos level 2 abaixo até próximo level <=1
+  for (let i = 0; i < result.length; i++) {
+    if (result[i].level !== 1) continue;
+    const childSum = meses.map(() => 0);
+    for (let j = i + 1; j < result.length; j++) {
+      if (result[j].level <= 1) break;
+      for (let m = 0; m < meses.length; m++) {
+        childSum[m] += result[j].valores[m];
+      }
     }
-    rows.push({ cat, level, isTotal, valores });
+    const total = childSum.reduce((s, v) => s + v, 0);
+    result[i].valores = [...childSum, total];
   }
 
-  return { colunas, rows };
+  // Passo 2: sections (level 0, !isTotal) = soma dos sub-headers abaixo
+  for (let i = 0; i < result.length; i++) {
+    if (result[i].level !== 0 || result[i].isTotal) continue;
+    const childSum = meses.map(() => 0);
+    for (let j = i + 1; j < result.length; j++) {
+      if (result[j].level === 0) break;
+      if (result[j].level === 1) {
+        for (let m = 0; m < meses.length; m++) {
+          childSum[m] += result[j].valores[m];
+        }
+      }
+    }
+    const total = childSum.reduce((s, v) => s + v, 0);
+    result[i].valores = [...childSum, total];
+  }
+
+  // Passo 3: subtotais (isTotal) = soma acumulada das seções desde o subtotal anterior
+  let lastTotalIdx = -1;
+  for (let i = 0; i < result.length; i++) {
+    if (!result[i].isTotal) continue;
+    const acum = meses.map(() => 0);
+    for (let j = lastTotalIdx + 1; j < i; j++) {
+      if (result[j].level === 0 && !result[j].isTotal) {
+        for (let m = 0; m < meses.length; m++) {
+          acum[m] += result[j].valores[m];
+        }
+      }
+    }
+    // Subtotal acumulativo: soma com subtotal anterior
+    if (lastTotalIdx >= 0) {
+      for (let m = 0; m < meses.length; m++) {
+        acum[m] += result[lastTotalIdx].valores[m];
+      }
+    }
+    const total = acum.reduce((s, v) => s + v, 0);
+    result[i].valores = [...acum, total];
+    lastTotalIdx = i;
+  }
+
+  return result;
 }
 
-// Main
-console.log('[build-dre] Lendo DRE XLSX...');
+// ---------- Main ----------
+console.log(`[build-dre] Construindo DRE ${ANO} a partir dos movimentos...`);
+
 const empresas = [];
-const colunas = [];
 const dados = {};
+const colunas = [...MONTH_NAMES.map((m, i) => `${m}/${ANO}`), 'Total'];
 
-for (const f of FILES) {
-  console.log(`  ${f.empresa}: ${f.path}`);
-  const result = parseFile(f.path);
-  empresas.push(f.empresa);
-  dados[f.empresa] = result.rows;
-  // Use colunas from first file that has them
-  if (colunas.length === 0 && result.colunas.length > 0) {
-    colunas.push(...result.colunas);
+for (const f of DRE_FILES) {
+  console.log(`  ${f.empresa}: estrutura de ${f.path}`);
+  const structure = parseStructure(f.path);
+  if (structure.length === 0) {
+    console.warn(`  WARN: sem estrutura para ${f.empresa}`);
+    continue;
   }
+  const catMap = buildCatMonthMap(movimentos, f.empresa);
+  const dreRows = buildDRE(structure, catMap);
+  empresas.push(f.empresa);
+  dados[f.empresa] = dreRows;
+  console.log(`  ${f.empresa}: ${dreRows.length} linhas, ${Object.keys(catMap).length} categorias com movimentos`);
 }
 
-const dreData = { empresas, colunas, dados };
+const dreData = { empresas, colunas, dados, ano: ANO };
 
-// Write dre-data.js
 const outPath = path.join(__dirname, 'dre-data.js');
 const js = `// Auto-generated by build-dre.cjs — NÃO EDITE\nwindow.DRE_DATA = ${JSON.stringify(dreData)};\n`;
 fs.writeFileSync(outPath, js, 'utf8');
 
 const sizeKB = (js.length / 1024).toFixed(1);
 console.log(`[build-dre] OK dre-data.js (${sizeKB} KB) — ${empresas.length} empresas, ${colunas.length} colunas`);
-for (const e of empresas) {
-  console.log(`  ${e}: ${dados[e].length} linhas`);
-}
