@@ -125,6 +125,22 @@ async function doRefresh(trigger) {
   activeRun = (async () => {
     const t0 = Date.now();
     try {
+      // Download XLSX do Supabase Storage (se configurado)
+      try {
+        const dlsh = path.join(__dirname, 'download-xlsx.sh');
+        if (fs.existsSync(dlsh) && process.env.SUPABASE_URL) {
+          await new Promise((resolve, reject) => {
+            const proc = spawn('sh', [dlsh], { cwd: __dirname, env: process.env });
+            let tail = '';
+            const cap = (chunk) => { const s = chunk.toString(); tail = (tail + s).slice(-2000); process.stdout.write(`[download] ${s}`); };
+            proc.stdout.on('data', cap);
+            proc.stderr.on('data', cap);
+            proc.on('close', (code) => code === 0 ? resolve({ ok: true, tail }) : reject(new Error(`download exit ${code}\n${tail}`)));
+            proc.on('error', reject);
+          });
+        }
+      } catch (e) { console.warn(`[refresh] download-xlsx pulado (${e.message.split('\n')[0]})`); }
+
       // Fetch: só roda se extrato_path estiver acessível (Drive montado ou API token).
       // No container Coolify sem Drive, pula fetch e rebuild a partir dos JSONs existentes.
       try { await runScript('fetch-data.cjs', 'fetch'); }

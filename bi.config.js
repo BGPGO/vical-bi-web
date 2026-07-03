@@ -16,11 +16,15 @@ module.exports = {
       // Modo multi-empresa: combina dois extratos com campo empresa
       extratos: [
         {
-          extrato_path: "G:/Meu Drive/BGP/CLIENTES/BI/406. VICAL INSTRUMENTOS/BASES/extrato_financeiroVicalBrasil.xlsx",
+          extrato_path: process.env.VICAL_BASES_DIR
+            ? require('path').join(process.env.VICAL_BASES_DIR, 'extrato_financeiroVicalBrasil.xlsx')
+            : "G:/Meu Drive/BGP/CLIENTES/BI/406. VICAL INSTRUMENTOS/BASES/extrato_financeiroVicalBrasil.xlsx",
           empresa_nome: "Vical Brasil",
         },
         {
-          extrato_path: "G:/Meu Drive/BGP/CLIENTES/BI/406. VICAL INSTRUMENTOS/BASES/extrato_financeiroVicalinstrumentos.xlsx",
+          extrato_path: process.env.VICAL_BASES_DIR
+            ? require('path').join(process.env.VICAL_BASES_DIR, 'extrato_financeiroVicalinstrumentos.xlsx')
+            : "G:/Meu Drive/BGP/CLIENTES/BI/406. VICAL INSTRUMENTOS/BASES/extrato_financeiroVicalinstrumentos.xlsx",
           empresa_nome: "Vical Instrumentos",
         },
       ],
