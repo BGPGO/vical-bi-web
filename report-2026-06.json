@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-07-03T00:00:00.000Z",
+  "empresa": "VICAL Instrumentos",
+  "periodo": "Junho/2026",
+  "year": 2026,
+  "month": 6,
+  "filter": "realizado",
+  "secoes": {
+    "visao_geral": {
+      "title": "Visão Geral",
+      "analysis": "Junho de 2026 encerrou o primeiro semestre com resultado praticamente no ponto de equilibrio: receita de R$ 331.645,93, despesas de R$ 325.417,88 e resultado liquido de apenas R$ 6.228,05 com margem de 1,88%. Apos o recorde de maio (R$ 578.043), a receita caiu 42,6%, confirmando o padrao de alternancia entre meses fortes e fracos. A venda de mercadorias somou R$ 295.917,31, prestacao de servicos contribuiu com R$ 17.301,50 e recebimentos antecipados R$ 10.811,44. As despesas foram dominadas por fornecedores de mercadoria R$ 127.446,85, impostos DAS R$ 30.959,08 e antecipacao de lucro R$ 21.057,31. Destaque para R$ 6.950,16 em valores ainda a receber.\n\nO resultado de junho, embora positivo, e marginalmente acima de zero e confirma a vulnerabilidade da operacao quando o faturamento fica proximo ao ponto de equilibrio. O primeiro semestre acumulou resultado positivo de R$ 205.337,00, media mensal de R$ 34.222,83, margem media de 8,8%. A presenca de R$ 6.950,16 a receber e a primeira ocorrencia significativa de pendencias no semestre, podendo indicar inicio de inadimplencia ou simplesmente faturamento no final do mes. A prestacao de servicos manteve bom patamar (R$ 17.301,50), consolidando-se como segunda linha de receita.",
+      "error": null
+    },
+    "receita": {
+      "title": "Receita",
+      "analysis": "A receita de junho totalizou R$ 331.645,93, com venda de mercadorias em R$ 295.917,31 (89,2%), prestacao de servicos R$ 17.301,50 (5,2%), recebimentos antecipados R$ 10.811,44 (3,3%), rendimentos de investimento R$ 2.687,79 e venda cancelada sem NF R$ 2.456,38. Ainda ha R$ 6.950,16 a receber. Os maiores clientes foram Hospital Einstein unidade Einstein (R$ 19.021,70), Geosonda (R$ 16.194,00), Ekoparque Solucoes (R$ 13.520,00) e Hennings Vedacoes (R$ 12.205,62).\n\nA carteira de clientes apresentou boa pulverizacao em junho, sem nenhum cliente superando R$ 20.000, o que reduz o risco de concentracao mas resulta em ticket medio menor. Hospital Einstein apareceu novamente entre os maiores, somando mais de R$ 130 mil no semestre considerando todas as unidades — cliente estrategico para fidelizacao. O recebimento antecipado de R$ 10.811,44 foi o maior do semestre, indicando possivel pagamento adiantado de projeto. A venda cancelada de R$ 2.456,38 sem nota fiscal merece atencao contabil para regularizacao.",
+      "error": null
+    },
+    "despesa": {
+      "title": "Despesa",
+      "analysis": "As despesas de junho somaram R$ 325.417,88, praticamente igualando a receita. Fornecedor de mercadoria liderou com R$ 127.446,85 (39,2%), impostos DAS R$ 30.959,08 (9,5%), antecipacao de lucro R$ 21.057,31 (6,5%), fornecedor secundario R$ 16.869,16 (5,2%) e prestacao de servicos de venda R$ 12.299,46 (3,8%). Os maiores fornecedores foram despesas nao classificadas (R$ 48.925,52), Simples Nacional (R$ 28.706,60), Famabras (R$ 26.037,28) e Instrucamp (R$ 24.750,00).\n\nA despesa com prestacao de servicos de venda de R$ 12.299,46 e um custo comercial que apareceu com mais expressao em junho, possivelmente comissoes ou servicos de representacao. O fornecedor Instrucamp manteve valor fixo de R$ 24.750 pelo segundo mes consecutivo, sugerindo contrato. O volume de despesas nao classificadas (R$ 48.925,52) recuou significativamente em relacao a maio (R$ 145.683), indicando melhoria na classificacao. A antecipacao de lucro permaneceu inalterada em R$ 21.057,31 pelo quarto mes consecutivo, confirmando retirada mensal fixa que nao se ajusta ao resultado.",
+      "error": null
+    },
+    "fluxo_caixa": {
+      "title": "Fluxo de Caixa",
+      "analysis": "O fluxo de caixa de junho foi praticamente neutro, com superavit de apenas R$ 6.228,05 e margem de 1,88%. O acumulado do semestre fechou em R$ 205.337,00, demonstrando que apesar da volatilidade mensal, a operacao gera caixa no agregado. O padrao de alternancia se confirmou ao longo dos seis meses: jan (+R$ 122k), fev (-R$ 87k), mar (+R$ 101k), abr (-R$ 33k), mai (+R$ 96k), jun (+R$ 6k).\n\nO semestre encerrou com geracao de caixa positiva e confortavel, porem com margem media de apenas 8,8% — abaixo do desejavel para uma operacao comercial saudavel. O segundo trimestre gerou R$ 69.410 contra R$ 135.926 do primeiro, queda de 49%. A tendencia de desaceleracao merece atencao. Com R$ 6.950,16 a receber, junho tambem inaugura pendencias de caixa que podem impactar julho. O ponto de atencao para o segundo semestre e manter o acumulado positivo e buscar consistencia mensal.",
+      "error": null
+    },
+    "tesouraria": {
+      "title": "Tesouraria",
+      "analysis": "A tesouraria de junho registrou recebimentos de R$ 331.645,93 e pagamentos de R$ 325.417,88, com saldo positivo minimo de R$ 6.228,05. Pela primeira vez no semestre, ha pendencia a receber de R$ 6.950,16, sem pendencias a pagar. O acumulado do semestre em geracao de caixa e de R$ 205.337,00.\n\nA posicao de tesouraria continua solida gracas ao acumulado positivo do semestre, porem o resultado quase nulo de junho sinaliza que o caixa parou de crescer. A pendencia a receber de R$ 6.950,16 deve ser monitorada e cobrada para nao se tornar inadimplencia. Com R$ 205 mil acumulados e rendimentos de investimento crescentes (R$ 2.687,79 em junho vs R$ 800 em janeiro), a empresa esta aplicando melhor suas reservas. Recomenda-se revisar a politica de credito e prazos de pagamento dos clientes para minimizar o risco de inadimplencia no segundo semestre.",
+      "error": null
+    },
+    "comparativo": {
+      "title": "Comparativo",
+      "analysis": "O primeiro semestre de 2026 encerrou com receita total de R$ 2.312.270,67, despesas de R$ 2.106.933,67 e resultado liquido de R$ 205.337,00, margem de 8,88%. O primeiro trimestre superou o segundo: receita de R$ 1.097.848 vs R$ 1.214.422, porem com resultado de R$ 135.926 vs R$ 69.410. A media mensal de receita ficou em R$ 385.378 e de despesa em R$ 351.155. O melhor mes foi maio (receita R$ 578.043) e o pior fevereiro (receita R$ 234.650).\n\nA analise semestral confirma que a empresa e lucrativa no agregado mas com alta volatilidade mensal. A amplitude entre melhor e pior mes de receita e de R$ 343.393 (146% de variacao). Os custos fixos estimados (antecipacao de lucro R$ 21k + Daniel Fonseca R$ 22,7k + Instrucamp R$ 24,7k + outros recorrentes) giram em torno de R$ 150-180k/mes, exigindo faturamento minimo de R$ 335k para atingir equilibrio. Em tres dos seis meses esse patamar nao foi alcancado. A estrategia para o segundo semestre deve focar em elevar o piso de faturamento e reduzir a volatilidade.",
+      "error": null
+    }
+  },
+  "conclusao": "O primeiro semestre de 2026 encerrou com resultado positivo acumulado de R$ 205.337,00 e margem media de 8,88%, demonstrando que a VICAL Instrumentos e lucrativa no agregado. Porem, a alta volatilidade mensal (margem oscilando de -37% a +30%) e a dependencia de meses excepcionais como maio (receita recorde de R$ 578k) para compensar meses fracos revelam fragilidade estrutural. O ponto de equilibrio mensal esta em R$ 335 mil, patamar nao alcancado em metade dos meses. O investimento em importacao acumulou R$ 157 mil sem avaliacao formal de retorno, e a antecipacao de lucro permaneceu fixa em R$ 21 mil independente do resultado.\n\nRecomendacoes para o segundo semestre: (1) Priorizar a construcao de carteira de contratos recorrentes com clientes-ancora como Hospital Einstein (R$ 130k+ no semestre) e Estaleiro Rio Maguari (R$ 206k no semestre), buscando acordos de fornecimento continuado que garantam piso de faturamento acima de R$ 350k/mes; (2) Concluir a avaliacao do programa de importacao para decidir se escala ou reduz o investimento; (3) Implementar politica de retirada variavel vinculada ao resultado operacional, reduzindo de R$ 21k para R$ 12-15k em meses com faturamento abaixo de R$ 335k."
+}

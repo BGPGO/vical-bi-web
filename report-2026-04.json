@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-07-03T00:00:00.000Z",
+  "empresa": "VICAL Instrumentos",
+  "periodo": "Abril/2026",
+  "year": 2026,
+  "month": 4,
+  "filter": "realizado",
+  "secoes": {
+    "visao_geral": {
+      "title": "Visão Geral",
+      "analysis": "Abril de 2026 apresentou resultado negativo para a VICAL Instrumentos, com receita de R$ 304.733,33 e despesas de R$ 337.571,93, gerando deficit de R$ 32.838,60 e margem de -10,78%. O mes marcou o inicio do segundo trimestre com desempenho abaixo da media do primeiro trimestre (receita media de R$ 365.949). A venda de mercadorias permaneceu como carro-chefe com R$ 278.834,23, prestacao de servicos contribuiu com R$ 18.966,83 e recebimentos antecipados com R$ 3.752,62. As despesas foram lideradas por fornecedores de mercadoria R$ 117.128,28, impostos DAS R$ 33.991,65 e fornecedor secundario R$ 21.733,49.\n\nO deficit de abril, embora menos severo que o de fevereiro (-R$ 86.902), confirma um padrao preocupante: a empresa gera resultado negativo em meses com faturamento abaixo de R$ 340.000. A presenca de tarifa de importacao de R$ 19.598,18 sugere que a operacao de importacao iniciada em marco esta gerando custos adicionais que ainda nao se refletiram em receita proporcional. A antecipacao de lucro de R$ 21.057,31 se manteve constante independente do resultado, padrao que precisa ser revisto. Intertechne permaneceu como maior cliente (R$ 35.458,05), mostrando recorrencia positiva.",
+      "error": null
+    },
+    "receita": {
+      "title": "Receita",
+      "analysis": "A receita de abril foi de R$ 304.733,33, reducao de 33,3% em relacao a marco. A venda de mercadorias totalizou R$ 278.834,23 (91,5%), prestacao de servicos R$ 18.966,83 (6,2%), recebimentos antecipados R$ 3.752,62, rendimentos de investimento R$ 2.343,40 e rendimento PagBank R$ 427,29. Os principais clientes foram Intertechne (R$ 35.458,05), PSV Servicos (R$ 14.487,00), ML Tavares (R$ 12.914,52) e MSM Servicos (R$ 10.000,00).\n\nA prestacao de servicos mostrou recuperacao em relacao a marco (de R$ 7.145 para R$ 18.966), aproximando-se do nivel de fevereiro (R$ 21.573). Essa linha de receita tem potencial de crescimento e deve ser incentivada. Os rendimentos de investimento de R$ 2.343,40 indicam reservas aplicadas gerando retorno, pratica positiva de gestao financeira. A carteira de clientes esta mais pulverizada neste mes, com o maior cliente representando 11,6% do total, o que reduz o risco de concentracao. Porem, o volume total precisa crescer para cobrir a estrutura de custos.",
+      "error": null
+    },
+    "despesa": {
+      "title": "Despesa",
+      "analysis": "As despesas de abril somaram R$ 337.571,93, superando a receita em R$ 32.838,60. Fornecedor de mercadoria foi o principal custo com R$ 117.128,28 (34,7%), impostos DAS R$ 33.991,65 (10,1%), fornecedor secundario R$ 21.733,49 (6,4%), antecipacao de lucro R$ 21.057,31 (6,2%) e tarifa de importacao R$ 19.598,18 (5,8%). Os maiores fornecedores foram despesas nao classificadas (R$ 62.051,59), Simples Nacional (R$ 30.808,23), Famabras (R$ 29.232,42) e Daniel Fonseca (R$ 22.678,31).\n\nA tarifa de importacao de R$ 19.598,18 e um custo novo que nao aparecia nos meses anteriores e reflete a estrategia de importacao. Somada ao fornecedor de importacao de marco (R$ 54.747), o investimento total em importacao ja alcanca R$ 74.345 no semestre. E fundamental acompanhar se as vendas de produtos importados estao gerando margem suficiente para justificar esse investimento. O fornecedor Itaju Service (R$ 20.709,41) apareceu pela primeira vez entre os maiores, indicando possivel novo parceiro comercial. A despesa com Daniel Fonseca de Souza se manteve estavel em R$ 22.678,31 pelo quarto mes consecutivo, sugerindo contrato fixo mensal.",
+      "error": null
+    },
+    "fluxo_caixa": {
+      "title": "Fluxo de Caixa",
+      "analysis": "O fluxo de caixa de abril registrou saida liquida de R$ 32.838,60, reduzindo o acumulado do ano para R$ 103.087,81 (versus R$ 135.926,41 ao fim do primeiro trimestre). A margem negativa de -10,78% e menos severa que fevereiro (-37%), mas confirma a dificuldade da empresa em manter resultados positivos consistentes. Em quatro meses, dois foram deficitarios e dois superavitarios.\n\nO padrao de alternancia entre meses positivos e negativos sugere ciclo comercial irregular, possivelmente vinculado a prazos de entrega e faturamento de projetos maiores. O acumulado anual ainda e confortavelmente positivo, com margem de seguranca para absorver mais um mes fraco. Porem, a tendencia precisa ser revertida para garantir resultado positivo no semestre. O ponto de equilibrio mensal estimado esta em torno de R$ 335.000 de receita, considerando a estrutura atual de custos.",
+      "error": null
+    },
+    "tesouraria": {
+      "title": "Tesouraria",
+      "analysis": "A tesouraria de abril registrou recebimentos de R$ 304.733,33 e pagamentos de R$ 337.571,93, com deficit de R$ 32.838,60. Nao ha pendencias a receber ou a pagar registradas no mes. O acumulado de geracao de caixa no ano caiu para R$ 103.087,81, ainda positivo mas em tendencia de reducao.\n\nA posicao de tesouraria permanece adequada, com reserva acumulada suficiente para cobrir eventuais deficits nos proximos meses. Os rendimentos de investimento (R$ 2.343,40 no Inter e R$ 427,29 no PagBank) indicam que parte das reservas esta aplicada e gerando retorno. Recomenda-se manter pelo menos R$ 100.000 em reserva de liquidez e direcionar eventuais excessos para aplicacoes de curto prazo. A gestao de tesouraria deve priorizar a antecipacao de recebiveis em meses de maior pressao no caixa.",
+      "error": null
+    },
+    "comparativo": {
+      "title": "Comparativo",
+      "analysis": "Abril abriu o segundo trimestre com desempenho inferior a media do primeiro trimestre. A receita de R$ 304.733 ficou 16,7% abaixo da media trimestral anterior (R$ 365.949). As despesas de R$ 337.571 ficaram 5,3% acima da media anterior (R$ 320.640). O resultado liquido de -R$ 32.838 contrasta com a media mensal positiva de R$ 45.308 no primeiro trimestre.\n\nO comparativo revela que a empresa precisa de faturamento mensal acima de R$ 335.000 para cobrir sua estrutura de custos. Nos quatro meses de 2026, isso foi alcancado em dois (janeiro com R$ 406.493 e marco com R$ 456.704) e nao alcancado em dois (fevereiro com R$ 234.650 e abril com R$ 304.733). A previsibilidade do faturamento e o principal desafio gerencial. A contratacao de servicos recorrentes ou contratos de fornecimento continuado poderia estabilizar a receita minima mensal.",
+      "error": null
+    }
+  },
+  "conclusao": "Abril encerrou com deficit de R$ 32.838,60, o segundo mes negativo em quatro, reduzindo o acumulado do ano para R$ 103.087,81. O padrao de alternancia entre meses positivos e negativos se confirmou, com ponto de equilibrio identificado em torno de R$ 335.000 mensais de receita. A operacao de importacao acumulou R$ 74.345 em custos sem retorno proporcional visivel ate o momento, e a antecipacao de lucro permaneceu fixa em R$ 21.057 independente do resultado.\n\nRecomendacoes: (1) Estabelecer meta minima de faturamento de R$ 350.000/mes e criar pipeline comercial para garantir previsibilidade — prospectar contratos de fornecimento recorrente com grandes industrias; (2) Avaliar o retorno da estrategia de importacao: os R$ 74.345 investidos em dois meses precisam gerar margem adicional identificavel; (3) Reduzir a antecipacao de lucro para R$ 15.000 em meses deficitarios, vinculando as retiradas ao resultado operacional efetivo do mes."
+}
