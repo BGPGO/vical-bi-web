@@ -11,7 +11,7 @@ RUN npm install --omit=dev --no-audit --no-fund && npm cache clean --force
 
 # Static frontend
 COPY index.html styles.css ./
-COPY data.js app.bundle.js data-extras.js dre-data.js ./
+COPY data.js app.bundle.js data-extras.js dre-data.js bitrix-data.js ./
 COPY assets ./assets
 
 # Server + scripts de refresh
@@ -19,7 +19,7 @@ COPY server.cjs ./
 COPY fetch-data.cjs ./
 COPY build-data.cjs ./
 COPY build-data-extras.cjs ./
-COPY build-jsx.cjs build-dre.cjs ./
+COPY build-jsx.cjs build-dre.cjs fetch-bitrix.cjs build-bitrix.cjs ./
 COPY bi.config.js ./
 COPY adapters ./adapters
 COPY lib ./lib

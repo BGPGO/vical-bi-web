@@ -61,6 +61,11 @@ const Sidebar = ({ active, onSelect, open }) => {
     { id: "crm", icon: "money", label: "CRM" },
     { id: "settings", icon: "settings", label: "Configurações", badge: "EM BREVE" },
   ];
+  const bitrix = [
+    { id: "bitrix_mesmo_mes", icon: "flow", label: "Mesmo mês" },
+    { id: "bitrix_investimento", icon: "invest", label: "Investimento × resultado" },
+    { id: "bitrix_qualquer_mes", icon: "chart", label: "Qualquer mês" },
+  ];
   // Modo da page (active/upsell/hidden) injetado pelo build-jsx.cjs a partir do bi.config.js
   const pageMode = (id) => (window.BI_PAGE_MODE && window.BI_PAGE_MODE[id]) || 'active';
   const isUpsell = (id) => pageMode(id) === 'upsell';
@@ -94,6 +99,8 @@ const Sidebar = ({ active, onSelect, open }) => {
       {general.map(renderItem)}
       <div className="sb-section">Outros</div>
       {others.map(renderItem)}
+      <div className="sb-section">CRM Bitrix</div>
+      {bitrix.map(renderItem)}
       <div className="sb-spacer" />
       <div className="sb-user">
         <div className="avatar">{(() => {
@@ -134,6 +141,9 @@ const PAGE_TITLES = {
   detalhado: "Detalhado",
   profunda_cliente: "Profunda Cliente",
   crm: "CRM",
+  bitrix_mesmo_mes: "Funil — Entrada e venda no mesmo mês",
+  bitrix_investimento: "Investimento × Resultado",
+  bitrix_qualquer_mes: "Funil — Entrada em qualquer mês",
 };
 
 const DATE_RANGES = [

@@ -1,0 +1,3346 @@
+[
+  {
+    "ID": "1",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "NEW",
+    "NAME": "Analise e Qualificação",
+    "NAME_INIT": "Não atribuído",
+    "SORT": "120",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": "#f69ac1",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#f69ac1"
+    }
+  },
+  {
+    "ID": "7",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "CONVERTED",
+    "NAME": "Gerou Cotação - VENDEDOR",
+    "NAME_INIT": "Lead convertido",
+    "SORT": "170",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": "#7bd500",
+    "SEMANTICS": "S",
+    "EXTRA": {
+      "SEMANTICS": "success",
+      "COLOR": "#7bd500"
+    }
+  },
+  {
+    "ID": "9",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "JUNK",
+    "NAME": "Descartado",
+    "NAME_INIT": "Lead descartado",
+    "SORT": "180",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": "#f11716",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "failure",
+      "COLOR": "#f11716"
+    }
+  },
+  {
+    "ID": "11",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "CALL",
+    "NAME": "Ligação",
+    "NAME_INIT": "Chamada",
+    "SORT": "40",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "13",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "EMAIL",
+    "NAME": "E-mail",
+    "NAME_INIT": "",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "15",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "WEB",
+    "NAME": "Site",
+    "NAME_INIT": "",
+    "SORT": "60",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "19",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "PARTNER",
+    "NAME": "Cliente Existente",
+    "NAME_INIT": "",
+    "SORT": "80",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "25",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "WEBFORM",
+    "NAME": "Formulário de CRM",
+    "NAME_INIT": "Formulário de CRM",
+    "SORT": "110",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "27",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "CALLBACK",
+    "NAME": "Retorno de Chamada",
+    "NAME_INIT": "Retorno de Chamada",
+    "SORT": "120",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "29",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "RC_GENERATOR",
+    "NAME": "Investimento Google",
+    "NAME_INIT": "Incentivo de vendas",
+    "SORT": "130",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "31",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "STORE",
+    "NAME": "Loja Vical",
+    "NAME_INIT": "Loja on-line",
+    "SORT": "30",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "33",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "OTHER",
+    "NAME": "Outro",
+    "NAME_INIT": "",
+    "SORT": "140",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "35",
+    "ENTITY_ID": "CONTACT_TYPE",
+    "STATUS_ID": "CLIENT",
+    "NAME": "Clientes",
+    "NAME_INIT": "",
+    "SORT": "10",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "37",
+    "ENTITY_ID": "CONTACT_TYPE",
+    "STATUS_ID": "SUPPLIER",
+    "NAME": "Fornecedores",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "39",
+    "ENTITY_ID": "CONTACT_TYPE",
+    "STATUS_ID": "PARTNER",
+    "NAME": "Parceiros",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "41",
+    "ENTITY_ID": "CONTACT_TYPE",
+    "STATUS_ID": "OTHER",
+    "NAME": "Outro",
+    "NAME_INIT": "",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "43",
+    "ENTITY_ID": "COMPANY_TYPE",
+    "STATUS_ID": "CUSTOMER",
+    "NAME": "Cliente",
+    "NAME_INIT": "",
+    "SORT": "10",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "45",
+    "ENTITY_ID": "COMPANY_TYPE",
+    "STATUS_ID": "SUPPLIER",
+    "NAME": "Fornecedor",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "47",
+    "ENTITY_ID": "COMPANY_TYPE",
+    "STATUS_ID": "COMPETITOR",
+    "NAME": "Concorrente",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "49",
+    "ENTITY_ID": "COMPANY_TYPE",
+    "STATUS_ID": "PARTNER",
+    "NAME": "Parceiro",
+    "NAME_INIT": "",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "51",
+    "ENTITY_ID": "COMPANY_TYPE",
+    "STATUS_ID": "OTHER",
+    "NAME": "Outro",
+    "NAME_INIT": "",
+    "SORT": "70",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "53",
+    "ENTITY_ID": "EMPLOYEES",
+    "STATUS_ID": "EMPLOYEES_1",
+    "NAME": "menos que 10",
+    "NAME_INIT": "menos que 50",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "55",
+    "ENTITY_ID": "EMPLOYEES",
+    "STATUS_ID": "EMPLOYEES_2",
+    "NAME": "50 a 250",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "57",
+    "ENTITY_ID": "EMPLOYEES",
+    "STATUS_ID": "EMPLOYEES_3",
+    "NAME": "250 a 500",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "59",
+    "ENTITY_ID": "EMPLOYEES",
+    "STATUS_ID": "EMPLOYEES_4",
+    "NAME": "mais de 500",
+    "NAME_INIT": "",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "61",
+    "ENTITY_ID": "CALL_LIST",
+    "STATUS_ID": "IN_WORK",
+    "NAME": "Programada",
+    "NAME_INIT": "Programada",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "63",
+    "ENTITY_ID": "CALL_LIST",
+    "STATUS_ID": "SUCCESS",
+    "NAME": "Bem sucedida",
+    "NAME_INIT": "Bem sucedida",
+    "SORT": "20",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "65",
+    "ENTITY_ID": "CALL_LIST",
+    "STATUS_ID": "WRONG_NUMBER",
+    "NAME": "Número inválido",
+    "NAME_INIT": "Número inválido",
+    "SORT": "30",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "67",
+    "ENTITY_ID": "CALL_LIST",
+    "STATUS_ID": "STOP_CALLING",
+    "NAME": "Não ligar",
+    "NAME_INIT": "Não ligar",
+    "SORT": "40",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "69",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "IT",
+    "NAME": "Tecnologia da Informação",
+    "NAME_INIT": "",
+    "SORT": "10",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "71",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "TELECOM",
+    "NAME": "Telecomunicação",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "73",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "MANUFACTURING",
+    "NAME": "Fabricação",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "75",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "BANKING",
+    "NAME": "Serviços bancários",
+    "NAME_INIT": "",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "77",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "CONSULTING",
+    "NAME": "Consultoria",
+    "NAME_INIT": "",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "79",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "FINANCE",
+    "NAME": "Finanças",
+    "NAME_INIT": "",
+    "SORT": "60",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "81",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "GOVERNMENT",
+    "NAME": "Governo",
+    "NAME_INIT": "",
+    "SORT": "70",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "83",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "DELIVERY",
+    "NAME": "Entrega",
+    "NAME_INIT": "",
+    "SORT": "80",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "85",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "ENTERTAINMENT",
+    "NAME": "Lazer",
+    "NAME_INIT": "",
+    "SORT": "90",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "87",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "NOTPROFIT",
+    "NAME": "Sem fins lucrativos",
+    "NAME_INIT": "",
+    "SORT": "100",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "89",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "OTHER",
+    "NAME": "Outro",
+    "NAME_INIT": "Outro",
+    "SORT": "110",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "91",
+    "ENTITY_ID": "DEAL_TYPE",
+    "STATUS_ID": "SALE",
+    "NAME": "Vendas",
+    "NAME_INIT": "Vendas",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "93",
+    "ENTITY_ID": "DEAL_TYPE",
+    "STATUS_ID": "COMPLEX",
+    "NAME": "Vendas integradas",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "95",
+    "ENTITY_ID": "DEAL_TYPE",
+    "STATUS_ID": "GOODS",
+    "NAME": "Vendas de mercadorias",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "97",
+    "ENTITY_ID": "DEAL_TYPE",
+    "STATUS_ID": "SERVICES",
+    "NAME": "Serviços",
+    "NAME_INIT": "",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "99",
+    "ENTITY_ID": "DEAL_TYPE",
+    "STATUS_ID": "SERVICE",
+    "NAME": "Serviços pós-vendas",
+    "NAME_INIT": "",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "101",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "NEW",
+    "NAME": "LEADS CONVERTIDO",
+    "NAME_INIT": "Em Desenvolvimento",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": "#2fb644",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#2fb644"
+    }
+  },
+  {
+    "ID": "111",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "WON",
+    "NAME": "FECHOU PEDIDO",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "200",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": "#7bd500",
+    "SEMANTICS": "S",
+    "EXTRA": {
+      "SEMANTICS": "success",
+      "COLOR": "#7bd500"
+    }
+  },
+  {
+    "ID": "113",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "LOSE",
+    "NAME": "ARQUIVADO / PERDIDO",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "210",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": "#f11716",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "failure",
+      "COLOR": "#f11716"
+    }
+  },
+  {
+    "ID": "117",
+    "ENTITY_ID": "DEAL_STATE",
+    "STATUS_ID": "PLANNED",
+    "NAME": "Planejado",
+    "NAME_INIT": "",
+    "SORT": "10",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "119",
+    "ENTITY_ID": "DEAL_STATE",
+    "STATUS_ID": "PROCESS",
+    "NAME": "Em andamento",
+    "NAME_INIT": "Em andamento",
+    "SORT": "20",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "121",
+    "ENTITY_ID": "DEAL_STATE",
+    "STATUS_ID": "COMPLETE",
+    "NAME": "Concluído",
+    "NAME_INIT": "Concluído",
+    "SORT": "30",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "123",
+    "ENTITY_ID": "DEAL_STATE",
+    "STATUS_ID": "CANCELED",
+    "NAME": "Cancelado",
+    "NAME_INIT": "Cancelado",
+    "SORT": "40",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "125",
+    "ENTITY_ID": "EVENT_TYPE",
+    "STATUS_ID": "INFO",
+    "NAME": "Informações",
+    "NAME_INIT": "Informações",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "127",
+    "ENTITY_ID": "EVENT_TYPE",
+    "STATUS_ID": "PHONE",
+    "NAME": "Ligação telefônica",
+    "NAME_INIT": "Ligação telefônica",
+    "SORT": "20",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "129",
+    "ENTITY_ID": "EVENT_TYPE",
+    "STATUS_ID": "MESSAGE",
+    "NAME": "O e-mail foi enviado",
+    "NAME_INIT": "O e-mail foi enviado",
+    "SORT": "30",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "131",
+    "ENTITY_ID": "QUOTE_STATUS",
+    "STATUS_ID": "DRAFT",
+    "NAME": "Novo",
+    "NAME_INIT": "Novo",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": "#39A8EF",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#39A8EF"
+    }
+  },
+  {
+    "ID": "133",
+    "ENTITY_ID": "QUOTE_STATUS",
+    "STATUS_ID": "SENT",
+    "NAME": "Enviar ao cliente",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": "#2FC6F6",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#2FC6F6"
+    }
+  },
+  {
+    "ID": "135",
+    "ENTITY_ID": "QUOTE_STATUS",
+    "STATUS_ID": "APPROVED",
+    "NAME": "Aceito",
+    "NAME_INIT": "Aceito",
+    "SORT": "70",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": "#7BD500",
+    "SEMANTICS": "S",
+    "EXTRA": {
+      "SEMANTICS": "success",
+      "COLOR": "#7BD500"
+    }
+  },
+  {
+    "ID": "137",
+    "ENTITY_ID": "QUOTE_STATUS",
+    "STATUS_ID": "DECLAINED",
+    "NAME": "Recusado",
+    "NAME_INIT": "Recusado",
+    "SORT": "80",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": null,
+    "COLOR": "#FF5752",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "failure",
+      "COLOR": "#FF5752"
+    }
+  },
+  {
+    "ID": "139",
+    "ENTITY_ID": "QUOTE_STATUS",
+    "STATUS_ID": "APOLOGY",
+    "NAME": "Analisar recusa",
+    "NAME_INIT": "",
+    "SORT": "90",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": "#FF5752",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "apology",
+      "COLOR": "#FF5752"
+    }
+  },
+  {
+    "ID": "141",
+    "ENTITY_ID": "HONORIFIC",
+    "STATUS_ID": "HNR_BR_1",
+    "NAME": "Sr.",
+    "NAME_INIT": "",
+    "SORT": "10",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "143",
+    "ENTITY_ID": "HONORIFIC",
+    "STATUS_ID": "HNR_BR_2",
+    "NAME": "Sra.",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "145",
+    "ENTITY_ID": "HONORIFIC",
+    "STATUS_ID": "HNR_BR_3",
+    "NAME": "Srta.",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "147",
+    "ENTITY_ID": "HONORIFIC",
+    "STATUS_ID": "HNR_BR_4",
+    "NAME": "Dr.",
+    "NAME_INIT": "",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": null,
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "148",
+    "ENTITY_ID": "INVOICE_STATUS",
+    "STATUS_ID": "N",
+    "NAME": "Nova",
+    "NAME_INIT": "Nova",
+    "SORT": "100",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "0",
+    "COLOR": "#39A8EF",
+    "SEMANTICS": null
+  },
+  {
+    "ID": "150",
+    "ENTITY_ID": "INVOICE_STATUS",
+    "STATUS_ID": "D",
+    "NAME": "Não pago",
+    "NAME_INIT": "Não pago",
+    "SORT": "130",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "0",
+    "COLOR": "#FF5752",
+    "SEMANTICS": "F"
+  },
+  {
+    "ID": "152",
+    "ENTITY_ID": "INVOICE_STATUS",
+    "STATUS_ID": "P",
+    "NAME": "Pago",
+    "NAME_INIT": "Pago",
+    "SORT": "120",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "0",
+    "COLOR": "#7BD500",
+    "SEMANTICS": "S"
+  },
+  {
+    "ID": "154",
+    "ENTITY_ID": "INVOICE_STATUS",
+    "STATUS_ID": "S",
+    "NAME": "Enviado ao cliente",
+    "NAME_INIT": "",
+    "SORT": "110",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#2FC6F6",
+    "SEMANTICS": null
+  },
+  {
+    "ID": "217",
+    "ENTITY_ID": "COMPANY_TYPE",
+    "STATUS_ID": "1",
+    "NAME": "Revenda",
+    "NAME_INIT": "",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#D3EEF9",
+    "SEMANTICS": ""
+  },
+  {
+    "ID": "219",
+    "ENTITY_ID": "COMPANY_TYPE",
+    "STATUS_ID": "2",
+    "NAME": "Consumidor Final",
+    "NAME_INIT": "",
+    "SORT": "60",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#D3EEF9",
+    "SEMANTICS": ""
+  },
+  {
+    "ID": "221",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "1",
+    "NAME": "Novo campo",
+    "NAME_INIT": "",
+    "SORT": "120",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#D3EEF9",
+    "SEMANTICS": ""
+  },
+  {
+    "ID": "223",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "2",
+    "NAME": "Industria Alimenticia",
+    "NAME_INIT": "",
+    "SORT": "130",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#D3EEF9",
+    "SEMANTICS": ""
+  },
+  {
+    "ID": "225",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "3",
+    "NAME": "Petroquimica",
+    "NAME_INIT": "",
+    "SORT": "140",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#D3EEF9",
+    "SEMANTICS": ""
+  },
+  {
+    "ID": "227",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "4",
+    "NAME": "Automotiva",
+    "NAME_INIT": "",
+    "SORT": "150",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#D3EEF9",
+    "SEMANTICS": ""
+  },
+  {
+    "ID": "229",
+    "ENTITY_ID": "INDUSTRY",
+    "STATUS_ID": "5",
+    "NAME": "Usina",
+    "NAME_INIT": "",
+    "SORT": "160",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#D3EEF9",
+    "SEMANTICS": ""
+  },
+  {
+    "ID": "231",
+    "ENTITY_ID": "QUOTE_STATUS",
+    "STATUS_ID": "1",
+    "NAME": "Em processo de Follow-Up",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#55D0E0",
+    "SEMANTICS": "",
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#55D0E0"
+    }
+  },
+  {
+    "ID": "233",
+    "ENTITY_ID": "QUOTE_STATUS",
+    "STATUS_ID": "2",
+    "NAME": "Ficou de enviar o Pedido",
+    "NAME_INIT": "",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#47E4C2",
+    "SEMANTICS": "",
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#47E4C2"
+    }
+  },
+  {
+    "ID": "499",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:NEW",
+    "NAME": "Pedido de Compra",
+    "NAME_INIT": "Em Desenvolvimento",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "37",
+    "COLOR": "#ebebeb",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#ebebeb"
+    }
+  },
+  {
+    "ID": "509",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:WON",
+    "NAME": "FATURADO",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "160",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "37",
+    "COLOR": "#7bd500",
+    "SEMANTICS": "S",
+    "EXTRA": {
+      "SEMANTICS": "success",
+      "COLOR": "#7bd500"
+    }
+  },
+  {
+    "ID": "511",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:LOSE",
+    "NAME": "Pedido Cancelado",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "150",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "37",
+    "COLOR": "#ff5752",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "failure",
+      "COLOR": "#ff5752"
+    }
+  },
+  {
+    "ID": "517",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:2",
+    "NAME": "Em Separação",
+    "NAME_INIT": "",
+    "SORT": "100",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "37",
+    "COLOR": "#f69ac1",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#f69ac1"
+    }
+  },
+  {
+    "ID": "519",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:3",
+    "NAME": "Laboratório Vical",
+    "NAME_INIT": "",
+    "SORT": "110",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "37",
+    "COLOR": "#a0005c",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#a0005c"
+    }
+  },
+  {
+    "ID": "523",
+    "ENTITY_ID": "COMPANY_TYPE",
+    "STATUS_ID": "3",
+    "NAME": "8. Transportadora",
+    "NAME_INIT": "",
+    "SORT": "80",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#D3EEF9",
+    "SEMANTICS": ""
+  },
+  {
+    "ID": "583",
+    "ENTITY_ID": "QUOTE_STATUS",
+    "STATUS_ID": "3",
+    "NAME": "Nome",
+    "NAME_INIT": "",
+    "SORT": "60",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#00c4fb",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#00c4fb"
+    }
+  },
+  {
+    "ID": "589",
+    "ENTITY_ID": "QUOTE_STATUS",
+    "STATUS_ID": "4",
+    "NAME": "Nome",
+    "NAME_INIT": "",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#00c4fb",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#00c4fb"
+    }
+  },
+  {
+    "ID": "641",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:15",
+    "NAME": "Aguardando  Daniel",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "37",
+    "COLOR": "#f10057",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#f10057"
+    }
+  },
+  {
+    "ID": "651",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "2|WHATSAPP",
+    "NAME": "Anúncio Bomba",
+    "NAME_INIT": "",
+    "SORT": "10",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "659",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:UC_2BP4W9",
+    "NAME": "Aguardando For. Confirmar",
+    "NAME_INIT": "",
+    "SORT": "70",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "37",
+    "COLOR": "#2e2d93",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#2e2d93"
+    }
+  },
+  {
+    "ID": "661",
+    "ENTITY_ID": "SMART_INVOICE_STAGE_1",
+    "STATUS_ID": "DT31_1:N",
+    "NAME": "Nova",
+    "NAME_INIT": "Nova",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "1",
+    "COLOR": "#39A8EF",
+    "SEMANTICS": null
+  },
+  {
+    "ID": "663",
+    "ENTITY_ID": "SMART_INVOICE_STAGE_1",
+    "STATUS_ID": "DT31_1:S",
+    "NAME": "Enviada ao cliente",
+    "NAME_INIT": "Enviada ao cliente",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "1",
+    "COLOR": "#2FC6F6",
+    "SEMANTICS": null
+  },
+  {
+    "ID": "665",
+    "ENTITY_ID": "SMART_INVOICE_STAGE_1",
+    "STATUS_ID": "DT31_1:P",
+    "NAME": "Pago",
+    "NAME_INIT": "Pago",
+    "SORT": "30",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "1",
+    "COLOR": "#7BD500",
+    "SEMANTICS": "S"
+  },
+  {
+    "ID": "667",
+    "ENTITY_ID": "SMART_INVOICE_STAGE_1",
+    "STATUS_ID": "DT31_1:D",
+    "NAME": "Não pago",
+    "NAME_INIT": "Não pago",
+    "SORT": "40",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "1",
+    "COLOR": "#FF5752",
+    "SEMANTICS": "F"
+  },
+  {
+    "ID": "669",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:UC_31VE1H",
+    "NAME": "Aguardando Fornecedor Entregar",
+    "NAME_INIT": "",
+    "SORT": "80",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "37",
+    "COLOR": "#2fb644",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#2fb644"
+    }
+  },
+  {
+    "ID": "737",
+    "ENTITY_ID": "DEAL_STAGE_45",
+    "STATUS_ID": "C45:NEW",
+    "NAME": "Aguard. Chegar 1° Remessa",
+    "NAME_INIT": "Em Desenvolvimento",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "45",
+    "COLOR": "#39a8ef",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#39a8ef"
+    }
+  },
+  {
+    "ID": "747",
+    "ENTITY_ID": "DEAL_STAGE_45",
+    "STATUS_ID": "C45:WON",
+    "NAME": "Concluido",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "150",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "45",
+    "COLOR": "#a5de00",
+    "SEMANTICS": "S",
+    "EXTRA": {
+      "SEMANTICS": "success",
+      "COLOR": "#a5de00"
+    }
+  },
+  {
+    "ID": "749",
+    "ENTITY_ID": "DEAL_STAGE_45",
+    "STATUS_ID": "C45:LOSE",
+    "NAME": "Não aprovado",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "160",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "45",
+    "COLOR": "#ef3000",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "failure",
+      "COLOR": "#ef3000"
+    }
+  },
+  {
+    "ID": "821",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:NEW",
+    "NAME": "Follow-up por Ligação - 15 dias",
+    "NAME_INIT": "Em Desenvolvimento",
+    "SORT": "130",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "53",
+    "COLOR": "#003172",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#003172"
+    }
+  },
+  {
+    "ID": "825",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:PREPAYMENT_INVOIC",
+    "NAME": "Envio da apresentação",
+    "NAME_INIT": "",
+    "SORT": "100",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "53",
+    "COLOR": "#007333",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#007333"
+    }
+  },
+  {
+    "ID": "831",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:WON",
+    "NAME": "Cliente convertido",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "150",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "53",
+    "COLOR": "#7bd500",
+    "SEMANTICS": "S",
+    "EXTRA": {
+      "SEMANTICS": "success",
+      "COLOR": "#7bd500"
+    }
+  },
+  {
+    "ID": "833",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:LOSE",
+    "NAME": "Cliente descartado",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "160",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "53",
+    "COLOR": "#ff5752",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "failure",
+      "COLOR": "#ff5752"
+    }
+  },
+  {
+    "ID": "859",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_3LN9SF",
+    "NAME": "PROPOSTAS - PORTAIS",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#ffffff",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#ffffff"
+    }
+  },
+  {
+    "ID": "961",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_292VBL",
+    "NAME": "Novo Lead",
+    "NAME_INIT": "",
+    "SORT": "10",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#555555",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#555555"
+    }
+  },
+  {
+    "ID": "969",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:UC_W6I7HZ",
+    "NAME": "Lab./ Conserto/ Selagem Tercerizado",
+    "NAME_INIT": "",
+    "SORT": "120",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "37",
+    "COLOR": "#468ee5",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#468ee5"
+    }
+  },
+  {
+    "ID": "979",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:UC_KXC2Z5",
+    "NAME": "E-mail continuo",
+    "NAME_INIT": "",
+    "SORT": "140",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "53",
+    "COLOR": "#460663",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#460663"
+    }
+  },
+  {
+    "ID": "987",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:UC_IIA1TB",
+    "NAME": "Certificado Liberado",
+    "NAME_INIT": "",
+    "SORT": "130",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "37",
+    "COLOR": "#1eae43",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#1eae43"
+    }
+  },
+  {
+    "ID": "1001",
+    "ENTITY_ID": "SMART_DOCUMENT_STAGE_3",
+    "STATUS_ID": "DT36_3:DRAFT",
+    "NAME": "Draft",
+    "NAME_INIT": "Draft",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "3",
+    "COLOR": "#00A9F4",
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1003",
+    "ENTITY_ID": "SMART_DOCUMENT_STAGE_3",
+    "STATUS_ID": "DT36_3:PROCESSING",
+    "NAME": "Under review",
+    "NAME_INIT": "Under review",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "3",
+    "COLOR": "#00C9FA",
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1005",
+    "ENTITY_ID": "SMART_DOCUMENT_STAGE_3",
+    "STATUS_ID": "DT36_3:SENT",
+    "NAME": "Sent",
+    "NAME_INIT": "Sent",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "3",
+    "COLOR": "#00D3E2",
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1007",
+    "ENTITY_ID": "SMART_DOCUMENT_STAGE_3",
+    "STATUS_ID": "DT36_3:SIGNED",
+    "NAME": "Signed",
+    "NAME_INIT": "Signed",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "3",
+    "COLOR": "#47E4C2",
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1009",
+    "ENTITY_ID": "SMART_DOCUMENT_STAGE_3",
+    "STATUS_ID": "DT36_3:NOTSIGNED",
+    "NAME": "Not signed",
+    "NAME_INIT": "Not signed",
+    "SORT": "70",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "3",
+    "COLOR": "#FF5752",
+    "SEMANTICS": "F"
+  },
+  {
+    "ID": "1041",
+    "ENTITY_ID": "SMART_DOCUMENT_STAGE_3",
+    "STATUS_ID": "DT36_3:SEMISIGNED",
+    "NAME": "Partially signed",
+    "NAME_INIT": "Partially signed",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "3",
+    "COLOR": "#FEA300",
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1043",
+    "ENTITY_ID": "SMART_DOCUMENT_STAGE_3",
+    "STATUS_ID": "DT36_3:ARCHIVE",
+    "NAME": "Archived",
+    "NAME_INIT": "Archived",
+    "SORT": "60",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "3",
+    "COLOR": "#7BD500",
+    "SEMANTICS": "S"
+  },
+  {
+    "ID": "1049",
+    "ENTITY_ID": "DEAL_STAGE_67",
+    "STATUS_ID": "C67:NEW",
+    "NAME": "Clientes não convertidos",
+    "NAME_INIT": "Em Desenvolvimento",
+    "SORT": "70",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "67",
+    "COLOR": "#00bdb5",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#00bdb5"
+    }
+  },
+  {
+    "ID": "1053",
+    "ENTITY_ID": "DEAL_STAGE_67",
+    "STATUS_ID": "C67:PREPAYMENT_INVOIC",
+    "NAME": "Envio da apresentação",
+    "NAME_INIT": "",
+    "SORT": "100",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "67",
+    "COLOR": "#00adf2",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#00adf2"
+    }
+  },
+  {
+    "ID": "1055",
+    "ENTITY_ID": "DEAL_STAGE_67",
+    "STATUS_ID": "C67:EXECUTING",
+    "NAME": "FOLLOW-UP / LIGAÇÃO - HOSPITALAR",
+    "NAME_INIT": "",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "67",
+    "COLOR": "#0052a7",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#0052a7"
+    }
+  },
+  {
+    "ID": "1057",
+    "ENTITY_ID": "DEAL_STAGE_67",
+    "STATUS_ID": "C67:FINAL_INVOICE",
+    "NAME": "E-mail Contínuo até 40 dias",
+    "NAME_INIT": "",
+    "SORT": "110",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "67",
+    "COLOR": "#ffa900",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#ffa900"
+    }
+  },
+  {
+    "ID": "1059",
+    "ENTITY_ID": "DEAL_STAGE_67",
+    "STATUS_ID": "C67:WON",
+    "NAME": "Convertidos",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "130",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "67",
+    "COLOR": "#7bd500",
+    "SEMANTICS": "S",
+    "EXTRA": {
+      "SEMANTICS": "success",
+      "COLOR": "#7bd500"
+    }
+  },
+  {
+    "ID": "1061",
+    "ENTITY_ID": "DEAL_STAGE_67",
+    "STATUS_ID": "C67:LOSE",
+    "NAME": "Descartados",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "140",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "67",
+    "COLOR": "#ff5752",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "failure",
+      "COLOR": "#ff5752"
+    }
+  },
+  {
+    "ID": "1101",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_QFTU7I",
+    "NAME": "CONFIRMAR RECEBIMENTO",
+    "NAME_INIT": "",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#dbdde0",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#dbdde0"
+    }
+  },
+  {
+    "ID": "1105",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_PMITSG",
+    "NAME": "1º FOLLOW-UP / LIGAÇÃO",
+    "NAME_INIT": "",
+    "SORT": "60",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#949da9",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#949da9"
+    }
+  },
+  {
+    "ID": "1107",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_UQUW3T",
+    "NAME": "2º FOLLOW-UP / LIGAÇÃO",
+    "NAME_INIT": "",
+    "SORT": "70",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#898989",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#898989"
+    }
+  },
+  {
+    "ID": "1109",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_GCVLKF",
+    "NAME": "3º FOLLOW-UP / LIGAÇÃO",
+    "NAME_INIT": "",
+    "SORT": "80",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#555555",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#555555"
+    }
+  },
+  {
+    "ID": "1141",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:UC_GJ6IGK",
+    "NAME": "Falta Pagamento",
+    "NAME_INIT": "",
+    "SORT": "140",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "37",
+    "COLOR": "#f11716",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#f11716"
+    }
+  },
+  {
+    "ID": "1145",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:UC_FBZG1A",
+    "NAME": "Pendências de compras",
+    "NAME_INIT": "",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "37",
+    "COLOR": "#f11716",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#f11716"
+    }
+  },
+  {
+    "ID": "1151",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:UC_NONJKG",
+    "NAME": "Aguardando OS chegar",
+    "NAME_INIT": "",
+    "SORT": "90",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "37",
+    "COLOR": "#898989",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#898989"
+    }
+  },
+  {
+    "ID": "1159",
+    "ENTITY_ID": "DEAL_STAGE_45",
+    "STATUS_ID": "C45:UC_FGGT7U",
+    "NAME": "Aguard. Chegar a 2° Remessa",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "45",
+    "COLOR": "#ff5b55",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#ff5b55"
+    }
+  },
+  {
+    "ID": "1161",
+    "ENTITY_ID": "DEAL_STAGE_67",
+    "STATUS_ID": "C67:UC_6M8L1W",
+    "NAME": "Portais",
+    "NAME_INIT": "",
+    "SORT": "120",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "67",
+    "COLOR": "#00ff00",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#00ff00"
+    }
+  },
+  {
+    "ID": "1179",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:UC_7BHGN9",
+    "NAME": "Aguardando Pendência Cliente",
+    "NAME_INIT": "",
+    "SORT": "60",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "37",
+    "COLOR": "#ffffff",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#ffffff"
+    }
+  },
+  {
+    "ID": "1183",
+    "ENTITY_ID": "DEAL_STAGE_69",
+    "STATUS_ID": "C69:NEW",
+    "NAME": "-",
+    "NAME_INIT": "Em Desenvolvimento",
+    "SORT": "20",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "69",
+    "COLOR": "#003172",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#003172"
+    }
+  },
+  {
+    "ID": "1193",
+    "ENTITY_ID": "DEAL_STAGE_69",
+    "STATUS_ID": "C69:WON",
+    "NAME": "-",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "30",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "69",
+    "COLOR": "#7bd500",
+    "SEMANTICS": "S",
+    "EXTRA": {
+      "SEMANTICS": "success",
+      "COLOR": "#7bd500"
+    }
+  },
+  {
+    "ID": "1195",
+    "ENTITY_ID": "DEAL_STAGE_69",
+    "STATUS_ID": "C69:LOSE",
+    "NAME": "-",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "40",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "69",
+    "COLOR": "#ff5752",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "failure",
+      "COLOR": "#ff5752"
+    }
+  },
+  {
+    "ID": "1199",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:UC_XW7VPK",
+    "NAME": "Confirmar recebimento - Ligação",
+    "NAME_INIT": "",
+    "SORT": "110",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "53",
+    "COLOR": "#7bc56f",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#7bc56f"
+    }
+  },
+  {
+    "ID": "1259",
+    "ENTITY_ID": "SMART_B2E_DOC_STAGE_11",
+    "STATUS_ID": "DT39_11:DRAFT",
+    "NAME": "Draft",
+    "NAME_INIT": "Draft",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "11",
+    "COLOR": "#00A9F4",
+    "SEMANTICS": ""
+  },
+  {
+    "ID": "1261",
+    "ENTITY_ID": "SMART_B2E_DOC_STAGE_11",
+    "STATUS_ID": "DT39_11:COORDINATION",
+    "NAME": "Approving",
+    "NAME_INIT": "Approving",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "11",
+    "COLOR": "#00C9FA",
+    "SEMANTICS": ""
+  },
+  {
+    "ID": "1263",
+    "ENTITY_ID": "SMART_B2E_DOC_STAGE_11",
+    "STATUS_ID": "DT39_11:FILLING",
+    "NAME": "Filling out fields",
+    "NAME_INIT": "Filling out fields",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "11",
+    "COLOR": "#00C4FB",
+    "SEMANTICS": ""
+  },
+  {
+    "ID": "1265",
+    "ENTITY_ID": "SMART_B2E_DOC_STAGE_11",
+    "STATUS_ID": "DT39_11:SIGNING",
+    "NAME": "Signing",
+    "NAME_INIT": "Signing",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "11",
+    "COLOR": "#00D3E2",
+    "SEMANTICS": ""
+  },
+  {
+    "ID": "1267",
+    "ENTITY_ID": "SMART_B2E_DOC_STAGE_11",
+    "STATUS_ID": "DT39_11:COMPLETED",
+    "NAME": "Result",
+    "NAME_INIT": "Result",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "11",
+    "COLOR": "#FEA300",
+    "SEMANTICS": ""
+  },
+  {
+    "ID": "1269",
+    "ENTITY_ID": "SMART_B2E_DOC_STAGE_11",
+    "STATUS_ID": "DT39_11:ARCHIVE",
+    "NAME": "Archived",
+    "NAME_INIT": "Archived",
+    "SORT": "60",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "11",
+    "COLOR": "#7BD500",
+    "SEMANTICS": "S"
+  },
+  {
+    "ID": "1271",
+    "ENTITY_ID": "SMART_B2E_DOC_STAGE_11",
+    "STATUS_ID": "DT39_11:FAILURE",
+    "NAME": "Not signed",
+    "NAME_INIT": "Not signed",
+    "SORT": "70",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "11",
+    "COLOR": "#FF5752",
+    "SEMANTICS": "F"
+  },
+  {
+    "ID": "1317",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "5|BITRIX_WHATCRM_NET_70680444",
+    "NAME": "[whatcrm] WhatsApp - [whatcrm] line #5",
+    "NAME_INIT": "",
+    "SORT": "170",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1319",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_Z1S9HT",
+    "NAME": "Aut. Data Foll + E-mail",
+    "NAME_INIT": "",
+    "SORT": "160",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#922091",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#922091"
+    }
+  },
+  {
+    "ID": "1323",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_WMHIVL",
+    "NAME": "FICOU DE ENVIAR PEDIDO",
+    "NAME_INIT": "",
+    "SORT": "140",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#fff300",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#fff300"
+    }
+  },
+  {
+    "ID": "1325",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_8VWAEG",
+    "NAME": "PARA EMISSÃO",
+    "NAME_INIT": "",
+    "SORT": "190",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#ef008b",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#ef008b"
+    }
+  },
+  {
+    "ID": "1371",
+    "ENTITY_ID": "DEAL_STAGE_45",
+    "STATUS_ID": "C45:UC_YONEFQ",
+    "NAME": "Pós venda",
+    "NAME_INIT": "",
+    "SORT": "140",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "45",
+    "COLOR": "#fff300",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#fff300"
+    }
+  },
+  {
+    "ID": "1409",
+    "ENTITY_ID": "DEAL_STAGE_83",
+    "STATUS_ID": "C83:NEW",
+    "NAME": "AGENDAR COLETA",
+    "NAME_INIT": "Em Desenvolvimento",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "83",
+    "COLOR": "#39a8ef",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#39a8ef"
+    }
+  },
+  {
+    "ID": "1415",
+    "ENTITY_ID": "DEAL_STAGE_83",
+    "STATUS_ID": "C83:EXECUTING",
+    "NAME": "AGUARDANDO COLETA",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "83",
+    "COLOR": "#47e4c2",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#47e4c2"
+    }
+  },
+  {
+    "ID": "1419",
+    "ENTITY_ID": "DEAL_STAGE_83",
+    "STATUS_ID": "C83:WON",
+    "NAME": "-",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "50",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "83",
+    "COLOR": "#7bd500",
+    "SEMANTICS": "S",
+    "EXTRA": {
+      "SEMANTICS": "success",
+      "COLOR": "#7bd500"
+    }
+  },
+  {
+    "ID": "1421",
+    "ENTITY_ID": "DEAL_STAGE_83",
+    "STATUS_ID": "C83:LOSE",
+    "NAME": "PEDIDOS CANCELADOS",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "60",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "83",
+    "COLOR": "#f11716",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "failure",
+      "COLOR": "#f11716"
+    }
+  },
+  {
+    "ID": "1423",
+    "ENTITY_ID": "DEAL_STAGE_83",
+    "STATUS_ID": "C83:APOLOGY",
+    "NAME": "PROBLEMAS NA ENTREGA",
+    "NAME_INIT": "",
+    "SORT": "70",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "83",
+    "COLOR": "#fff300",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "apology",
+      "COLOR": "#fff300"
+    }
+  },
+  {
+    "ID": "1427",
+    "ENTITY_ID": "DEAL_STAGE_69",
+    "STATUS_ID": "C69:UC_96LXDP",
+    "NAME": "Maiores Industria Brasil",
+    "NAME_INIT": "",
+    "SORT": "10",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "69",
+    "COLOR": "#468ee5",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#468ee5"
+    }
+  },
+  {
+    "ID": "1429",
+    "ENTITY_ID": "DEAL_STAGE_85",
+    "STATUS_ID": "C85:NEW",
+    "NAME": "Leads Ativos",
+    "NAME_INIT": "Em Desenvolvimento",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "85",
+    "COLOR": "#39a8ef",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#39a8ef"
+    }
+  },
+  {
+    "ID": "1431",
+    "ENTITY_ID": "DEAL_STAGE_85",
+    "STATUS_ID": "C85:PREPARATION",
+    "NAME": "Leads Inativos",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "85",
+    "COLOR": "#2fc6f6",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#2fc6f6"
+    }
+  },
+  {
+    "ID": "1439",
+    "ENTITY_ID": "DEAL_STAGE_85",
+    "STATUS_ID": "C85:WON",
+    "NAME": "Ganho",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "70",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "85",
+    "COLOR": "#7bd500",
+    "SEMANTICS": "S",
+    "EXTRA": {
+      "SEMANTICS": "success",
+      "COLOR": "#7bd500"
+    }
+  },
+  {
+    "ID": "1441",
+    "ENTITY_ID": "DEAL_STAGE_85",
+    "STATUS_ID": "C85:LOSE",
+    "NAME": "Perdido",
+    "NAME_INIT": "Negócios Fechados",
+    "SORT": "80",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "85",
+    "COLOR": "#ff5752",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "failure",
+      "COLOR": "#ff5752"
+    }
+  },
+  {
+    "ID": "1447",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_XMR3KX",
+    "NAME": "Em Atendimento",
+    "NAME_INIT": "",
+    "SORT": "150",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#a0005c",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#a0005c"
+    }
+  },
+  {
+    "ID": "1449",
+    "ENTITY_ID": "DEAL_STAGE_85",
+    "STATUS_ID": "C85:UC_MNVP93",
+    "NAME": "Clientes Ativos",
+    "NAME_INIT": "",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "85",
+    "COLOR": "#00c4fb",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#00c4fb"
+    }
+  },
+  {
+    "ID": "1451",
+    "ENTITY_ID": "DEAL_STAGE_85",
+    "STATUS_ID": "C85:UC_BVW2LH",
+    "NAME": "Clientes Inativos",
+    "NAME_INIT": "",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "85",
+    "COLOR": "#0052a7",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#0052a7"
+    }
+  },
+  {
+    "ID": "1453",
+    "ENTITY_ID": "COMPANY_TYPE",
+    "STATUS_ID": "UC_XBOF3Q",
+    "NAME": "Lead",
+    "NAME_INIT": "",
+    "SORT": "90",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1461",
+    "ENTITY_ID": "DEAL_STAGE_67",
+    "STATUS_ID": "C67:UC_EX8A66",
+    "NAME": "Disparo automático",
+    "NAME_INIT": "",
+    "SORT": "80",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "67",
+    "COLOR": "#00c4fb",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#00c4fb"
+    }
+  },
+  {
+    "ID": "1463",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_71H0RR",
+    "NAME": "REVISAR PROPOSTA",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#000000",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#000000"
+    }
+  },
+  {
+    "ID": "1471",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:UC_6S4UX9",
+    "NAME": "Falta Pagamento Fornecedor",
+    "NAME_INIT": "",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "37",
+    "COLOR": "#468ee5",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#468ee5"
+    }
+  },
+  {
+    "ID": "1473",
+    "ENTITY_ID": "SMART_B2E_DOC_STAGE_13",
+    "STATUS_ID": "DT39_13:EMPLOYEE_DRAFT",
+    "NAME": "Rascunho",
+    "NAME_INIT": "Rascunho",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "13",
+    "COLOR": "#00A9F4",
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1475",
+    "ENTITY_ID": "SMART_B2E_DOC_STAGE_13",
+    "STATUS_ID": "DT39_13:EMPLOYEE_COORDINATION",
+    "NAME": "Aprovando",
+    "NAME_INIT": "Aprovando",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "13",
+    "COLOR": "#00C9FA",
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1477",
+    "ENTITY_ID": "SMART_B2E_DOC_STAGE_13",
+    "STATUS_ID": "DT39_13:EMPLOYEE_SIGNING",
+    "NAME": "Assinando",
+    "NAME_INIT": "Assinando",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "13",
+    "COLOR": "#00D3E2",
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1479",
+    "ENTITY_ID": "SMART_B2E_DOC_STAGE_13",
+    "STATUS_ID": "DT39_13:EMPLOYEE_COMPLETED",
+    "NAME": "Resultado",
+    "NAME_INIT": "Resultado",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "13",
+    "COLOR": "#FEA300",
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1481",
+    "ENTITY_ID": "SMART_B2E_DOC_STAGE_13",
+    "STATUS_ID": "DT39_13:ARCHIVE",
+    "NAME": "Arquivado",
+    "NAME_INIT": "Arquivado",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "13",
+    "COLOR": "#7BD500",
+    "SEMANTICS": "S"
+  },
+  {
+    "ID": "1483",
+    "ENTITY_ID": "SMART_B2E_DOC_STAGE_13",
+    "STATUS_ID": "DT39_13:FAILURE",
+    "NAME": "Não assinado",
+    "NAME_INIT": "Não assinado",
+    "SORT": "60",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "13",
+    "COLOR": "#FF5752",
+    "SEMANTICS": "F"
+  },
+  {
+    "ID": "1495",
+    "ENTITY_ID": "DEAL_STAGE_67",
+    "STATUS_ID": "C67:UC_2BW93Q",
+    "NAME": "contatos com e-mail",
+    "NAME_INIT": "",
+    "SORT": "90",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "67",
+    "COLOR": "#47d1e2",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#47d1e2"
+    }
+  },
+  {
+    "ID": "1505",
+    "ENTITY_ID": "DEAL_STAGE_37",
+    "STATUS_ID": "C37:UC_JXWDF6",
+    "NAME": "Aguardando ajuste de comissão",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "37",
+    "COLOR": "#a2a8b0",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#a2a8b0"
+    }
+  },
+  {
+    "ID": "1509",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_3Z2OP5",
+    "NAME": "Aut. Data Follp + Email",
+    "NAME_INIT": "",
+    "SORT": "120",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#922091",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#922091"
+    }
+  },
+  {
+    "ID": "1511",
+    "ENTITY_ID": "DEAL_STAGE_83",
+    "STATUS_ID": "C83:UC_Q69XN2",
+    "NAME": "COLETADO",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "83",
+    "COLOR": "#00c4fb",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#00c4fb"
+    }
+  },
+  {
+    "ID": "1513",
+    "ENTITY_ID": "DEAL_STAGE_83",
+    "STATUS_ID": "C83:UC_536BMQ",
+    "NAME": "ATENDIDO",
+    "NAME_INIT": "",
+    "SORT": "80",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "83",
+    "COLOR": "#0052a7",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "apology",
+      "COLOR": "#0052a7"
+    }
+  },
+  {
+    "ID": "1535",
+    "ENTITY_ID": "DEAL_STAGE_83",
+    "STATUS_ID": "C83:UC_S944P3",
+    "NAME": "Financeiro (em plan. Daniel)",
+    "NAME_INIT": "",
+    "SORT": "90",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "83",
+    "COLOR": "#47d1e2",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "apology",
+      "COLOR": "#47d1e2"
+    }
+  },
+  {
+    "ID": "1539",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "REPEAT_SALE",
+    "NAME": "Investimento Meta",
+    "NAME_INIT": "Vendas recorrentes",
+    "SORT": "180",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "0",
+    "COLOR": "#",
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1541",
+    "ENTITY_ID": "DEAL_STAGE_67",
+    "STATUS_ID": "C67:UC_BTW3OS",
+    "NAME": "QUALIFICAÇÃO - HOSPITALAR",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "67",
+    "COLOR": "#00adf2",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#00adf2"
+    }
+  },
+  {
+    "ID": "1543",
+    "ENTITY_ID": "DEAL_STAGE_67",
+    "STATUS_ID": "C67:UC_R29L5P",
+    "NAME": "ENVIO DE APRESENTAÇÃO - HOSPITALAR",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "67",
+    "COLOR": "#0070bf",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#0070bf"
+    }
+  },
+  {
+    "ID": "1545",
+    "ENTITY_ID": "DEAL_STAGE_67",
+    "STATUS_ID": "C67:UC_EAIET7",
+    "NAME": "LISTA DE NOVOS CLIENTES - HOSPITALAR",
+    "NAME_INIT": "",
+    "SORT": "10",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "67",
+    "COLOR": "#67cef9",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#67cef9"
+    }
+  },
+  {
+    "ID": "1547",
+    "ENTITY_ID": "DEAL_STAGE_67",
+    "STATUS_ID": "C67:UC_7NT3TS",
+    "NAME": "CONVERTIDO - HOSPITALAR",
+    "NAME_INIT": "",
+    "SORT": "60",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "67",
+    "COLOR": "#00a74c",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#00a74c"
+    }
+  },
+  {
+    "ID": "1549",
+    "ENTITY_ID": "DEAL_STAGE_67",
+    "STATUS_ID": "C67:UC_1XQW5W",
+    "NAME": "E-MAIL CONTÍNUO - HOSPITALAR",
+    "NAME_INIT": "",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "67",
+    "COLOR": "#004982",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#004982"
+    }
+  },
+  {
+    "ID": "1555",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_8Y9DGI",
+    "NAME": "Aguardando Cliente",
+    "NAME_INIT": "",
+    "SORT": "130",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#f16ca8",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#f16ca8"
+    }
+  },
+  {
+    "ID": "1563",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:UC_N028E0",
+    "NAME": "Clientes Inativos 6 meses",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "53",
+    "COLOR": "#468ee5",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#468ee5"
+    }
+  },
+  {
+    "ID": "1577",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:UC_T7LH3S",
+    "NAME": "E-mails Automáticos",
+    "NAME_INIT": "",
+    "SORT": "120",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "53",
+    "COLOR": "#a3d49b",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#a3d49b"
+    }
+  },
+  {
+    "ID": "1605",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "BOOKING",
+    "NAME": "Agendamento on-line",
+    "NAME_INIT": "Agendamento on-line",
+    "SORT": "160",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1611",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:UC_UUGRQP",
+    "NAME": "Qualificar Antes de enviar",
+    "NAME_INIT": "",
+    "SORT": "60",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "53",
+    "COLOR": "#f0008c",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#f0008c"
+    }
+  },
+  {
+    "ID": "1617",
+    "ENTITY_ID": "DEAL_STAGE_45",
+    "STATUS_ID": "C45:UC_5IPRB4",
+    "NAME": "Declaração e Recibo",
+    "NAME_INIT": "",
+    "SORT": "120",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "45",
+    "COLOR": "#ef3000",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#ef3000"
+    }
+  },
+  {
+    "ID": "1623",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_QE10C2",
+    "NAME": "AGENDADO E POTENCIAL",
+    "NAME_INIT": "",
+    "SORT": "110",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#fff300",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#fff300"
+    }
+  },
+  {
+    "ID": "1625",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_A5H6DQ",
+    "NAME": "Aut. Data Foll",
+    "NAME_INIT": "",
+    "SORT": "130",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#00c4fb",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#00c4fb"
+    }
+  },
+  {
+    "ID": "1627",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_ES3ZE0",
+    "NAME": "Aut. Data Foll",
+    "NAME_INIT": "",
+    "SORT": "180",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#47d1e2",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#47d1e2"
+    }
+  },
+  {
+    "ID": "1639",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:UC_S8NIS1",
+    "NAME": "Sem - Retorno -retrabalho",
+    "NAME_INIT": "",
+    "SORT": "10",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "53",
+    "COLOR": "#f36509",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#f36509"
+    }
+  },
+  {
+    "ID": "1649",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_A3V60J",
+    "NAME": "Cliente Pontecial a Ser trabalhado",
+    "NAME_INIT": "",
+    "SORT": "160",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#0052a7",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#0052a7"
+    }
+  },
+  {
+    "ID": "1667",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "UC_MC2HMJ",
+    "NAME": "Whatsapp",
+    "NAME_INIT": "",
+    "SORT": "70",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1669",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "UC_5SWOWQ",
+    "NAME": "Anuncio Manômetro",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1671",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "UC_121AA5",
+    "NAME": "Anúncio Forno",
+    "NAME_INIT": "",
+    "SORT": "90",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1673",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "UC_TUQ8VH",
+    "NAME": "Anúncio Não Informado",
+    "NAME_INIT": "",
+    "SORT": "100",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1675",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "UC_NOESNW",
+    "NAME": "E-mail Marketing",
+    "NAME_INIT": "",
+    "SORT": "150",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1677",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_708IAR",
+    "NAME": "1º Mensagem",
+    "NAME_INIT": "",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#c4baed",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#c4baed"
+    }
+  },
+  {
+    "ID": "1679",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_GA5MMN",
+    "NAME": "3º Mensagem",
+    "NAME_INIT": "",
+    "SORT": "70",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#bd8bc0",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#bd8bc0"
+    }
+  },
+  {
+    "ID": "1681",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_90X1XG",
+    "NAME": "4º Mensagem",
+    "NAME_INIT": "",
+    "SORT": "80",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#a861ab",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#a861ab"
+    }
+  },
+  {
+    "ID": "1683",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_J74P1M",
+    "NAME": "5º Mensagem",
+    "NAME_INIT": "",
+    "SORT": "90",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#922091",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#922091"
+    }
+  },
+  {
+    "ID": "1685",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_LZG4PZ",
+    "NAME": "6º Mensagem",
+    "NAME_INIT": "",
+    "SORT": "100",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#630060",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#630060"
+    }
+  },
+  {
+    "ID": "1689",
+    "ENTITY_ID": "DEAL_STAGE_85",
+    "STATUS_ID": "C85:UC_MHQTAS",
+    "NAME": "Leads Inativos > 180 DIAS",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "85",
+    "COLOR": "#47d1e2",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#47d1e2"
+    }
+  },
+  {
+    "ID": "1691",
+    "ENTITY_ID": "DEAL_STAGE_85",
+    "STATUS_ID": "C85:UC_UZ7FC0",
+    "NAME": "Clientes Inativos > 180 DIAS",
+    "NAME_INIT": "",
+    "SORT": "60",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "85",
+    "COLOR": "#0000ff",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#0000ff"
+    }
+  },
+  {
+    "ID": "1693",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:UC_GS3IV1",
+    "NAME": "Não conseguiu falar",
+    "NAME_INIT": "",
+    "SORT": "70",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "53",
+    "COLOR": "#468ee5",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#468ee5"
+    }
+  },
+  {
+    "ID": "1697",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_V13MLR",
+    "NAME": "Aguardando Vendedor",
+    "NAME_INIT": "",
+    "SORT": "140",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#f0008c",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#f0008c"
+    }
+  },
+  {
+    "ID": "1719",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "UC_QPPEGP",
+    "NAME": "Redes Sociais",
+    "NAME_INIT": "",
+    "SORT": "190",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1721",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "UC_0YE1U4",
+    "NAME": "Mercado Livre",
+    "NAME_INIT": "",
+    "SORT": "200",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1725",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "UC_WFYORT",
+    "NAME": "Grupo Expertise",
+    "NAME_INIT": "",
+    "SORT": "210",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1727",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_7UM9C0",
+    "NAME": "Em Analise",
+    "NAME_INIT": "",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#555555",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#555555"
+    }
+  },
+  {
+    "ID": "1729",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "UC_H42VL2",
+    "NAME": "Rede Sociais Orgânico",
+    "NAME_INIT": "",
+    "SORT": "220",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1731",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "UC_986RO6",
+    "NAME": "Grupo de Transmissão",
+    "NAME_INIT": "",
+    "SORT": "230",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1733",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_5LMJYC",
+    "NAME": "LEADVICAL SEM RETORNO",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#dbdde0",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#dbdde0"
+    }
+  },
+  {
+    "ID": "1735",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_B017VZ",
+    "NAME": "LEADVICAL COM INTERESSE",
+    "NAME_INIT": "",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#bfc5cd",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#bfc5cd"
+    }
+  },
+  {
+    "ID": "1737",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "UC_FDLQA0",
+    "NAME": "Pesquisa Orgânica",
+    "NAME_INIT": "",
+    "SORT": "240",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1739",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_ZLI1HS",
+    "NAME": "KIT DE CALIBRAÇÃO",
+    "NAME_INIT": "",
+    "SORT": "90",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#75d900",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#75d900"
+    }
+  },
+  {
+    "ID": "1741",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "UC_6U1A7X",
+    "NAME": "Portal",
+    "NAME_INIT": "",
+    "SORT": "250",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1745",
+    "ENTITY_ID": "DEAL_STAGE_91",
+    "STATUS_ID": "C91:NEW",
+    "NAME": "Novo Negócio",
+    "NAME_INIT": "Em Desenvolvimento",
+    "SORT": "10",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "91",
+    "COLOR": "#1f86ff",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#1f86ff"
+    }
+  },
+  {
+    "ID": "1747",
+    "ENTITY_ID": "DEAL_STAGE_91",
+    "STATUS_ID": "C91:PREPARATION",
+    "NAME": "Criar documentos",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "91",
+    "COLOR": "#30AFFF",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#30AFFF"
+    }
+  },
+  {
+    "ID": "1749",
+    "ENTITY_ID": "DEAL_STAGE_91",
+    "STATUS_ID": "C91:PREPAYMENT_INVOIC",
+    "NAME": "Fatura",
+    "NAME_INIT": "",
+    "SORT": "30",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "91",
+    "COLOR": "#00C0D5",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#00C0D5"
+    }
+  },
+  {
+    "ID": "1751",
+    "ENTITY_ID": "DEAL_STAGE_91",
+    "STATUS_ID": "C91:EXECUTING",
+    "NAME": "Em andamento",
+    "NAME_INIT": "",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "91",
+    "COLOR": "#31C469",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#31C469"
+    }
+  },
+  {
+    "ID": "1753",
+    "ENTITY_ID": "DEAL_STAGE_91",
+    "STATUS_ID": "C91:FINAL_INVOICE",
+    "NAME": "Fatura final",
+    "NAME_INIT": "",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "91",
+    "COLOR": "#FAAA08",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#FAAA08"
+    }
+  },
+  {
+    "ID": "1755",
+    "ENTITY_ID": "DEAL_STAGE_91",
+    "STATUS_ID": "C91:WON",
+    "NAME": "Negócio ganho",
+    "NAME_INIT": "Negócio ganho",
+    "SORT": "60",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "91",
+    "COLOR": "#7BD500",
+    "SEMANTICS": "S",
+    "EXTRA": {
+      "SEMANTICS": "success",
+      "COLOR": "#7BD500"
+    }
+  },
+  {
+    "ID": "1757",
+    "ENTITY_ID": "DEAL_STAGE_91",
+    "STATUS_ID": "C91:LOSE",
+    "NAME": "Negócio perdido",
+    "NAME_INIT": "Negócio perdido",
+    "SORT": "70",
+    "SYSTEM": "Y",
+    "CATEGORY_ID": "91",
+    "COLOR": "#FF5752",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "failure",
+      "COLOR": "#FF5752"
+    }
+  },
+  {
+    "ID": "1759",
+    "ENTITY_ID": "DEAL_STAGE_91",
+    "STATUS_ID": "C91:APOLOGY",
+    "NAME": "Analisar falha",
+    "NAME_INIT": "",
+    "SORT": "80",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "91",
+    "COLOR": "#FF5752",
+    "SEMANTICS": "F",
+    "EXTRA": {
+      "SEMANTICS": "apology",
+      "COLOR": "#FF5752"
+    }
+  },
+  {
+    "ID": "1761",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "UC_X3ZF8U",
+    "NAME": "Indicação",
+    "NAME_INIT": "",
+    "SORT": "260",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1779",
+    "ENTITY_ID": "SOURCE",
+    "STATUS_ID": "UC_PTT9VK",
+    "NAME": "Prospecção",
+    "NAME_INIT": "",
+    "SORT": "270",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": null,
+    "SEMANTICS": null
+  },
+  {
+    "ID": "1781",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:UC_F3WGWG",
+    "NAME": "Sem - Retorno -retrabalho -30 dias",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "53",
+    "COLOR": "#f99500",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#f99500"
+    }
+  },
+  {
+    "ID": "1783",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:UC_XFZ78A",
+    "NAME": "não pontecial",
+    "NAME_INIT": "",
+    "SORT": "50",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "53",
+    "COLOR": "#468ee5",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#468ee5"
+    }
+  },
+  {
+    "ID": "1785",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:UC_HU2S9I",
+    "NAME": "Tentativa de atualização cadastral",
+    "NAME_INIT": "",
+    "SORT": "80",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "53",
+    "COLOR": "#fff300",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#fff300"
+    }
+  },
+  {
+    "ID": "1787",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:UC_CONWRL",
+    "NAME": "ativa",
+    "NAME_INIT": "",
+    "SORT": "40",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "53",
+    "COLOR": "#00c4fb",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#00c4fb"
+    }
+  },
+  {
+    "ID": "1791",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_0S6GPG",
+    "NAME": "Investimento",
+    "NAME_INIT": "",
+    "SORT": "20",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#ebebeb",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#ebebeb"
+    }
+  },
+  {
+    "ID": "1793",
+    "ENTITY_ID": "DEAL_STAGE_53",
+    "STATUS_ID": "C53:UC_DY1AC9",
+    "NAME": "Nutrição de Cliente Sem Retorno",
+    "NAME_INIT": "",
+    "SORT": "90",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "53",
+    "COLOR": "#f3e27c",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#f3e27c"
+    }
+  },
+  {
+    "ID": "1795",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_1GBQYY",
+    "NAME": "KIT CAL. WHATS -AUT.",
+    "NAME_INIT": "",
+    "SORT": "100",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#ffab00",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#ffab00"
+    }
+  },
+  {
+    "ID": "1799",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_X4TS99",
+    "NAME": "WHATS",
+    "NAME_INIT": "",
+    "SORT": "170",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#75d900",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#75d900"
+    }
+  },
+  {
+    "ID": "1801",
+    "ENTITY_ID": "DEAL_STAGE",
+    "STATUS_ID": "UC_0XAJWB",
+    "NAME": "AGUARDANDO SESI APROVAR OU ENVIAR PARA VICAL",
+    "NAME_INIT": "",
+    "SORT": "150",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#ffab00",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#ffab00"
+    }
+  },
+  {
+    "ID": "1803",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_KTD3MO",
+    "NAME": "2ºmensagem",
+    "NAME_INIT": "",
+    "SORT": "60",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#a284bf",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#a284bf"
+    }
+  },
+  {
+    "ID": "1805",
+    "ENTITY_ID": "STATUS",
+    "STATUS_ID": "UC_ZE0CP4",
+    "NAME": "7ºmensagem",
+    "NAME_INIT": "",
+    "SORT": "110",
+    "SYSTEM": "N",
+    "CATEGORY_ID": "0",
+    "COLOR": "#460663",
+    "SEMANTICS": null,
+    "EXTRA": {
+      "SEMANTICS": "process",
+      "COLOR": "#460663"
+    }
+  }
+]

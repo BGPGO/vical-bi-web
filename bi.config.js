@@ -70,6 +70,10 @@ module.exports = {
       profunda_cliente: "hidden",
       crm: "hidden",
       aimo: "hidden",
+      // Aba CRM Bitrix24 — 3 telas de funil de vendas
+      bitrix_mesmo_mes: "active",
+      bitrix_investimento: "active",
+      bitrix_qualquer_mes: "active",
     },
   },
 

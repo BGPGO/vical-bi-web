@@ -149,6 +149,11 @@ async function doRefresh(trigger) {
       const c = await runScript('build-data-extras.cjs', 'extras');
       try { await runScript('build-dre.cjs', 'dre'); }
       catch (e) { console.warn(`[refresh] build-dre pulado (${e.message.split('\n')[0]})`); }
+      // CRM Bitrix24 (fonte independente; fetch só roda se BITRIX_WEBHOOK_URL setado)
+      try { await runScript('fetch-bitrix.cjs', 'bitrix-fetch'); }
+      catch (e) { console.warn(`[refresh] fetch-bitrix pulado (${e.message.split('\n')[0]})`); }
+      try { await runScript('build-bitrix.cjs', 'bitrix'); }
+      catch (e) { console.warn(`[refresh] build-bitrix pulado (${e.message.split('\n')[0]})`); }
       const dur = Date.now() - t0;
       lastRun = {
         status: 'success',
@@ -224,7 +229,7 @@ app.post('/api/test-alert', async (req, res) => {
 });
 
 // --- Static
-const NO_CACHE = new Set(['/data.js', '/data-extras.js', '/dre-data.js', '/app.bundle.js', '/', '/index.html']);
+const NO_CACHE = new Set(['/data.js', '/data-extras.js', '/dre-data.js', '/bitrix-data.js', '/app.bundle.js', '/', '/index.html']);
 app.use((req, res, next) => {
   if (NO_CACHE.has(req.path)) res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
   next();

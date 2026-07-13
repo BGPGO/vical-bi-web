@@ -24,6 +24,7 @@ const SOURCES = [
   'pages-3.jsx',
   'pages-4.jsx',
   'pages-5.jsx',
+  'pages-6.jsx',
   'upsell-pages.jsx',
 ];
 
@@ -84,6 +85,9 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
     profunda_cliente: '15 Profunda Cliente',
     crm: '16 CRM',
     dre: '09 DRE',
+    bitrix_mesmo_mes: '17 Funil — Mesmo mês',
+    bitrix_investimento: '18 Investimento × Resultado',
+    bitrix_qualquer_mes: '19 Funil — Qualquer mês',
   };
   function App() {
     var p = useState('overview'); var page = p[0], setPage = p[1];
@@ -273,6 +277,9 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
       profunda_cliente: PageProfundaCliente,
       crm: PageCRM,
       dre: PageDRE,
+      bitrix_mesmo_mes: PageBitrixMesmoMes,
+      bitrix_investimento: PageBitrixInvestimento,
+      bitrix_qualquer_mes: PageBitrixQualquerMes,
     };
     // Modo da page atual: 'active' (default), 'upsell' (mostra UpsellPage), 'hidden' (não renderiza)
     var pageMode = (window.BI_PAGE_MODE && window.BI_PAGE_MODE[page]) || 'active';

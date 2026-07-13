@@ -1,0 +1,5706 @@
+{
+  "ID": {
+    "type": "integer",
+    "isRequired": false,
+    "isReadOnly": true,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "ID"
+  },
+  "TITLE": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Nome"
+  },
+  "TYPE_ID": {
+    "type": "crm_status",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "statusType": "DEAL_TYPE",
+    "title": "Tipo"
+  },
+  "CATEGORY_ID": {
+    "type": "crm_category",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": true,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Pipeline"
+  },
+  "STAGE_ID": {
+    "type": "crm_status",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "statusType": "DEAL_STAGE",
+    "title": "Fase do negócio"
+  },
+  "PREVIOUS_STAGE_ID": {
+    "type": "crm_status",
+    "isRequired": false,
+    "isReadOnly": true,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "statusType": "DEAL_STAGE",
+    "title": "Etapa anterior"
+  },
+  "STAGE_SEMANTIC_ID": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": true,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Grupo de fase"
+  },
+  "IS_NEW": {
+    "type": "char",
+    "isRequired": false,
+    "isReadOnly": true,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Novo negócio"
+  },
+  "IS_RECURRING": {
+    "type": "char",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Negócio recorrente"
+  },
+  "IS_RETURN_CUSTOMER": {
+    "type": "char",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Negócio repetido"
+  },
+  "IS_REPEATED_APPROACH": {
+    "type": "char",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Consulta repetida"
+  },
+  "PROBABILITY": {
+    "type": "integer",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Probabilidade"
+  },
+  "CURRENCY_ID": {
+    "type": "crm_currency",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Moeda"
+  },
+  "OPPORTUNITY": {
+    "type": "double",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Total"
+  },
+  "IS_MANUAL_OPPORTUNITY": {
+    "type": "char",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Modo de cálculo de valor"
+  },
+  "TAX_VALUE": {
+    "type": "double",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Taxa de imposto"
+  },
+  "COMPANY_ID": {
+    "type": "crm_company",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Empresa",
+    "settings": {
+      "parentEntityTypeId": 4
+    }
+  },
+  "MYCOMPANY_ID": {
+    "type": "crm_company",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Informações da sua empresa"
+  },
+  "CONTACT_ID": {
+    "type": "crm_contact",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "isDeprecated": true,
+    "title": "Contato"
+  },
+  "CONTACT_IDS": {
+    "type": "crm_contact",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": true,
+    "isDynamic": false,
+    "title": "Contatos"
+  },
+  "QUOTE_ID": {
+    "type": "crm_quote",
+    "isRequired": false,
+    "isReadOnly": true,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Orçamento",
+    "settings": {
+      "parentEntityTypeId": 7
+    }
+  },
+  "BEGINDATE": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Data de início"
+  },
+  "CLOSEDATE": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Data de término"
+  },
+  "OPENED": {
+    "type": "char",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Disponível para todos"
+  },
+  "CLOSED": {
+    "type": "char",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Fechado"
+  },
+  "COMMENTS": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Observação"
+  },
+  "ASSIGNED_BY_ID": {
+    "type": "user",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Pessoa responsável"
+  },
+  "CREATED_BY_ID": {
+    "type": "user",
+    "isRequired": false,
+    "isReadOnly": true,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Criado por"
+  },
+  "MODIFY_BY_ID": {
+    "type": "user",
+    "isRequired": false,
+    "isReadOnly": true,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Modificado por"
+  },
+  "MOVED_BY_ID": {
+    "type": "user",
+    "isRequired": false,
+    "isReadOnly": true,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "MOVED_BY_ID"
+  },
+  "DATE_CREATE": {
+    "type": "datetime",
+    "isRequired": false,
+    "isReadOnly": true,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Criado em"
+  },
+  "DATE_MODIFY": {
+    "type": "datetime",
+    "isRequired": false,
+    "isReadOnly": true,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Modificado em"
+  },
+  "MOVED_TIME": {
+    "type": "datetime",
+    "isRequired": false,
+    "isReadOnly": true,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Movido em"
+  },
+  "SOURCE_ID": {
+    "type": "crm_status",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "statusType": "SOURCE",
+    "title": "Fonte"
+  },
+  "SOURCE_DESCRIPTION": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Informações da fonte"
+  },
+  "LEAD_ID": {
+    "type": "crm_lead",
+    "isRequired": false,
+    "isReadOnly": true,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Lead",
+    "settings": {
+      "parentEntityTypeId": 1
+    }
+  },
+  "ADDITIONAL_INFO": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Informações adicionais"
+  },
+  "LOCATION_ID": {
+    "type": "location",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Local"
+  },
+  "ORIGINATOR_ID": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Fonte externa"
+  },
+  "ORIGIN_ID": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "ID do item na fonte de dados"
+  },
+  "UTM_SOURCE": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Sistema de anúncios"
+  },
+  "UTM_MEDIUM": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Médio"
+  },
+  "UTM_CAMPAIGN": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "UTM de campanha publicitária"
+  },
+  "UTM_CONTENT": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Conteúdo da campanha"
+  },
+  "UTM_TERM": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "Termo de pesquisa da campanha"
+  },
+  "LAST_ACTIVITY_TIME": {
+    "type": "datetime",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "LAST_ACTIVITY_TIME"
+  },
+  "LAST_ACTIVITY_BY": {
+    "type": "user",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "LAST_ACTIVITY_BY"
+  },
+  "LAST_COMMUNICATION_TIME": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": true,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "LAST_COMMUNICATION_TIME"
+  },
+  "REPEAT_SALE_SEGMENT_ID": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": true,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": false,
+    "title": "REPEAT_SALE_SEGMENT_ID"
+  },
+  "UF_CRM_608DA689D64F0": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "931",
+        "VALUE": "Cliente Ativo"
+      },
+      {
+        "ID": "53",
+        "VALUE": "Cliente Novo"
+      },
+      {
+        "ID": "55",
+        "VALUE": "Cliente Inativo"
+      },
+      {
+        "ID": "1033",
+        "VALUE": "Sesi ativo"
+      },
+      {
+        "ID": "777",
+        "VALUE": "Sesi Novo"
+      },
+      {
+        "ID": "775",
+        "VALUE": "Sesi Inativo"
+      },
+      {
+        "ID": "81",
+        "VALUE": "Laboratório de Cal Novo"
+      },
+      {
+        "ID": "1679",
+        "VALUE": "Cliente Novo formulário"
+      },
+      {
+        "ID": "1725",
+        "VALUE": "Cliente Portal"
+      },
+      {
+        "ID": "1733",
+        "VALUE": "Laboratório de Cal Inativo"
+      },
+      {
+        "ID": "1735",
+        "VALUE": "Laboratório de Cal Ativo"
+      },
+      {
+        "ID": "2513",
+        "VALUE": "Não identificado"
+      },
+      {
+        "ID": "2531",
+        "VALUE": "Cliente Revenda"
+      }
+    ],
+    "title": "UF_CRM_608DA689D64F0",
+    "listLabel": "Tipo de Cliente - CO",
+    "formLabel": "Tipo de Cliente - CO",
+    "filterLabel": "Tipo de Cliente - CO",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1620152037137": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1620152037137",
+    "listLabel": "Data do ultimo Follow-UP - CO",
+    "formLabel": "Data do ultimo Follow-UP - CO",
+    "filterLabel": "Data do ultimo Follow-UP - CO",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1622317701658": {
+    "type": "double",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1622317701658",
+    "listLabel": "Nº da cotação - CO",
+    "formLabel": "Nº da cotação - CO",
+    "filterLabel": "Nº da cotação - CO",
+    "settings": {
+      "PRECISION": 2,
+      "SIZE": 20,
+      "MIN_VALUE": 0,
+      "MAX_VALUE": 0,
+      "DEFAULT_VALUE": null
+    }
+  },
+  "UF_CRM_1622325310353": {
+    "type": "double",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1622325310353",
+    "listLabel": "Pedido Interno - PI",
+    "formLabel": "Pedido Interno - PI",
+    "filterLabel": "Pedido Interno - PI",
+    "settings": {
+      "PRECISION": 2,
+      "SIZE": 20,
+      "MIN_VALUE": 0,
+      "MAX_VALUE": 0,
+      "DEFAULT_VALUE": null
+    }
+  },
+  "UF_CRM_1622405848511": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": true,
+    "isDynamic": true,
+    "title": "UF_CRM_1622405848511",
+    "listLabel": "Anexos Pedido do Cliente - PI",
+    "formLabel": "Anexos Pedido do Cliente - PI",
+    "filterLabel": "Anexos Pedido do Cliente - PI",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1622406545307": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1622406545307",
+    "listLabel": "Pedido de Compra - PI",
+    "formLabel": "Pedido de Compra - PI",
+    "filterLabel": "Pedido de Compra - PI",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1622409078601": {
+    "type": "double",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1622409078601",
+    "listLabel": "Numero da Nota Fiscal - PI",
+    "formLabel": "Numero da Nota Fiscal - PI",
+    "filterLabel": "Numero da Nota Fiscal - PI",
+    "settings": {
+      "PRECISION": 2,
+      "SIZE": 20,
+      "MIN_VALUE": 0,
+      "MAX_VALUE": 0,
+      "DEFAULT_VALUE": null
+    }
+  },
+  "UF_CRM_1622410965104": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1622410965104",
+    "listLabel": "Data Emissão da Nota Fiscal - PI",
+    "formLabel": "Data Emissão da Nota Fiscal - PI",
+    "filterLabel": "Data Emissão da Nota Fiscal - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1622411117112": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1622411117112",
+    "listLabel": "Data da Coleta - PI",
+    "formLabel": "Data da Coleta - PI",
+    "filterLabel": "Data da Coleta - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1622411164202": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1622411164202",
+    "listLabel": "Dimensões da Caixa - PI",
+    "formLabel": "Dimensões da Caixa - PI",
+    "filterLabel": "Dimensões da Caixa - PI",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1622411186228": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1622411186228",
+    "listLabel": "Volume - PI",
+    "formLabel": "Volume - PI",
+    "filterLabel": "Volume - PI",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1622411200902": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1622411200902",
+    "listLabel": "Peso - PI",
+    "formLabel": "Peso - PI",
+    "filterLabel": "Peso - PI",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1622411699495": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1622411699495",
+    "listLabel": "Data da Pós venda - PI",
+    "formLabel": "Data da Pós venda - PI",
+    "filterLabel": "Data da Pós venda - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1622412935280": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "275",
+        "VALUE": "Sim"
+      },
+      {
+        "ID": "277",
+        "VALUE": "Não"
+      }
+    ],
+    "title": "UF_CRM_1622412935280",
+    "listLabel": "Calibração Lab Vical ? - PI",
+    "formLabel": "Calibração Lab Vical ? - PI",
+    "filterLabel": "Calibração Lab Vical ? - PI",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1622414233725": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1622414233725",
+    "listLabel": "Data de Entrega para o Cliente - PI",
+    "formLabel": "Data de Entrega para o Cliente - PI",
+    "filterLabel": "Data de Entrega para o Cliente - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_60B783C5B0E46": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_60B783C5B0E46",
+    "listLabel": "Data do envio da apresentação - PR",
+    "formLabel": "Data do envio da apresentação - PR",
+    "filterLabel": "Data do envio da apresentação - PR",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1622644994153": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1622644994153",
+    "listLabel": "Anexar arquivo - CO",
+    "formLabel": "Anexar arquivo - CO",
+    "filterLabel": "Anexar arquivo - CO",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1622645291892": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1622645291892",
+    "listLabel": "Observação - *",
+    "formLabel": "Observação - *",
+    "filterLabel": "Observação - *",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": null
+    }
+  },
+  "UF_CRM_1622647880532": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1622647880532",
+    "listLabel": "Observações -*",
+    "formLabel": "Observações -*",
+    "filterLabel": "Observações -*",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": null
+    }
+  },
+  "UF_CRM_1623070986344": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "495",
+        "VALUE": "Preço acima"
+      },
+      {
+        "ID": "501",
+        "VALUE": "Reprovado tecnicamente"
+      },
+      {
+        "ID": "2195",
+        "VALUE": "Outro motivo descreva abaixo"
+      },
+      {
+        "ID": "503",
+        "VALUE": "Sem resposta do Cliente"
+      },
+      {
+        "ID": "505",
+        "VALUE": "Cancelado"
+      },
+      {
+        "ID": "1309",
+        "VALUE": "Apenas para levantamento de preço"
+      }
+    ],
+    "title": "UF_CRM_1623070986344",
+    "listLabel": "Qual o motivo do cancelamento? - CO",
+    "formLabel": "Qual o motivo do cancelamento? - CO",
+    "filterLabel": "Qual o motivo do cancelamento? - CO",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1623071695080": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "497",
+        "VALUE": "Cancelado mesmo"
+      }
+    ],
+    "title": "UF_CRM_1623071695080",
+    "listLabel": "Qual o motivo do cancelamento? Ped. Inter",
+    "formLabel": "Qual o motivo do cancelamento? Ped. Inter",
+    "filterLabel": "Qual o motivo do cancelamento? Ped. Inter",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1623071758714": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "499",
+        "VALUE": "Cancelado mesmo"
+      }
+    ],
+    "title": "UF_CRM_1623071758714",
+    "listLabel": "Qual o motivo do cancelamento? Fat.**",
+    "formLabel": "Qual o motivo do cancelamento? Fat.**",
+    "filterLabel": "Qual o motivo do cancelamento? Fat.**",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1623333734969": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1623333734969",
+    "listLabel": "Transportadora - PI",
+    "formLabel": "Transportadora - PI",
+    "filterLabel": "Transportadora - PI",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1623358564196": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "575",
+        "VALUE": "Comum"
+      },
+      {
+        "ID": "577",
+        "VALUE": "Potencial"
+      }
+    ],
+    "title": "UF_CRM_1623358564196",
+    "listLabel": "Tipo de Proposta - CO",
+    "formLabel": "Tipo de Proposta - CO",
+    "filterLabel": "Tipo de Proposta - CO",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_60C29163C3F29": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_60C29163C3F29",
+    "listLabel": "Data da ultima interação - PR",
+    "formLabel": "Data da ultima interação - PR",
+    "filterLabel": "Data da ultima interação - PR",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1633526057410": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1633526057410",
+    "listLabel": "Data da Coleta - PI",
+    "formLabel": "Data da Coleta - PI",
+    "filterLabel": "Data da Coleta - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1634053877386": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1634053877386",
+    "listLabel": "Data do recebimento do pedido do cliente - CO",
+    "formLabel": "Data do recebimento do pedido do cliente - CO",
+    "filterLabel": "Data do recebimento do pedido do cliente - CO",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1634919929289": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1634919929289",
+    "listLabel": "Data de Primeiro contato - PR",
+    "formLabel": "Data de Primeiro contato - PR",
+    "filterLabel": "Data de Primeiro contato - PR",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_61786755D8E59": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_61786755D8E59",
+    "listLabel": "Data de conversão - PR",
+    "formLabel": "Data de conversão - PR",
+    "filterLabel": "Data de conversão - PR",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_61786755F2DEF": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_61786755F2DEF",
+    "listLabel": "Data do ultimo contato - CO",
+    "formLabel": "Data do ultimo contato - CO",
+    "filterLabel": "Data do ultimo contato - CO",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_617867560E16C": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_617867560E16C",
+    "listLabel": "Data do Próximo contato - CO",
+    "formLabel": "Data do Próximo contato - CO",
+    "filterLabel": "Data do Próximo contato - CO",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1640111790041": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1640111790041",
+    "listLabel": "Assunto do e-mail cliente - CO",
+    "formLabel": "Assunto do e-mail cliente - CO",
+    "filterLabel": "Assunto do e-mail cliente - CO",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1640112007326": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1640112007326",
+    "listLabel": "Anexar cotação - CO",
+    "formLabel": "Anexar cotação - CO",
+    "filterLabel": "Anexar cotação - CO",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y",
+      "DEFAULT_VIEW": null
+    }
+  },
+  "UF_CRM_1642186223634": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1642186223634",
+    "listLabel": "Anexar Nota Fiscal - PI",
+    "formLabel": "Anexar Nota Fiscal - PI",
+    "filterLabel": "Anexar Nota Fiscal - PI",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y",
+      "DEFAULT_VIEW": null
+    }
+  },
+  "UF_CRM_1642611314124": {
+    "type": "double",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1642611314124",
+    "listLabel": "Código de rastreio - PI",
+    "formLabel": "Código de rastreio - PI",
+    "filterLabel": "Código de rastreio - PI",
+    "settings": {
+      "PRECISION": 2,
+      "SIZE": 20,
+      "MIN_VALUE": 0,
+      "MAX_VALUE": 0,
+      "DEFAULT_VALUE": null
+    }
+  },
+  "UF_CRM_61E99D7A74592": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_61E99D7A74592",
+    "listLabel": "Produto - CO",
+    "formLabel": "Produto - CO",
+    "filterLabel": "Produto - CO",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1642786585275": {
+    "type": "boolean",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1642786585275",
+    "listLabel": "Pretende enviar o texto Pós venda? - PI",
+    "formLabel": "Pretende enviar o texto Pós venda? - PI",
+    "filterLabel": "Pretende enviar o texto Pós venda? - PI",
+    "settings": {
+      "DEFAULT_VALUE": 0,
+      "DISPLAY": "CHECKBOX",
+      "LABEL": [
+        "",
+        ""
+      ],
+      "LABEL_CHECKBOX": "Pretende enviar o texto Pós venda? - PI"
+    }
+  },
+  "UF_CRM_1642787661627": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "805",
+        "VALUE": "Sim"
+      },
+      {
+        "ID": "807",
+        "VALUE": "Não"
+      }
+    ],
+    "title": "UF_CRM_1642787661627",
+    "listLabel": "Material será enviado pela transportadora/cliente retira/ Nosso carro? - PI",
+    "formLabel": "Material será enviado pela transportadora/cliente retira/ Nosso carro? - PI",
+    "filterLabel": "Material será enviado pela transportadora/cliente retira/ Nosso carro? - PI",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1642788219845": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1642788219845",
+    "listLabel": "Código de Rastreio - PI",
+    "formLabel": "Código de Rastreio - PI",
+    "filterLabel": "Código de Rastreio - PI",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1644251793037": {
+    "type": "boolean",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1644251793037",
+    "listLabel": "Material será enviado pelo sedex? - PI",
+    "formLabel": "Material será enviado pelo sedex? - PI",
+    "filterLabel": "Material será enviado pelo sedex? - PI",
+    "settings": {
+      "DEFAULT_VALUE": 0,
+      "DISPLAY": "CHECKBOX",
+      "LABEL": [
+        "",
+        ""
+      ],
+      "LABEL_CHECKBOX": "Material será enviado pelo sedex? - PI"
+    }
+  },
+  "UF_CRM_1644252004522": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "813",
+        "VALUE": "Sim"
+      },
+      {
+        "ID": "815",
+        "VALUE": "Não"
+      }
+    ],
+    "title": "UF_CRM_1644252004522",
+    "listLabel": "*Material será enviado pelo Sedex? - PI",
+    "formLabel": "*Material será enviado pelo Sedex? - PI",
+    "filterLabel": "*Material será enviado pelo Sedex? - PI",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1644504287067": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1644504287067",
+    "listLabel": "Pedido do Cliente - PI",
+    "formLabel": "Pedido do Cliente - PI",
+    "filterLabel": "Pedido do Cliente - PI",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1645037166689": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1645037166689",
+    "listLabel": "Anexar Recibo Sesi - SESI",
+    "formLabel": "Anexar Recibo Sesi - SESI",
+    "filterLabel": "Anexar Recibo Sesi - SESI",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1645037246722": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1645037246722",
+    "listLabel": "Anexar Declaração Sesi - SESI",
+    "formLabel": "Anexar Declaração Sesi - SESI",
+    "filterLabel": "Anexar Declaração Sesi - SESI",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1645037849281": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1645037849281",
+    "listLabel": "- Certificado de calibração 1 *",
+    "formLabel": "- Certificado de calibração 1 *",
+    "filterLabel": "- Certificado de calibração 1 *",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1645037863395": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1645037863395",
+    "listLabel": "- Certificado de calibração 2",
+    "formLabel": "- Certificado de calibração 2",
+    "filterLabel": "- Certificado de calibração 2",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1645037886504": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1645037886504",
+    "listLabel": "- Certificado de calibração 3",
+    "formLabel": "- Certificado de calibração 3",
+    "filterLabel": "- Certificado de calibração 3",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1645037899667": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1645037899667",
+    "listLabel": "- Certificado de calibração 4",
+    "formLabel": "- Certificado de calibração 4",
+    "filterLabel": "- Certificado de calibração 4",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1645037917955": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1645037917955",
+    "listLabel": "- Certificado de calibração 5",
+    "formLabel": "- Certificado de calibração 5",
+    "filterLabel": "- Certificado de calibração 5",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1645037929140": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1645037929140",
+    "listLabel": "- Certificado de calibração 6",
+    "formLabel": "- Certificado de calibração 6",
+    "filterLabel": "- Certificado de calibração 6",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1645037939716": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1645037939716",
+    "listLabel": "- Certificado de calibração 7",
+    "formLabel": "- Certificado de calibração 7",
+    "filterLabel": "- Certificado de calibração 7",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1645037953096": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1645037953096",
+    "listLabel": "- Certificado de calibração 8",
+    "formLabel": "- Certificado de calibração 8",
+    "filterLabel": "- Certificado de calibração 8",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1645037969604": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1645037969604",
+    "listLabel": "- Certificado de calibração 9",
+    "formLabel": "- Certificado de calibração 9",
+    "filterLabel": "- Certificado de calibração 9",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1645038000395": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1645038000395",
+    "listLabel": "- Certificado de calibração 10",
+    "formLabel": "- Certificado de calibração 10",
+    "filterLabel": "- Certificado de calibração 10",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1645191507431": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "835",
+        "VALUE": "Sim"
+      },
+      {
+        "ID": "837",
+        "VALUE": "Não"
+      }
+    ],
+    "title": "UF_CRM_1645191507431",
+    "listLabel": "Deseja enviar o e-mail padrão SESI? - SESI",
+    "formLabel": "Deseja enviar o e-mail padrão SESI? - SESI",
+    "filterLabel": "Deseja enviar o e-mail padrão SESI? - SESI",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_620FAC1781355": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "839",
+        "VALUE": "Sim"
+      },
+      {
+        "ID": "841",
+        "VALUE": "Não"
+      }
+    ],
+    "title": "UF_CRM_620FAC1781355",
+    "listLabel": "Deseja enviar a apresentação para a mesma pessoa que conversou pelo telefone? - PR",
+    "formLabel": "Deseja enviar a apresentação para a mesma pessoa que conversou pelo telefone? - PR",
+    "filterLabel": "Deseja enviar a apresentação para a mesma pessoa que conversou pelo telefone? - PR",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1646940683462": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1646940683462",
+    "listLabel": "Número da OS -  SESI",
+    "formLabel": "Número da OS -  SESI",
+    "filterLabel": "Número da OS -  SESI",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1647605409076": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1647605409076",
+    "listLabel": " - Certificado de calibração 11",
+    "formLabel": " - Certificado de calibração 11",
+    "filterLabel": " - Certificado de calibração 11",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1648843380843": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "923",
+        "VALUE": "Formulario Site"
+      },
+      {
+        "ID": "925",
+        "VALUE": "WhatsApp"
+      },
+      {
+        "ID": "1267",
+        "VALUE": "Campanha de E-mail Marketing"
+      },
+      {
+        "ID": "1269",
+        "VALUE": "Prospecção de Cliente Inativos"
+      },
+      {
+        "ID": "1271",
+        "VALUE": "Prospecção de Novos Clientes"
+      },
+      {
+        "ID": "1273",
+        "VALUE": "Cliente ativo"
+      },
+      {
+        "ID": "1293",
+        "VALUE": "Site e-mail contato"
+      },
+      {
+        "ID": "1291",
+        "VALUE": "Cliente do Mercado Livre"
+      },
+      {
+        "ID": "1295",
+        "VALUE": "Portal de vendas"
+      },
+      {
+        "ID": "1749",
+        "VALUE": "Loja vical"
+      },
+      {
+        "ID": "1657",
+        "VALUE": "Recepção por telefone"
+      },
+      {
+        "ID": "1797",
+        "VALUE": "E-mail"
+      },
+      {
+        "ID": "2369",
+        "VALUE": "Redes Sociais"
+      }
+    ],
+    "title": "UF_CRM_1648843380843",
+    "listLabel": "Canal de entrada da cotação - CO",
+    "formLabel": "Canal de entrada da cotação - CO",
+    "filterLabel": "Canal de entrada da cotação - CO",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1649446006933": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1649446006933",
+    "listLabel": "Data da emissão do pedido de compra - PI",
+    "formLabel": "Data da emissão do pedido de compra - PI",
+    "filterLabel": "Data da emissão do pedido de compra - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1649446024225": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1649446024225",
+    "listLabel": "Data de entrega do pedido de compra - CO",
+    "formLabel": "Data de entrega do pedido de compra - CO",
+    "filterLabel": "Data de entrega do pedido de compra - CO",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1649705790764": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1649705790764",
+    "listLabel": "O material atrasou? - PI",
+    "formLabel": "O material atrasou? - PI",
+    "filterLabel": "O material atrasou? - PI",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1649768748325": {
+    "type": "double",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1649768748325",
+    "listLabel": "Pedido de Compra 2 - PI",
+    "formLabel": "Pedido de Compra 2 - PI",
+    "filterLabel": "Pedido de Compra 2 - PI",
+    "settings": {
+      "PRECISION": 2,
+      "SIZE": 20,
+      "MIN_VALUE": 0,
+      "MAX_VALUE": 0,
+      "DEFAULT_VALUE": null
+    }
+  },
+  "UF_CRM_1649768778837": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1649768778837",
+    "listLabel": "Data da emissão do pedido de compra 2 - PI",
+    "formLabel": "Data da emissão do pedido de compra 2 - PI",
+    "filterLabel": "Data da emissão do pedido de compra 2 - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1649768799948": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1649768799948",
+    "listLabel": "Data de entrega do pedido de compra 2 - PI",
+    "formLabel": "Data de entrega do pedido de compra 2 - PI",
+    "filterLabel": "Data de entrega do pedido de compra 2 - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1650999789129": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "1005",
+        "VALUE": "FOB"
+      },
+      {
+        "ID": "1007",
+        "VALUE": "CIF"
+      }
+    ],
+    "title": "UF_CRM_1650999789129",
+    "listLabel": "Frete - PI",
+    "formLabel": "Frete - PI",
+    "filterLabel": "Frete - PI",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1652277073899": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "1041",
+        "VALUE": "Diretoria"
+      },
+      {
+        "ID": "1043",
+        "VALUE": "Marketing"
+      },
+      {
+        "ID": "1045",
+        "VALUE": "Vendas"
+      },
+      {
+        "ID": "1047",
+        "VALUE": "Compras"
+      },
+      {
+        "ID": "1049",
+        "VALUE": "Expedição"
+      },
+      {
+        "ID": "1051",
+        "VALUE": "Laboratorio"
+      },
+      {
+        "ID": "1053",
+        "VALUE": "Financeiro"
+      },
+      {
+        "ID": "1055",
+        "VALUE": "Departamento Pessoal ( RH)"
+      },
+      {
+        "ID": "1073",
+        "VALUE": "Manutenção predio vical"
+      }
+    ],
+    "title": "UF_CRM_1652277073899",
+    "listLabel": "Departamento - *",
+    "formLabel": "Departamento - *",
+    "filterLabel": "Departamento - *",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1652278831428": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1652278831428",
+    "listLabel": "Por que? - *",
+    "formLabel": "Por que? - *",
+    "filterLabel": "Por que? - *",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1652278872689": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1652278872689",
+    "listLabel": "Onde? - *",
+    "formLabel": "Onde? - *",
+    "filterLabel": "Onde? - *",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1652279014121": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1652279014121",
+    "listLabel": "Como? - *",
+    "formLabel": "Como? - *",
+    "filterLabel": "Como? - *",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1652888665742": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1652888665742",
+    "listLabel": "O que? (projeto)*",
+    "formLabel": "O que? (projeto)*",
+    "filterLabel": "O que? (projeto)*",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1653393021185": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1653393021185",
+    "listLabel": "2° cotação - CO",
+    "formLabel": "2° cotação - CO",
+    "filterLabel": "2° cotação - CO",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1653400532203": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1653400532203",
+    "listLabel": "Anexar catálogo - PR",
+    "formLabel": "Anexar catálogo - PR",
+    "filterLabel": "Anexar catálogo - PR",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655325636233": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655325636233",
+    "listLabel": " - Certificado de calibração 12",
+    "formLabel": " - Certificado de calibração 12",
+    "filterLabel": " - Certificado de calibração 12",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655325647036": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655325647036",
+    "listLabel": " - Certificado de calibração 13",
+    "formLabel": " - Certificado de calibração 13",
+    "filterLabel": " - Certificado de calibração 13",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655325654748": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655325654748",
+    "listLabel": " - Certificado de calibração 14",
+    "formLabel": " - Certificado de calibração 14",
+    "filterLabel": " - Certificado de calibração 14",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655325663173": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655325663173",
+    "listLabel": " - Certificado de calibração 15",
+    "formLabel": " - Certificado de calibração 15",
+    "filterLabel": " - Certificado de calibração 15",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655325675653": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655325675653",
+    "listLabel": " - Certificado de calibração 16",
+    "formLabel": " - Certificado de calibração 16",
+    "filterLabel": " - Certificado de calibração 16",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655325683870": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655325683870",
+    "listLabel": " - Certificado de calibração 17",
+    "formLabel": " - Certificado de calibração 17",
+    "filterLabel": " - Certificado de calibração 17",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655325692214": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655325692214",
+    "listLabel": " - Certificado de calibração 18",
+    "formLabel": " - Certificado de calibração 18",
+    "filterLabel": " - Certificado de calibração 18",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655325700689": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655325700689",
+    "listLabel": " - Certificado de calibração 19",
+    "formLabel": " - Certificado de calibração 19",
+    "filterLabel": " - Certificado de calibração 19",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655325707902": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655325707902",
+    "listLabel": " - Certificado de calibração 20",
+    "formLabel": " - Certificado de calibração 20",
+    "filterLabel": " - Certificado de calibração 20",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655821698108": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "1169",
+        "VALUE": "A"
+      },
+      {
+        "ID": "1171",
+        "VALUE": "B"
+      },
+      {
+        "ID": "1173",
+        "VALUE": "C"
+      }
+    ],
+    "title": "UF_CRM_1655821698108",
+    "listLabel": "Classificação do cliente - Q",
+    "formLabel": "Classificação do cliente - Q",
+    "filterLabel": "Classificação do cliente - Q",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1655908045074": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "1207",
+        "VALUE": "3"
+      },
+      {
+        "ID": "1209",
+        "VALUE": "2"
+      },
+      {
+        "ID": "1211",
+        "VALUE": "1"
+      }
+    ],
+    "title": "UF_CRM_1655908045074",
+    "listLabel": "Segmento do Cliente - *",
+    "formLabel": "Segmento do Cliente - *",
+    "filterLabel": "Segmento do Cliente - *",
+    "settings": {
+      "DISPLAY": "LIST",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1655908376649": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "1219",
+        "VALUE": "Açúcar e Álcool"
+      },
+      {
+        "ID": "1221",
+        "VALUE": "Alimentícios e Bebidas"
+      },
+      {
+        "ID": "1223",
+        "VALUE": "Automotivo"
+      },
+      {
+        "ID": "1225",
+        "VALUE": "Biodiesel"
+      },
+      {
+        "ID": "1227",
+        "VALUE": "Farmacêutica e Cosméticos"
+      },
+      {
+        "ID": "1229",
+        "VALUE": "Energia"
+      },
+      {
+        "ID": "1231",
+        "VALUE": "Gás Industrial e Glp"
+      },
+      {
+        "ID": "1233",
+        "VALUE": "Gás Natural"
+      },
+      {
+        "ID": "1235",
+        "VALUE": "Lubrificantes e Combustíveis"
+      },
+      {
+        "ID": "1237",
+        "VALUE": "Óleo e Gás"
+      },
+      {
+        "ID": "1239",
+        "VALUE": "Papel e Celulose"
+      },
+      {
+        "ID": "1241",
+        "VALUE": "Química e Petroquímica"
+      },
+      {
+        "ID": "1243",
+        "VALUE": "Siderurgia"
+      },
+      {
+        "ID": "1245",
+        "VALUE": "Terminais de Distribuição De Combustíveis E Produtos Químicos"
+      },
+      {
+        "ID": "1247",
+        "VALUE": "Termoelétricas"
+      },
+      {
+        "ID": "1249",
+        "VALUE": "Tintas e Pigmentos"
+      },
+      {
+        "ID": "1251",
+        "VALUE": "Transportes & Navegação"
+      },
+      {
+        "ID": "1253",
+        "VALUE": "Textil"
+      },
+      {
+        "ID": "1255",
+        "VALUE": "Refino de hidrocarbonetos"
+      },
+      {
+        "ID": "1257",
+        "VALUE": "Ciências Biológicas"
+      },
+      {
+        "ID": "1259",
+        "VALUE": "Naval"
+      },
+      {
+        "ID": "1261",
+        "VALUE": "Médica"
+      },
+      {
+        "ID": "1263",
+        "VALUE": "Águas residuais"
+      },
+      {
+        "ID": "1265",
+        "VALUE": "Mineração e metais"
+      },
+      {
+        "ID": "1823",
+        "VALUE": "Outros"
+      },
+      {
+        "ID": "1829",
+        "VALUE": "Ramo de alimentação"
+      }
+    ],
+    "title": "UF_CRM_1655908376649",
+    "listLabel": "Segmento do Cliente - Q",
+    "formLabel": "Segmento do Cliente - Q",
+    "filterLabel": "Segmento do Cliente - Q",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1655908440826": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655908440826",
+    "listLabel": "Quantas unidades? - Q",
+    "formLabel": "Quantas unidades? - Q",
+    "filterLabel": "Quantas unidades? - Q",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1655908465449": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655908465449",
+    "listLabel": "Quantos funcionários? - Q",
+    "formLabel": "Quantos funcionários? - Q",
+    "filterLabel": "Quantos funcionários? - Q",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1655908477950": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655908477950",
+    "listLabel": "Quais seus principais concorrentes? - Q",
+    "formLabel": "Quais seus principais concorrentes? - Q",
+    "filterLabel": "Quais seus principais concorrentes? - Q",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1655991685770": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655991685770",
+    "listLabel": "Certificado de calibração 21",
+    "formLabel": "Certificado de calibração 21",
+    "filterLabel": "Certificado de calibração 21",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655991695504": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655991695504",
+    "listLabel": "Certificado de calibração 22",
+    "formLabel": "Certificado de calibração 22",
+    "filterLabel": "Certificado de calibração 22",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655991703737": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655991703737",
+    "listLabel": "Certificado de calibração 23",
+    "formLabel": "Certificado de calibração 23",
+    "filterLabel": "Certificado de calibração 23",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655991713988": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655991713988",
+    "listLabel": "Certificado de calibração 24",
+    "formLabel": "Certificado de calibração 24",
+    "filterLabel": "Certificado de calibração 24",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655991817325": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655991817325",
+    "listLabel": "Certificado de calibração 25",
+    "formLabel": "Certificado de calibração 25",
+    "filterLabel": "Certificado de calibração 25",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655991824443": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655991824443",
+    "listLabel": "Certificado de calibração 26",
+    "formLabel": "Certificado de calibração 26",
+    "filterLabel": "Certificado de calibração 26",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655991830422": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655991830422",
+    "listLabel": "Certificado de calibração 27",
+    "formLabel": "Certificado de calibração 27",
+    "filterLabel": "Certificado de calibração 27",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655991836285": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655991836285",
+    "listLabel": "Certificado de calibração 28",
+    "formLabel": "Certificado de calibração 28",
+    "filterLabel": "Certificado de calibração 28",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655991842725": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655991842725",
+    "listLabel": "Certificado de calibração 29",
+    "formLabel": "Certificado de calibração 29",
+    "filterLabel": "Certificado de calibração 29",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655991848611": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655991848611",
+    "listLabel": "Certificado de calibração 30",
+    "formLabel": "Certificado de calibração 30",
+    "filterLabel": "Certificado de calibração 30",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655991857245": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655991857245",
+    "listLabel": "Certificado de calibração 31",
+    "formLabel": "Certificado de calibração 31",
+    "filterLabel": "Certificado de calibração 31",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655991862376": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655991862376",
+    "listLabel": "Certificado de calibração 32",
+    "formLabel": "Certificado de calibração 32",
+    "filterLabel": "Certificado de calibração 32",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655991867797": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655991867797",
+    "listLabel": "Certificado de calibração 33",
+    "formLabel": "Certificado de calibração 33",
+    "filterLabel": "Certificado de calibração 33",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655992049896": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655992049896",
+    "listLabel": "Certificado de calibração 34",
+    "formLabel": "Certificado de calibração 34",
+    "filterLabel": "Certificado de calibração 34",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655992054515": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655992054515",
+    "listLabel": "Certificado de calibração 35",
+    "formLabel": "Certificado de calibração 35",
+    "filterLabel": "Certificado de calibração 35",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1655992058964": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1655992058964",
+    "listLabel": "Certificado de calibração 36",
+    "formLabel": "Certificado de calibração 36",
+    "filterLabel": "Certificado de calibração 36",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1657283507266": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1657283507266",
+    "listLabel": "Perdeu por preço? Informe a diferença. - CO",
+    "formLabel": "Perdeu por preço? Informe a diferença. - CO",
+    "filterLabel": "Perdeu por preço? Informe a diferença. - CO",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1657283675700": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1657283675700",
+    "listLabel": "Para qual prazo você perdeu? - *",
+    "formLabel": "Para qual prazo você perdeu? - *",
+    "filterLabel": "Para qual prazo você perdeu? - *",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1661353122867": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "1301",
+        "VALUE": "Centralizada em único lugar"
+      },
+      {
+        "ID": "1303",
+        "VALUE": "Cada unidade faz sua própria compra"
+      }
+    ],
+    "title": "UF_CRM_1661353122867",
+    "listLabel": "As compras de Instrumentos são centralizadas em um único lugar ou cada unidade faz suas próprias compras? - Q",
+    "formLabel": "As compras de Instrumentos são centralizadas em um único lugar ou cada unidade faz suas próprias compras? - Q",
+    "filterLabel": "As compras de Instrumentos são centralizadas em um único lugar ou cada unidade faz suas próprias compras? - Q",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1663169027682": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1663169027682",
+    "listLabel": "Certificado de calibração 37",
+    "formLabel": "Certificado de calibração 37",
+    "filterLabel": "Certificado de calibração 37",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1663169036145": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1663169036145",
+    "listLabel": "Certificado de calibração 38",
+    "formLabel": "Certificado de calibração 38",
+    "filterLabel": "Certificado de calibração 38",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1663169046862": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1663169046862",
+    "listLabel": "Certificado de calibração 39",
+    "formLabel": "Certificado de calibração 39",
+    "filterLabel": "Certificado de calibração 39",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1663169063873": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1663169063873",
+    "listLabel": "Certificado de calibração 40",
+    "formLabel": "Certificado de calibração 40",
+    "filterLabel": "Certificado de calibração 40",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1663169073632": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1663169073632",
+    "listLabel": "Certificado de calibração 41",
+    "formLabel": "Certificado de calibração 41",
+    "filterLabel": "Certificado de calibração 41",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1663169079962": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1663169079962",
+    "listLabel": "Certificado de calibração 42",
+    "formLabel": "Certificado de calibração 42",
+    "filterLabel": "Certificado de calibração 42",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1663169088318": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1663169088318",
+    "listLabel": "Certificado de calibração 43",
+    "formLabel": "Certificado de calibração 43",
+    "filterLabel": "Certificado de calibração 43",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1663169099960": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1663169099960",
+    "listLabel": "Certificado de calibração 44",
+    "formLabel": "Certificado de calibração 44",
+    "filterLabel": "Certificado de calibração 44",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1663169106384": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1663169106384",
+    "listLabel": "Certificado de calibração 45",
+    "formLabel": "Certificado de calibração 45",
+    "filterLabel": "Certificado de calibração 45",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1663169113422": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1663169113422",
+    "listLabel": "Certificado de calibração 46",
+    "formLabel": "Certificado de calibração 46",
+    "filterLabel": "Certificado de calibração 46",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1663169120028": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1663169120028",
+    "listLabel": "Certificado de calibração 47",
+    "formLabel": "Certificado de calibração 47",
+    "filterLabel": "Certificado de calibração 47",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1663169125851": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1663169125851",
+    "listLabel": "Certificado de calibração 48",
+    "formLabel": "Certificado de calibração 48",
+    "filterLabel": "Certificado de calibração 48",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1663169132095": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1663169132095",
+    "listLabel": "Certificado de calibração 49",
+    "formLabel": "Certificado de calibração 49",
+    "filterLabel": "Certificado de calibração 49",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1663169138461": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1663169138461",
+    "listLabel": "Certificado de calibração 50",
+    "formLabel": "Certificado de calibração 50",
+    "filterLabel": "Certificado de calibração 50",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1663268067420": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "1313",
+        "VALUE": "Venda"
+      },
+      {
+        "ID": "1315",
+        "VALUE": "Serviço"
+      },
+      {
+        "ID": "1317",
+        "VALUE": "Venda e serviço"
+      }
+    ],
+    "title": "UF_CRM_1663268067420",
+    "listLabel": "Cotação de venda ou serviço? - CO",
+    "formLabel": "Cotação de venda ou serviço? - CO",
+    "filterLabel": "Cotação de venda ou serviço? - CO",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1665067957593": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1665067957593",
+    "listLabel": "Novo arquivo - CO",
+    "formLabel": "Novo arquivo - CO",
+    "filterLabel": "Novo arquivo - CO",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1665069515217": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1665069515217",
+    "listLabel": "Certificado declaração e recibo - PI",
+    "formLabel": "Certificado declaração e recibo - PI",
+    "filterLabel": "Certificado declaração e recibo - PI",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1665069676390": {
+    "type": "boolean",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1665069676390",
+    "listLabel": "Certificado declaração e recibo sim ou não - PI",
+    "formLabel": "Certificado declaração e recibo sim ou não - PI",
+    "filterLabel": "Certificado declaração e recibo sim ou não - PI",
+    "settings": {
+      "DEFAULT_VALUE": 0,
+      "DISPLAY": "CHECKBOX",
+      "LABEL": [
+        "",
+        ""
+      ],
+      "LABEL_CHECKBOX": "Certificado declaração e recibo sim ou não - PI"
+    }
+  },
+  "UF_CRM_1665069736850": {
+    "type": "boolean",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1665069736850",
+    "listLabel": "Novo campo - *",
+    "formLabel": "Novo campo - *",
+    "filterLabel": "Novo campo - *",
+    "settings": {
+      "DEFAULT_VALUE": 0,
+      "DISPLAY": "CHECKBOX",
+      "LABEL": [
+        "",
+        ""
+      ],
+      "LABEL_CHECKBOX": "Novo campo - *"
+    }
+  },
+  "UF_CRM_1665069783968": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "1641",
+        "VALUE": "sim"
+      },
+      {
+        "ID": "1643",
+        "VALUE": "naõ"
+      }
+    ],
+    "title": "UF_CRM_1665069783968",
+    "listLabel": "Nova lista - *",
+    "formLabel": "Nova lista - *",
+    "filterLabel": "Nova lista - *",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1665077167548": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "1645",
+        "VALUE": "Sim"
+      },
+      {
+        "ID": "1647",
+        "VALUE": "Não"
+      }
+    ],
+    "title": "UF_CRM_1665077167548",
+    "listLabel": "Anexar Certificados, Recibos e Declaração - PI",
+    "formLabel": "Anexar Certificados, Recibos e Declaração - PI",
+    "filterLabel": "Anexar Certificados, Recibos e Declaração - PI",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_634D542763E14": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "2255",
+        "VALUE": "WhatsApp  - 6007"
+      },
+      {
+        "ID": "2257",
+        "VALUE": "WhatsApp"
+      },
+      {
+        "ID": "2259",
+        "VALUE": "E-mail"
+      },
+      {
+        "ID": "2261",
+        "VALUE": "E-mail Loja - atendimento@vical"
+      },
+      {
+        "ID": "2271",
+        "VALUE": "Loja Online"
+      },
+      {
+        "ID": "1709",
+        "VALUE": "Recepção por telefone"
+      },
+      {
+        "ID": "1699",
+        "VALUE": "Formulario Site"
+      },
+      {
+        "ID": "1703",
+        "VALUE": "Campanha de E-mail Marketing"
+      },
+      {
+        "ID": "1705",
+        "VALUE": "Campanha de Cliente Inativos"
+      },
+      {
+        "ID": "1697",
+        "VALUE": "Prospecção de Novos Clientes"
+      },
+      {
+        "ID": "1707",
+        "VALUE": "Portal de vendas"
+      },
+      {
+        "ID": "2293",
+        "VALUE": "Redes Sociais"
+      },
+      {
+        "ID": "2295",
+        "VALUE": "YouTube"
+      },
+      {
+        "ID": "2521",
+        "VALUE": "Não identificado"
+      }
+    ],
+    "title": "UF_CRM_634D542763E14",
+    "listLabel": "Canal de entrada do Lead . 2",
+    "formLabel": "Canal de entrada do Lead . 2",
+    "filterLabel": "Canal de entrada do Lead . 2",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_A_W_GROUP_ID": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_A_W_GROUP_ID",
+    "listLabel": "WhatsApp Group Id -*",
+    "formLabel": "WhatsApp Group Id -*",
+    "filterLabel": "WhatsApp Group Id -*",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_A_T_GROUP_ID": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_A_T_GROUP_ID",
+    "listLabel": "Telegram Group Id - *",
+    "formLabel": "Telegram Group Id - *",
+    "filterLabel": "Telegram Group Id - *",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1671111297601": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1671111297601",
+    "listLabel": "Certificado de calibração 51",
+    "formLabel": "Certificado de calibração 51",
+    "filterLabel": "Certificado de calibração 51",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1671111307993": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1671111307993",
+    "listLabel": "Certificado de calibração 52",
+    "formLabel": "Certificado de calibração 52",
+    "filterLabel": "Certificado de calibração 52",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1671111316950": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1671111316950",
+    "listLabel": "Certificado de calibração 53",
+    "formLabel": "Certificado de calibração 53",
+    "filterLabel": "Certificado de calibração 53",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1671111330078": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1671111330078",
+    "listLabel": "Certificado de calibração 54",
+    "formLabel": "Certificado de calibração 54",
+    "filterLabel": "Certificado de calibração 54",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1671111376935": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1671111376935",
+    "listLabel": "Certificado de calibração 55",
+    "formLabel": "Certificado de calibração 55",
+    "filterLabel": "Certificado de calibração 55",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1671111383582": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1671111383582",
+    "listLabel": "Certificado de calibração 56",
+    "formLabel": "Certificado de calibração 56",
+    "filterLabel": "Certificado de calibração 56",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1671111391032": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1671111391032",
+    "listLabel": "Certificado de calibração 57",
+    "formLabel": "Certificado de calibração 57",
+    "filterLabel": "Certificado de calibração 57",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1671111396439": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1671111396439",
+    "listLabel": "Certificado de calibração 58",
+    "formLabel": "Certificado de calibração 58",
+    "filterLabel": "Certificado de calibração 58",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1671111403231": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1671111403231",
+    "listLabel": "Certificado de calibração 59",
+    "formLabel": "Certificado de calibração 59",
+    "filterLabel": "Certificado de calibração 59",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1671111409161": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1671111409161",
+    "listLabel": "Certificado de calibração 60",
+    "formLabel": "Certificado de calibração 60",
+    "filterLabel": "Certificado de calibração 60",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1671115221155": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1671115221155",
+    "listLabel": "Certificado de calibração 61",
+    "formLabel": "Certificado de calibração 61",
+    "filterLabel": "Certificado de calibração 61",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1671115227333": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1671115227333",
+    "listLabel": "Certificado de calibração 62",
+    "formLabel": "Certificado de calibração 62",
+    "filterLabel": "Certificado de calibração 62",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1671115234503": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1671115234503",
+    "listLabel": "Certificado de calibração 63",
+    "formLabel": "Certificado de calibração 63",
+    "filterLabel": "Certificado de calibração 63",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_63DBF250F1947": {
+    "type": "boolean",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_63DBF250F1947",
+    "listLabel": "Card de teste? - *",
+    "formLabel": "Card de teste? - *",
+    "filterLabel": "Card de teste? - *",
+    "settings": {
+      "DEFAULT_VALUE": 0,
+      "DISPLAY": "CHECKBOX",
+      "LABEL": [
+        "",
+        ""
+      ],
+      "LABEL_CHECKBOX": "Card de teste? - *"
+    }
+  },
+  "UF_CRM_1678824191185": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1678824191185",
+    "listLabel": "CNPJ do cliente - PI",
+    "formLabel": "CNPJ do cliente - PI",
+    "filterLabel": "CNPJ do cliente - PI",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1687460894897": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1687460894897",
+    "listLabel": "Data de entrega do fornecedor - PI",
+    "formLabel": "Data de entrega do fornecedor - PI",
+    "filterLabel": "Data de entrega do fornecedor - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1687462136507": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1687462136507",
+    "listLabel": "Data de entrega do fornecedor 2 - PI",
+    "formLabel": "Data de entrega do fornecedor 2 - PI",
+    "filterLabel": "Data de entrega do fornecedor 2 - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1687462164986": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1687462164986",
+    "listLabel": "Data de entrega do fornecedor 3 - PI",
+    "formLabel": "Data de entrega do fornecedor 3 - PI",
+    "filterLabel": "Data de entrega do fornecedor 3 - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1687462604459": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1687462604459",
+    "listLabel": "Data de entrega do Lab. de Calibração - PI",
+    "formLabel": "Data de entrega do Lab. de Calibração - PI",
+    "filterLabel": "Data de entrega do Lab. de Calibração - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1687462692941": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1687462692941",
+    "listLabel": "Data de entrega do Lab. de Calibração 2 - PI",
+    "formLabel": "Data de entrega do Lab. de Calibração 2 - PI",
+    "filterLabel": "Data de entrega do Lab. de Calibração 2 - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1687529938623": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1687529938623",
+    "listLabel": "Data de entrega do fornecedor 4 - PI",
+    "formLabel": "Data de entrega do fornecedor 4 - PI",
+    "filterLabel": "Data de entrega do fornecedor 4 - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1688138608617": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1688138608617",
+    "listLabel": "Última resposta do cliente - PR",
+    "formLabel": "Última resposta do cliente - PR",
+    "filterLabel": "Última resposta do cliente - PR",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1688652847424": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1688652847424",
+    "listLabel": "Data que chegou na Vical - PI",
+    "formLabel": "Data que chegou na Vical - PI",
+    "filterLabel": "Data que chegou na Vical - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1689181433699": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689181433699",
+    "listLabel": "Certificado Padrão 1 - PI",
+    "formLabel": "Certificado Padrão 1 - PI",
+    "filterLabel": "Certificado Padrão 1 - PI",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689181516320": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689181516320",
+    "listLabel": "Certificado Padrão 2 - PI",
+    "formLabel": "Certificado Padrão 2 - PI",
+    "filterLabel": "Certificado Padrão 2 - PI",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689183502179": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "1753",
+        "VALUE": "Sesi Retira"
+      },
+      {
+        "ID": "1755",
+        "VALUE": "SEDEX"
+      }
+    ],
+    "title": "UF_CRM_1689183502179",
+    "listLabel": "Transportadora - PI",
+    "formLabel": "Transportadora - PI",
+    "filterLabel": "Transportadora - PI",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1689183985299": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689183985299",
+    "listLabel": "Número da Nota Fiscal - PI",
+    "formLabel": "Número da Nota Fiscal - PI",
+    "filterLabel": "Número da Nota Fiscal - PI",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1689184059274": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689184059274",
+    "listLabel": "Data Emissão da Nota Fiscal - PI",
+    "formLabel": "Data Emissão da Nota Fiscal - PI",
+    "filterLabel": "Data Emissão da Nota Fiscal - PI",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1689184191167": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689184191167",
+    "listLabel": "N° da OS - PI",
+    "formLabel": "N° da OS - PI",
+    "filterLabel": "N° da OS - PI",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1689185245074": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689185245074",
+    "listLabel": "Certificado de calibração 1",
+    "formLabel": "Certificado de calibração 1",
+    "filterLabel": "Certificado de calibração 1",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689185264800": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689185264800",
+    "listLabel": "Certificado de calibração 2",
+    "formLabel": "Certificado de calibração 2",
+    "filterLabel": "Certificado de calibração 2",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689185298792": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689185298792",
+    "listLabel": "Certificado de calibração 3",
+    "formLabel": "Certificado de calibração 3",
+    "filterLabel": "Certificado de calibração 3",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689185313697": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689185313697",
+    "listLabel": "Certificado de calibração 4",
+    "formLabel": "Certificado de calibração 4",
+    "filterLabel": "Certificado de calibração 4",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689185339698": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689185339698",
+    "listLabel": "Certificado de calibração 5",
+    "formLabel": "Certificado de calibração 5",
+    "filterLabel": "Certificado de calibração 5",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689185387667": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689185387667",
+    "listLabel": "Certificado de calibração 6",
+    "formLabel": "Certificado de calibração 6",
+    "filterLabel": "Certificado de calibração 6",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689185442956": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689185442956",
+    "listLabel": "Padrão utilizados no Lab. Vical - PI",
+    "formLabel": "Padrão utilizados no Lab. Vical - PI",
+    "filterLabel": "Padrão utilizados no Lab. Vical - PI",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689185474698": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689185474698",
+    "listLabel": "Certificado de calibração 7",
+    "formLabel": "Certificado de calibração 7",
+    "filterLabel": "Certificado de calibração 7",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689185498146": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689185498146",
+    "listLabel": "Certificado de calibração 8",
+    "formLabel": "Certificado de calibração 8",
+    "filterLabel": "Certificado de calibração 8",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689185511882": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689185511882",
+    "listLabel": "Certificado de calibração 9",
+    "formLabel": "Certificado de calibração 9",
+    "filterLabel": "Certificado de calibração 9",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689185531747": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689185531747",
+    "listLabel": "Certificado de calibração 10",
+    "formLabel": "Certificado de calibração 10",
+    "filterLabel": "Certificado de calibração 10",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689185846994": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689185846994",
+    "listLabel": "Declaração SESI - SESI",
+    "formLabel": "Declaração SESI - SESI",
+    "filterLabel": "Declaração SESI - SESI",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689185873597": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1689185873597",
+    "listLabel": "Recibo SESI - SESI",
+    "formLabel": "Recibo SESI - SESI",
+    "filterLabel": "Recibo SESI - SESI",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1689188918153": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "1757",
+        "VALUE": "Sim"
+      },
+      {
+        "ID": "1759",
+        "VALUE": "Não"
+      }
+    ],
+    "title": "UF_CRM_1689188918153",
+    "listLabel": "A Ordem de Serviço Atrasou? - PI",
+    "formLabel": "A Ordem de Serviço Atrasou? - PI",
+    "filterLabel": "A Ordem de Serviço Atrasou? - PI",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1697723487973": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "1801",
+        "VALUE": "Sim"
+      },
+      {
+        "ID": "1803",
+        "VALUE": "Não"
+      }
+    ],
+    "title": "UF_CRM_1697723487973",
+    "listLabel": "Esse cliente está qualificado? - Q",
+    "formLabel": "Esse cliente está qualificado? - Q",
+    "filterLabel": "Esse cliente está qualificado? - Q",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1698261370044": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": true,
+    "isDynamic": true,
+    "title": "UF_CRM_1698261370044",
+    "listLabel": "Detalhar o motivo - *",
+    "formLabel": "Detalhar o motivo - *",
+    "filterLabel": "Detalhar o motivo - *",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1707232502730": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "1819",
+        "VALUE": "CIF"
+      },
+      {
+        "ID": "1821",
+        "VALUE": "FOB"
+      }
+    ],
+    "title": "UF_CRM_1707232502730",
+    "listLabel": "FRETE - PI",
+    "formLabel": "FRETE - PI",
+    "filterLabel": "FRETE - PI",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1722345205505": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "1835",
+        "VALUE": "Vical Instrumentos de Medição"
+      },
+      {
+        "ID": "1837",
+        "VALUE": "Vical do Brasil"
+      }
+    ],
+    "title": "UF_CRM_1722345205505",
+    "listLabel": "Por qual empresa o pedido será faturado? - PI",
+    "formLabel": "Por qual empresa o pedido será faturado? - PI",
+    "filterLabel": "Por qual empresa o pedido será faturado? - PI",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1724186841272": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1724186841272",
+    "listLabel": "Comprovante de entrega - PI",
+    "formLabel": "Comprovante de entrega - PI",
+    "filterLabel": "Comprovante de entrega - PI",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_1724691146645": {
+    "type": "boolean",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1724691146645",
+    "listLabel": "Proposta Daniel e Luciana - *",
+    "formLabel": "Proposta Daniel e Luciana - *",
+    "filterLabel": "Proposta Daniel e Luciana - *",
+    "settings": {
+      "DEFAULT_VALUE": 0,
+      "DISPLAY": "CHECKBOX",
+      "LABEL": [
+        "",
+        ""
+      ],
+      "LABEL_CHECKBOX": "Proposta Daniel e Luciana - *"
+    }
+  },
+  "UF_CRM_1724782364611": {
+    "type": "url",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1724782364611",
+    "listLabel": "Site - *",
+    "formLabel": "Site - *",
+    "filterLabel": "Site - *",
+    "settings": {
+      "POPUP": "Y",
+      "SIZE": 20,
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": "",
+      "ROWS": 1
+    }
+  },
+  "UF_CRM_1725889941109": {
+    "type": "file",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1725889941109",
+    "listLabel": "Comprovante de entrega - *",
+    "formLabel": "Comprovante de entrega - *",
+    "filterLabel": "Comprovante de entrega - *",
+    "settings": {
+      "SIZE": 20,
+      "LIST_WIDTH": 0,
+      "LIST_HEIGHT": 0,
+      "MAX_SHOW_SIZE": 0,
+      "MAX_ALLOWED_SIZE": 0,
+      "EXTENSIONS": [],
+      "TARGET_BLANK": "Y"
+    }
+  },
+  "UF_CRM_66EB06B0BF875": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_66EB06B0BF875",
+    "listLabel": "WhatsApp Group Id",
+    "formLabel": "WhatsApp Group Id",
+    "filterLabel": "UF_CRM_A_W_GROUP_ID",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_66EB06B0E0A87": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_66EB06B0E0A87",
+    "listLabel": "Telegram Group Id",
+    "formLabel": "Telegram Group Id",
+    "filterLabel": "UF_CRM_A_T_GROUP_ID",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_66EB06B10288B": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_66EB06B10288B",
+    "listLabel": "Teste daniel e vinicius",
+    "formLabel": "Teste daniel e vinicius",
+    "filterLabel": "Teste daniel e vinicius",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1727181105589": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1727181105589",
+    "listLabel": "Número da Coleta",
+    "formLabel": "Número da Coleta",
+    "filterLabel": "Número da Coleta",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1728420739": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1728420739",
+    "listLabel": "Pipeline Atual",
+    "formLabel": "Pipeline Atual",
+    "filterLabel": "Pipeline Atual",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1728420767": {
+    "type": "boolean",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1728420767",
+    "listLabel": "Cotação Encerrada",
+    "formLabel": "Cotação Encerrada",
+    "filterLabel": "Cotação Encerrada",
+    "settings": {
+      "DEFAULT_VALUE": 0,
+      "DISPLAY": "CHECKBOX",
+      "LABEL": [
+        "",
+        ""
+      ],
+      "LABEL_CHECKBOX": "Cotação Encerrada"
+    }
+  },
+  "UF_CRM_1728909241": {
+    "type": "boolean",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1728909241",
+    "listLabel": "Orçamento foi ganho?",
+    "formLabel": "Orçamento foi ganho?",
+    "filterLabel": "Orçamento foi ganho?",
+    "settings": {
+      "DEFAULT_VALUE": 0,
+      "DISPLAY": "CHECKBOX",
+      "LABEL": [
+        "",
+        ""
+      ],
+      "LABEL_CHECKBOX": "Orçamento foi ganho?"
+    }
+  },
+  "UF_CRM_1728914151753": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1728914151753",
+    "listLabel": "Nome da Empresa em Texto",
+    "formLabel": "Nome da Empresa em Texto",
+    "filterLabel": "Nome da Empresa em Texto",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1728914375500": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1728914375500",
+    "listLabel": "Última Etapa (Clientes Ativos/Inativos)",
+    "formLabel": "Última Etapa (Clientes Ativos/Inativos)",
+    "filterLabel": "Última Etapa (Clientes Ativos/Inativos)",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1728926171183": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "2183",
+        "VALUE": "Cliente não é perfil ideal (Desqualificado)"
+      },
+      {
+        "ID": "2185",
+        "VALUE": "Empresa não existe mais"
+      }
+    ],
+    "title": "UF_CRM_1728926171183",
+    "listLabel": "Motivo de Perda do Cliente/Lead",
+    "formLabel": "Motivo de Perda do Cliente/Lead",
+    "filterLabel": "Motivo de Perda do Cliente/Lead",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1729256367": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1729256367",
+    "listLabel": "ID da Empresa (p/ Automação)",
+    "formLabel": "ID da Empresa (p/ Automação)",
+    "filterLabel": "ID da Empresa (p/ Automação)",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1729865315": {
+    "type": "boolean",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1729865315",
+    "listLabel": "Criado Pela Integração Make",
+    "formLabel": "Criado Pela Integração Make",
+    "filterLabel": "Criado Pela Integração Make",
+    "settings": {
+      "DEFAULT_VALUE": 0,
+      "DISPLAY": "CHECKBOX",
+      "LABEL": [
+        "",
+        ""
+      ],
+      "LABEL_CHECKBOX": "Criado Pela Integração Make"
+    }
+  },
+  "UF_CRM_1730815659124": {
+    "type": "money",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1730815659124",
+    "listLabel": "Preço de Custo",
+    "formLabel": "Preço de Custo",
+    "filterLabel": "Preço de Custo",
+    "settings": {
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1731612942463": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1731612942463",
+    "listLabel": "Data da conversão ou descartado",
+    "formLabel": "Data da conversão ou descartado",
+    "filterLabel": "Data da conversão ou descartado",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1741629510": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1741629510",
+    "listLabel": "[Filtro Automação] Status da Cotação",
+    "formLabel": "[Filtro Automação] Status da Cotação",
+    "filterLabel": "[Filtro Automação] Status da Cotação",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1741629526": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1741629526",
+    "listLabel": "[Filtro Automação] Data da Última Cotação",
+    "formLabel": "[Filtro Automação] Data da Última Cotação",
+    "filterLabel": "[Filtro Automação] Data da Última Cotação",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1744750418512": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1744750418512",
+    "listLabel": "[Excluir depois] Tipo da empresa",
+    "formLabel": "[Excluir depois] Tipo da empresa",
+    "filterLabel": "[Excluir depois] Tipo da empresa",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1747240297611": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": true,
+    "isDynamic": true,
+    "title": "UF_CRM_1747240297611",
+    "listLabel": "Nome, E-mail e telefone do comprador",
+    "formLabel": "Nome, E-mail e telefone do comprador",
+    "filterLabel": "Nome, E-mail e telefone do comprador",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1751986658437": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1751986658437",
+    "listLabel": "Data que ficou Inativo",
+    "formLabel": "Data que ficou Inativo",
+    "filterLabel": "Data que ficou Inativo",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1752841130977": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1752841130977",
+    "listLabel": "[AUT] Data da mudança de etapa",
+    "formLabel": "[AUT] Data da mudança de etapa",
+    "filterLabel": "[AUT] Data da mudança de etapa",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1752844457437": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "2223",
+        "VALUE": "Cliente"
+      },
+      {
+        "ID": "2225",
+        "VALUE": "Lead"
+      }
+    ],
+    "title": "UF_CRM_1752844457437",
+    "listLabel": "Tipo de Inativo",
+    "formLabel": "Tipo de Inativo",
+    "filterLabel": "Tipo de Inativo",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1755007912167": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "2231",
+        "VALUE": "Consumidor final"
+      },
+      {
+        "ID": "2233",
+        "VALUE": "Revenda"
+      }
+    ],
+    "title": "UF_CRM_1755007912167",
+    "listLabel": "Perfil do Cliente",
+    "formLabel": "Perfil do Cliente",
+    "filterLabel": "Perfil do Cliente",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1758806673758": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1758806673758",
+    "listLabel": "Observação CO:",
+    "formLabel": "Observação CO:",
+    "filterLabel": "Observação CO:",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1767106658381": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "2263",
+        "VALUE": "Venda"
+      },
+      {
+        "ID": "2265",
+        "VALUE": "Ordem de serviço"
+      }
+    ],
+    "title": "UF_CRM_1767106658381",
+    "listLabel": "Pedido de venda ou Ordem de serviço",
+    "formLabel": "Pedido de venda ou Ordem de serviço",
+    "filterLabel": "Pedido de venda ou Ordem de serviço",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_69A5EBCB0066E": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_69A5EBCB0066E",
+    "listLabel": "Email",
+    "formLabel": "Email",
+    "filterLabel": "Email",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_69A5EBCB2DBAC": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_69A5EBCB2DBAC",
+    "listLabel": "Telefone",
+    "formLabel": "Telefone",
+    "filterLabel": "Telefone",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_69A5EBCB4617D": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_69A5EBCB4617D",
+    "listLabel": "CNPJ ou CPF",
+    "formLabel": "CNPJ ou CPF",
+    "filterLabel": "CNPJ ou CPF",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_69A5EBCB5BB77": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_69A5EBCB5BB77",
+    "listLabel": "Origem do cliente",
+    "formLabel": "Origem do cliente",
+    "filterLabel": "Origem do cliente",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 50,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_69A5EBCB7177F": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_69A5EBCB7177F",
+    "listLabel": "leadster",
+    "formLabel": "leadster",
+    "filterLabel": "leadster",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_69AAE02D97E74": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_69AAE02D97E74",
+    "listLabel": "Observações",
+    "formLabel": "Observações",
+    "filterLabel": "Observações",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_69AAEA49836E4": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "2337",
+        "VALUE": "Manômetro Analogico"
+      },
+      {
+        "ID": "2339",
+        "VALUE": "Manômetro Digital"
+      },
+      {
+        "ID": "2341",
+        "VALUE": "Termômetro"
+      },
+      {
+        "ID": "2343",
+        "VALUE": "Pressostato"
+      },
+      {
+        "ID": "2345",
+        "VALUE": "Forno de Calibração"
+      },
+      {
+        "ID": "2347",
+        "VALUE": "Termoresistencia PT-100"
+      },
+      {
+        "ID": "2349",
+        "VALUE": "Termopar"
+      },
+      {
+        "ID": "2507",
+        "VALUE": "Termo-higrômetro"
+      },
+      {
+        "ID": "2351",
+        "VALUE": "Transmissor de Pressão"
+      },
+      {
+        "ID": "2353",
+        "VALUE": "Calibração Sesi"
+      },
+      {
+        "ID": "2355",
+        "VALUE": "Termometro Sesi"
+      },
+      {
+        "ID": "2357",
+        "VALUE": "Poço termometrico"
+      },
+      {
+        "ID": "2359",
+        "VALUE": "Bomba de Calibração"
+      },
+      {
+        "ID": "2361",
+        "VALUE": "Serviço"
+      },
+      {
+        "ID": "2375",
+        "VALUE": "Case"
+      },
+      {
+        "ID": "2363",
+        "VALUE": "Kit Bomba"
+      },
+      {
+        "ID": "2365",
+        "VALUE": "Kit Forno"
+      },
+      {
+        "ID": "2399",
+        "VALUE": "Kit Calibração"
+      },
+      {
+        "ID": "2367",
+        "VALUE": "Outros"
+      }
+    ],
+    "title": "UF_CRM_69AAEA49836E4",
+    "listLabel": "Produto",
+    "formLabel": "Produto",
+    "filterLabel": "Produto",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1776817010345": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "2481",
+        "VALUE": "Ligação"
+      },
+      {
+        "ID": "2483",
+        "VALUE": "WhatsApp"
+      },
+      {
+        "ID": "2485",
+        "VALUE": "Não conseguiu fazer contato"
+      }
+    ],
+    "title": "UF_CRM_1776817010345",
+    "listLabel": "Tipo de contato 1º Follow-Up",
+    "formLabel": "Tipo de contato 1º Follow-Up",
+    "filterLabel": "Tipo de contato 1º Follow-Up",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1776817258026": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "2487",
+        "VALUE": "Ligação"
+      },
+      {
+        "ID": "2489",
+        "VALUE": "WhatsApp"
+      },
+      {
+        "ID": "2491",
+        "VALUE": "Não conseguiu contato"
+      }
+    ],
+    "title": "UF_CRM_1776817258026",
+    "listLabel": "Tipo de contato 2º Follow-Up",
+    "formLabel": "Tipo de contato 2º Follow-Up",
+    "filterLabel": "Tipo de contato 2º Follow-Up",
+    "settings": {
+      "DISPLAY": "LIST",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1776817367193": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "2493",
+        "VALUE": "Ligação"
+      },
+      {
+        "ID": "2495",
+        "VALUE": "WhastApp"
+      },
+      {
+        "ID": "2497",
+        "VALUE": "Não conseguiu contato"
+      }
+    ],
+    "title": "UF_CRM_1776817367193",
+    "listLabel": "Tipo de contato 3º Follow-Up",
+    "formLabel": "Tipo de contato 3º Follow-Up",
+    "filterLabel": "Tipo de contato 3º Follow-Up",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1776817428525": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "2499",
+        "VALUE": "Ligação"
+      },
+      {
+        "ID": "2501",
+        "VALUE": "WhatsApp"
+      },
+      {
+        "ID": "2503",
+        "VALUE": "Não conseguiu contato"
+      }
+    ],
+    "title": "UF_CRM_1776817428525",
+    "listLabel": "Tipo de contato 4º Follow-Up",
+    "formLabel": "Tipo de contato 4º Follow-Up",
+    "filterLabel": "Tipo de contato 4º Follow-Up",
+    "settings": {
+      "DISPLAY": "LIST",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  },
+  "UF_CRM_1776818068515": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1776818068515",
+    "listLabel": "Qual foi a dificuldade no contato? (1º Follow-UP)",
+    "formLabel": "Qual foi a dificuldade no contato? (1º Follow-UP)",
+    "filterLabel": "Qual foi a dificuldade no contato? (1º Follow-UP)",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1776818590318": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1776818590318",
+    "listLabel": "Qual foi a dificuldade no contato? (2º Follow-UP)",
+    "formLabel": "Qual foi a dificuldade no contato? (2º Follow-UP)",
+    "filterLabel": "Qual foi a dificuldade no contato? (2º Follow-UP)",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1776818623116": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1776818623116",
+    "listLabel": "Qual foi a dificuldade no contato? (3º Follow-UP)",
+    "formLabel": "Qual foi a dificuldade no contato? (3º Follow-UP)",
+    "filterLabel": "Qual foi a dificuldade no contato? (3º Follow-UP)",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1776818657802": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1776818657802",
+    "listLabel": "Qual foi a dificuldade no contato? (4º Follow-UP)",
+    "formLabel": "Qual foi a dificuldade no contato? (4º Follow-UP)",
+    "filterLabel": "Qual foi a dificuldade no contato? (4º Follow-UP)",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1777474361": {
+    "type": "string",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1777474361",
+    "listLabel": "Negócio fechado - Trabalhar com cliente inativos",
+    "formLabel": "Negócio fechado - Trabalhar com cliente inativos",
+    "filterLabel": "Negócio fechado - Trabalhar com cliente inativos",
+    "settings": {
+      "SIZE": 20,
+      "ROWS": 1,
+      "REGEXP": "",
+      "MIN_LENGTH": 0,
+      "MAX_LENGTH": 0,
+      "DEFAULT_VALUE": ""
+    }
+  },
+  "UF_CRM_1778984745533": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_1778984745533",
+    "listLabel": "Data da ultima atualização",
+    "formLabel": "Data da ultima atualização",
+    "filterLabel": "Data da ultima atualização",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_6A148278A1632": {
+    "type": "date",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "title": "UF_CRM_6A148278A1632",
+    "listLabel": "Data do Investimento",
+    "formLabel": "Data do Investimento",
+    "filterLabel": "Data do Investimento",
+    "settings": {
+      "DEFAULT_VALUE": {
+        "TYPE": "NONE",
+        "VALUE": ""
+      }
+    }
+  },
+  "UF_CRM_1620060085798": {
+    "type": "enumeration",
+    "isRequired": false,
+    "isReadOnly": false,
+    "isImmutable": false,
+    "isMultiple": false,
+    "isDynamic": true,
+    "items": [
+      {
+        "ID": "75",
+        "VALUE": "Manômetro Analogico"
+      },
+      {
+        "ID": "2219",
+        "VALUE": "Manômetro Digital"
+      },
+      {
+        "ID": "77",
+        "VALUE": "Termômetro"
+      },
+      {
+        "ID": "79",
+        "VALUE": "Pressostato"
+      },
+      {
+        "ID": "83",
+        "VALUE": "Forno de calibração"
+      },
+      {
+        "ID": "85",
+        "VALUE": "Termoresistencia PT-100"
+      },
+      {
+        "ID": "353",
+        "VALUE": "Termopar"
+      },
+      {
+        "ID": "367",
+        "VALUE": "Transmissor de Pressão"
+      },
+      {
+        "ID": "541",
+        "VALUE": "Calibração"
+      },
+      {
+        "ID": "543",
+        "VALUE": "Termometro Sesi"
+      },
+      {
+        "ID": "583",
+        "VALUE": "Poço termometrico"
+      },
+      {
+        "ID": "753",
+        "VALUE": "Bomba de Calibração"
+      },
+      {
+        "ID": "755",
+        "VALUE": "Serviço"
+      },
+      {
+        "ID": "761",
+        "VALUE": "Outros"
+      },
+      {
+        "ID": "2297",
+        "VALUE": "Kit Bomba"
+      },
+      {
+        "ID": "2299",
+        "VALUE": "Kit Forno"
+      },
+      {
+        "ID": "2523",
+        "VALUE": "Sensor de Temperatura"
+      },
+      {
+        "ID": "2535",
+        "VALUE": "Termo-higrômetro"
+      },
+      {
+        "ID": "2539",
+        "VALUE": "Kit Calibração"
+      }
+    ],
+    "title": "UF_CRM_1620060085798",
+    "listLabel": "Produtos no Orçamento - CO",
+    "formLabel": "Produtos no Orçamento - CO",
+    "filterLabel": "Produtos no Orçamento - CO",
+    "settings": {
+      "DISPLAY": "UI",
+      "LIST_HEIGHT": 1,
+      "CAPTION_NO_VALUE": "",
+      "SHOW_NO_VALUE": "Y"
+    }
+  }
+}
