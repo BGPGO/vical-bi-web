@@ -61,19 +61,27 @@ const BitrixFunil = ({ funil }) => {
 };
 
 // Barras mensais simples (contagem de negócios / ganhos por mês)
-const BitrixBarrasMes = ({ porMes }) => {
+const BitrixBarrasMes = ({ porMes, showLabels }) => {
   if (!porMes) return <p style={{ padding: 16, color: 'var(--muted)', fontSize: 12 }}>Distribuição mensal indisponível no modo referência.</p>;
   const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
   const max = Math.max(1, ...porMes.map((m) => m.negocios || 0));
+  // headroom no topo só quando há rótulo (não altera a tela sem labels)
+  const scale = showLabels ? 88 : 100;
   return (
     <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, height: 200, padding: '8px 0' }}>
       {porMes.map((m, i) => {
-        const h = (m.negocios / max) * 100;
+        const h = (m.negocios / max) * scale;
         const hg = m.negocios ? (m.ganhos / m.negocios) * h : 0;
         return (
           <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
             <div style={{ position: 'relative', width: '100%', height: 160, display: 'flex', alignItems: 'flex-end' }}
               title={`${meses[i]}: ${m.negocios} negócios, ${m.ganhos} ganhos`}>
+              {showLabels && m.negocios > 0 && (
+                <div style={{ position: 'absolute', bottom: h + '%', left: 0, right: 0, textAlign: 'center', fontSize: 9.5, lineHeight: 1.1, fontWeight: 700, transform: 'translateY(-3px)', pointerEvents: 'none', whiteSpace: 'nowrap' }}>
+                  {m.negocios}
+                  {m.ganhos > 0 && <span style={{ color: 'var(--green)', fontWeight: 600 }}> · {m.ganhos}</span>}
+                </div>
+              )}
               <div style={{ width: '100%', height: h + '%', background: 'rgba(34,211,238,0.35)', borderRadius: '4px 4px 0 0', position: 'relative' }}>
                 <div style={{ position: 'absolute', bottom: 0, width: '100%', height: (h ? (hg / h) * 100 : 0) + '%', background: 'var(--green)', borderRadius: '0' }} />
               </div>
@@ -141,7 +149,7 @@ const PageBitrixMesmoMes = () => {
       subtitulo="Funil considerando apenas negócios criados no mesmo mês de entrada do lead">
       <div className="card">
         <h2 className="card-title">Negócios por mês (verde = ganhos)</h2>
-        <BitrixBarrasMes porMes={tela.por_mes} />
+        <BitrixBarrasMes porMes={tela.por_mes} showLabels />
       </div>
     </BitrixFunilView>
   );
@@ -157,7 +165,7 @@ const PageBitrixQualquerMes = () => {
       subtitulo="Funil sem exigir que a venda ocorra no mesmo mês da entrada do lead">
       <div className="card">
         <h2 className="card-title">Negócios por mês (verde = ganhos)</h2>
-        <BitrixBarrasMes porMes={tela.por_mes} />
+        <BitrixBarrasMes porMes={tela.por_mes} showLabels />
       </div>
     </BitrixFunilView>
   );
