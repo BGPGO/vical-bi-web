@@ -144,6 +144,32 @@ function writeJSON(name, data) {
     writeJSON('bitrix_statuses.json', st);
   } catch (e) { console.warn(`  WARN crm.status.list: ${e.message}`); }
 
+  // Pipelines (categorias de negócio) → id -> nome. entityTypeId 2 = deal.
+  // Fallback p/ crm.dealcategory.list (APIs antigas). Filtro "Pipeline".
+  try {
+    let cats = null;
+    try {
+      const cr = await call('crm.category.list', { entityTypeId: 2 });
+      const list = (cr.result && cr.result.categories) || cr.result || [];
+      cats = list.map((c) => ({ ID: String(c.id != null ? c.id : c.ID), NAME: c.name || c.NAME }));
+    } catch (e1) {
+      const dc = await call('crm.dealcategory.list', {});
+      const list = Array.isArray(dc.result) ? dc.result : [];
+      cats = list.map((c) => ({ ID: String(c.ID), NAME: c.NAME }));
+    }
+    // A categoria 0 ("Pipeline de Cotação"/geral) às vezes não vem na lista → garante.
+    if (!cats.some((c) => c.ID === '0')) cats.unshift({ ID: '0', NAME: 'Geral' });
+    writeJSON('bitrix_categories.json', cats);
+  } catch (e) { console.warn(`  WARN pipelines (category.list): ${e.message}`); }
+
+  // Empresas (ID -> COMPANY_TYPE) p/ o filtro "Tipo de Cliente - CO" (join via COMPANY_ID).
+  try {
+    const comps = await listAll('crm.company.list', {
+      select: ['ID', 'COMPANY_TYPE'],
+    }, 'empresas');
+    writeJSON('bitrix_companies.json', comps.map((c) => ({ ID: String(c.ID), COMPANY_TYPE: c.COMPANY_TYPE || null })));
+  } catch (e) { console.warn(`  WARN crm.company.list: ${e.message}`); }
+
   // 2) Leads do ano
   const leads = await listAll('crm.lead.list', {
     filter: { '>=DATE_CREATE': dtIni, '<=DATE_CREATE': dtFim },
@@ -157,8 +183,8 @@ function writeJSON(name, data) {
   const deals = await listAll('crm.deal.list', {
     filter: { '>=DATE_CREATE': dtIni, '<=DATE_CREATE': dtFim },
     select: ['ID', 'TITLE', 'DATE_CREATE', 'BEGINDATE', 'CLOSEDATE', 'CLOSED',
-      'STAGE_ID', 'STAGE_SEMANTIC_ID', 'CATEGORY_ID', 'OPPORTUNITY', 'CURRENCY_ID',
-      'LEAD_ID', 'SOURCE_ID', 'ASSIGNED_BY_ID',
+      'STAGE_ID', 'STAGE_SEMANTIC_ID', 'CATEGORY_ID', 'TYPE_ID', 'OPPORTUNITY', 'CURRENCY_ID',
+      'LEAD_ID', 'COMPANY_ID', 'SOURCE_ID', 'ASSIGNED_BY_ID',
       'UTM_SOURCE', 'UTM_MEDIUM', 'UTM_CAMPAIGN'],
   }, 'deals');
   writeJSON('bitrix_deals.json', deals);

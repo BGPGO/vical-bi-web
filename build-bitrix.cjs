@@ -156,6 +156,31 @@ const deals = readJSON('bitrix_deals.json');
 const fieldsDeal = readJSON('bitrix_fields_deal.json');
 const fieldsLead = readJSON('bitrix_fields_lead.json');
 const statuses = readJSON('bitrix_statuses.json');
+const categories = readJSON('bitrix_categories.json');   // pipelines (id→nome)
+const companies = readJSON('bitrix_companies.json');      // empresas (id→COMPANY_TYPE)
+
+// ---------- mapas de nome (SOURCE / pipeline / COMPANY_TYPE) ----------
+function mapaStatus(entidade) {
+  const m = {};
+  if (Array.isArray(statuses)) for (const s of statuses) if (s.ENTITY_ID === entidade) m[s.STATUS_ID] = s.NAME;
+  return m;
+}
+function mapaPipelines() {
+  const m = {};
+  if (Array.isArray(categories)) for (const c of categories) m[String(c.ID)] = c.NAME;
+  return m;
+}
+// COMPANY_ID → nome do tipo de cliente (via COMPANY_TYPE da empresa → status name)
+function mapaCompanyTipo() {
+  const tipoName = mapaStatus('COMPANY_TYPE');
+  const m = {};
+  if (Array.isArray(companies)) for (const c of companies) {
+    if (c.COMPANY_TYPE) m[String(c.ID)] = tipoName[c.COMPANY_TYPE] || c.COMPANY_TYPE;
+  }
+  return m;
+}
+// mês inteiro 1..12 a partir de data Bitrix
+const mesInt = (dt) => { const mm = mesDe(dt); return mm ? parseInt(mm, 10) : null; };
 
 let out;
 
@@ -246,6 +271,47 @@ if (!leads || !deals || !leads.length || !deals.length) {
     ? `Investimento somado do campo "${campoCusto.titulo}" (${campoCusto.code}).`
     : 'Nenhum campo de custo/investimento populado nos negócios do Bitrix. Recorte por origem exibido abaixo; defina a fonte de verba (planilha ADS ou campo custom) para CAC/ROI.';
 
+  // ---------- bloco RAW p/ filtros interativos client-side ----------
+  // Envia TODOS os negócios do ano (não só os vinculados) p/ o filtro Pipeline
+  // ser útil, com marcador `lead` (LEAD_ID quando originado de lead). A agregação
+  // dos funis é refeita no navegador (pages-6.jsx) conforme os filtros.
+  const pipelinesMap = mapaPipelines();
+  const companyTipo = mapaCompanyTipo();
+  const sourcesMap = origensMap; // reaproveita mapaOrigens(statuses) já computado
+
+  const rawDeals = dealsAno.map((d) => {
+    const tipo = (d.COMPANY_ID && d.COMPANY_ID !== '0') ? (companyTipo[String(d.COMPANY_ID)] || null) : null;
+    return {
+      id: String(d.ID),
+      m: mesInt(d.DATE_CREATE),
+      sem: d.STAGE_SEMANTIC_ID || null,     // 'S' ganho, 'F' perdido, 'P' em aberto
+      op: num(d.OPPORTUNITY),
+      lead: (d.LEAD_ID && leadIdSet.has(String(d.LEAD_ID))) ? String(d.LEAD_ID) : null,
+      src: d.SOURCE_ID || '',
+      cat: String(d.CATEGORY_ID != null ? d.CATEGORY_ID : '0'),
+      tipo,                                  // nome do tipo de cliente (ou null)
+      vida: (d.CLOSEDATE && (d.CLOSED === 'Y' || d.STAGE_SEMANTIC_ID === 'S' || d.STAGE_SEMANTIC_ID === 'F'))
+        ? diasEntre(d.DATE_CREATE, d.CLOSEDATE) : null,
+    };
+  });
+  const rawLeads = leadsAno.map((l) => ({
+    id: String(l.ID),
+    m: mesInt(l.DATE_CREATE),
+    src: l.SOURCE_ID || '',
+    op: num(l.OPPORTUNITY),
+    vida: l.DATE_CLOSED ? diasEntre(l.DATE_CREATE, l.DATE_CLOSED) : null,
+  }));
+
+  // tipos de cliente presentes (p/ o select), incluindo "(sem empresa)"
+  const tiposPresentes = Array.from(new Set(rawDeals.map((d) => d.tipo).filter(Boolean))).sort();
+  // fontes presentes (id→nome) — só as que aparecem em negócios/leads
+  const srcPresentes = {};
+  for (const d of rawDeals) if (d.src) srcPresentes[d.src] = sourcesMap[d.src] || d.src;
+  for (const l of rawLeads) if (l.src) srcPresentes[l.src] = sourcesMap[l.src] || l.src;
+  // pipelines presentes em negócios (id→nome)
+  const pipePresentes = {};
+  for (const d of rawDeals) pipePresentes[d.cat] = pipelinesMap[d.cat] || ('Pipeline ' + d.cat);
+
   out = {
     ano: ANO,
     fonte: 'bitrix',
@@ -255,12 +321,25 @@ if (!leads || !deals || !leads.length || !deals.length) {
       investimento: { titulo: 'Investimento × resultado', ...funInvest },
       qualquer_mes: { titulo: 'Entrada em qualquer mês', ...funQualquer },
     },
+    raw: {
+      deals: rawDeals,
+      leads: rawLeads,
+      maps: {
+        sources: srcPresentes,       // { SOURCE_ID: nome }
+        pipelines: pipePresentes,    // { CATEGORY_ID: nome }
+        tipos: tiposPresentes,       // [ nome, ... ]
+      },
+      // pipeline default = Pipeline de Cotação (id 0), igual ao painel do cliente
+      pipeline_default: pipePresentes['0'] != null ? '0' : (Object.keys(pipePresentes)[0] || ''),
+    },
     campos: {
       lead: fieldsLead ? Object.keys(fieldsLead).length : 0,
       deal: fieldsDeal ? Object.keys(fieldsDeal).length : 0,
     },
     referencia: REFERENCIA,
   };
+
+  console.log(`  raw: ${rawDeals.length} negócios · ${rawLeads.length} leads · ${Object.keys(srcPresentes).length} fontes · ${Object.keys(pipePresentes).length} pipelines · ${tiposPresentes.length} tipos`);
 
   console.log(`  leads ${leadCount} · negócios(ano) ${dealsAno.length} · mesmo-mês ${dealsMesmoMes.length}`);
   console.log(`  conversão mesmo-mês ${funMesmo.conversao_pct.toFixed(2)}% · qualquer-mês ${funQualquer.conversao_pct.toFixed(2)}%`);

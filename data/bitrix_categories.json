@@ -1,0 +1,38 @@
+[
+  {
+    "ID": "85",
+    "NAME": "Gestão de Clientes"
+  },
+  {
+    "ID": "53",
+    "NAME": "Trabalhar Clientes Inativos"
+  },
+  {
+    "ID": "0",
+    "NAME": "Pipeline de Cotação"
+  },
+  {
+    "ID": "37",
+    "NAME": "Pipeline de Pedido Interno"
+  },
+  {
+    "ID": "45",
+    "NAME": "Pipeline de Pedidos Sesi"
+  },
+  {
+    "ID": "83",
+    "NAME": "Pipeline de Expedição e Pós Venda"
+  },
+  {
+    "ID": "67",
+    "NAME": "Prospecção de Novos Clientes"
+  },
+  {
+    "ID": "69",
+    "NAME": "Maiores Industria Brasil"
+  },
+  {
+    "ID": "91",
+    "NAME": "Leads Anuncio sem retorno"
+  }
+]
