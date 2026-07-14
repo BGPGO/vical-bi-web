@@ -78,42 +78,46 @@ function bitAgg(raw, filtros, opts) {
   const srcNome = (id) => sources[id] || id || '(sem origem)';
   const fontesSet = (filtros.fontes && filtros.fontes.length) ? new Set(filtros.fontes) : null;
 
-  const passaMes = (m) => (!filtros.mesIni || m >= filtros.mesIni) && (!filtros.mesFim || m <= filtros.mesFim);
+  // filtro de mês: mm precisa ser não-nulo e cair no intervalo (0 = sem limite)
+  const passaMes = (mm) => mm != null && (!filtros.mesIni || mm >= filtros.mesIni) && (!filtros.mesFim || mm <= filtros.mesFim);
   const passaFonte = (id) => !fontesSet || fontesSet.has(srcNome(id));
 
   // mês de criação de cada lead (p/ regra "mesmo mês")
   const leadMesById = {};
   for (const l of raw.leads) leadMesById[l.id] = l.m;
 
-  // leads filtrados (data + fonte — únicos campos que existem no lead)
+  // leads filtrados (por mês de criação + fonte — únicos campos do lead)
   const leadsF = raw.leads.filter((l) => passaMes(l.m) && passaFonte(l.src));
 
-  // negócios filtrados (pipeline + fonte + tipo + data)
-  let dealsF = raw.deals.filter((d) =>
+  // base filtrada por pipeline/fonte/tipo (data tratada por métrica abaixo)
+  const baseF = raw.deals.filter((d) =>
     (filtros.pipeline === '' || d.cat === filtros.pipeline) &&
     passaFonte(d.src) &&
-    (filtros.tipo === '' || d.tipo === filtros.tipo) &&
-    passaMes(d.m));
-  if (mesmoMes) dealsF = dealsF.filter((d) => d.lead && leadMesById[d.lead] === d.m);
+    (filtros.tipo === '' || d.tipo === filtros.tipo));
 
-  const ganhos = dealsF.filter((d) => d.sem === 'S');
-  const negociosValor = dealsF.reduce((s, d) => s + (d.op || 0), 0);
+  // NEGÓCIOS (entrada no funil) = criados no ano (m != null), por mês de CRIAÇÃO
+  let negociosF = baseF.filter((d) => passaMes(d.m));
+  if (mesmoMes) negociosF = negociosF.filter((d) => d.lead && leadMesById[d.lead] === d.m);
+
+  // VENDA / GANHOS = ganhos FECHADOS no ano (cm != null), por mês de FECHAMENTO
+  // (metodologia do CRM da Vica: "TOTAL DE VENDAS" conta pela data de término).
+  let ganhos = baseF.filter((d) => d.sem === 'S' && passaMes(d.cm));
+  if (mesmoMes) ganhos = ganhos.filter((d) => d.lead && leadMesById[d.lead] === d.m && d.cm === d.m);
+
+  const negociosValor = negociosF.reduce((s, d) => s + (d.op || 0), 0);
   const ganhosValor = ganhos.reduce((s, d) => s + (d.op || 0), 0);
   const leadsValor = leadsF.reduce((s, l) => s + (l.op || 0), 0);
-  const conversao = dealsF.length ? (ganhos.length / dealsF.length) * 100 : 0;
+  const conversao = negociosF.length ? (ganhos.length / negociosF.length) * 100 : 0;
 
   const media = (arr) => (arr.length ? arr.reduce((s, v) => s + v, 0) / arr.length : 0);
-  const vidaNeg = media(dealsF.map((d) => d.vida).filter((v) => v != null));
+  const vidaNeg = media(ganhos.map((d) => d.vida).filter((v) => v != null));
   const vidaLead = media(leadsF.map((l) => l.vida).filter((v) => v != null));
 
   // séries mensais (índice 0..11 = Jan..Dez)
   const mkArr = () => Array(12).fill(0);
   const negValor = mkArr(), negCount = mkArr(), gValor = mkArr(), gCount = mkArr(), leadCount = mkArr();
-  for (const d of dealsF) {
-    const i = (d.m || 0) - 1; if (i < 0 || i > 11) continue;
-    negValor[i] += d.op || 0; negCount[i] += 1;
-    if (d.sem === 'S') { gValor[i] += d.op || 0; gCount[i] += 1; }
-  }
+  for (const d of negociosF) { const i = (d.m || 0) - 1; if (i >= 0 && i <= 11) { negValor[i] += d.op || 0; negCount[i] += 1; } }
+  for (const d of ganhos) { const i = (d.cm || 0) - 1; if (i >= 0 && i <= 11) { gValor[i] += d.op || 0; gCount[i] += 1; } }
   for (const l of leadsF) { const i = (l.m || 0) - 1; if (i >= 0 && i <= 11) leadCount[i] += 1; }
   const ticket = gCount.map((c, i) => (c ? gValor[i] / c : 0));
   const convMes = negCount.map((c, i) => (c ? (gCount[i] / c) * 100 : 0));
@@ -121,17 +125,21 @@ function bitAgg(raw, filtros, opts) {
 
   // recorte por origem (fonte) — investimento × resultado
   const gOrig = {};
-  for (const d of dealsF) {
+  for (const d of negociosF) {
     const nome = srcNome(d.src);
     if (!gOrig[nome]) gOrig[nome] = { origem: nome, negocios: 0, negocios_valor: 0, ganhos: 0, ganhos_valor: 0 };
     gOrig[nome].negocios++; gOrig[nome].negocios_valor += d.op || 0;
-    if (d.sem === 'S') { gOrig[nome].ganhos++; gOrig[nome].ganhos_valor += d.op || 0; }
+  }
+  for (const d of ganhos) {
+    const nome = srcNome(d.src);
+    if (!gOrig[nome]) gOrig[nome] = { origem: nome, negocios: 0, negocios_valor: 0, ganhos: 0, ganhos_valor: 0 };
+    gOrig[nome].ganhos++; gOrig[nome].ganhos_valor += d.op || 0;
   }
   const porOrigem = Object.values(gOrig).sort((a, b) => b.negocios_valor - a.negocios_valor);
 
   return {
     leads: { count: leadsF.length, valor: leadsValor },
-    negocios: { count: dealsF.length, valor: negociosValor },
+    negocios: { count: negociosF.length, valor: negociosValor },
     ganhos: { count: ganhos.length, valor: ganhosValor },
     conversao_pct: conversao,
     vida_lead_dias: vidaLead,
@@ -144,12 +152,12 @@ function bitAgg(raw, filtros, opts) {
     por_origem: porOrigem,
     funil_valor: [
       { etapa: 'Leads', count: leadsF.length, valor: leadsValor },
-      { etapa: 'Negócios', count: dealsF.length, valor: negociosValor },
+      { etapa: 'Negócios', count: negociosF.length, valor: negociosValor },
       { etapa: 'Negócios ganhos', count: ganhos.length, valor: ganhosValor },
     ],
     funil_count: [
       { etapa: 'Leads', count: leadsF.length },
-      { etapa: 'Negócios', count: dealsF.length },
+      { etapa: 'Negócios', count: negociosF.length },
       { etapa: 'Pedidos (ganhos)', count: ganhos.length },
     ],
   };

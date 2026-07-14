@@ -220,7 +220,9 @@ if (!leads || !deals || !leads.length || !deals.length) {
 } else {
   // -------- modo real --------
   const leadsAno = leads.filter((l) => anoDe(l.DATE_CREATE) === ANO);
-  const dealsAno = deals.filter((d) => anoDe(d.DATE_CREATE) === ANO);
+  // Negócios "do ano" = criados no ano OU fechados no ano (venda contada por
+  // data de FECHAMENTO no CRM da Vical — inclui criados em anos anteriores).
+  const dealsAno = deals.filter((d) => anoDe(d.DATE_CREATE) === ANO || anoDe(d.CLOSEDATE) === ANO);
 
   const leadValorTotal = leadsAno.reduce((s, l) => s + num(l.OPPORTUNITY), 0);
   const leadCount = leadsAno.length;
@@ -281,9 +283,12 @@ if (!leads || !deals || !leads.length || !deals.length) {
 
   const rawDeals = dealsAno.map((d) => {
     const tipo = (d.COMPANY_ID && d.COMPANY_ID !== '0') ? (companyTipo[String(d.COMPANY_ID)] || null) : null;
+    const criadoNoAno = anoDe(d.DATE_CREATE) === ANO;
+    const fechadoNoAno = anoDe(d.CLOSEDATE) === ANO;
     return {
       id: String(d.ID),
-      m: mesInt(d.DATE_CREATE),
+      m: criadoNoAno ? mesInt(d.DATE_CREATE) : null,   // mês de CRIAÇÃO (entrada) — null se criado antes do ano
+      cm: fechadoNoAno ? mesInt(d.CLOSEDATE) : null,   // mês de FECHAMENTO (venda) — null se não fechado no ano
       sem: d.STAGE_SEMANTIC_ID || null,     // 'S' ganho, 'F' perdido, 'P' em aberto
       op: num(d.OPPORTUNITY),
       lead: (d.LEAD_ID && leadIdSet.has(String(d.LEAD_ID))) ? String(d.LEAD_ID) : null,

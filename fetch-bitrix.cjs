@@ -179,14 +179,26 @@ function writeJSON(name, data) {
   }, 'leads');
   writeJSON('bitrix_leads.json', leads);
 
-  // 3) Negócios do ano (todas as categorias)
-  const deals = await listAll('crm.deal.list', {
-    filter: { '>=DATE_CREATE': dtIni, '<=DATE_CREATE': dtFim },
-    select: ['ID', 'TITLE', 'DATE_CREATE', 'BEGINDATE', 'CLOSEDATE', 'CLOSED',
-      'STAGE_ID', 'STAGE_SEMANTIC_ID', 'CATEGORY_ID', 'TYPE_ID', 'OPPORTUNITY', 'CURRENCY_ID',
-      'LEAD_ID', 'COMPANY_ID', 'SOURCE_ID', 'ASSIGNED_BY_ID',
-      'UTM_SOURCE', 'UTM_MEDIUM', 'UTM_CAMPAIGN'],
-  }, 'deals');
+  // 3) Negócios do ano — CRIADOS no ano OU FECHADOS no ano (união).
+  //    A "venda" no CRM da Vical é contada pela data de FECHAMENTO (CLOSEDATE),
+  //    e inclui negócios criados em anos anteriores mas ganhos no ano corrente
+  //    (preset "TOTAL DE VENDAS 2026": início=qualquer data, término=ano). Por
+  //    isso puxamos os dois conjuntos e deduplicamos por ID.
+  const DEAL_SELECT = ['ID', 'TITLE', 'DATE_CREATE', 'BEGINDATE', 'CLOSEDATE', 'CLOSED',
+    'STAGE_ID', 'STAGE_SEMANTIC_ID', 'CATEGORY_ID', 'TYPE_ID', 'OPPORTUNITY', 'CURRENCY_ID',
+    'LEAD_ID', 'COMPANY_ID', 'SOURCE_ID', 'ASSIGNED_BY_ID',
+    'UTM_SOURCE', 'UTM_MEDIUM', 'UTM_CAMPAIGN'];
+  const dealsCriados = await listAll('crm.deal.list', {
+    filter: { '>=DATE_CREATE': dtIni, '<=DATE_CREATE': dtFim }, select: DEAL_SELECT,
+  }, 'deals(criados)');
+  const dealsFechados = await listAll('crm.deal.list', {
+    filter: { '>=CLOSEDATE': dtIni, '<=CLOSEDATE': dtFim }, select: DEAL_SELECT,
+  }, 'deals(fechados)');
+  const dealsById = new Map();
+  for (const d of dealsCriados) dealsById.set(String(d.ID), d);
+  for (const d of dealsFechados) dealsById.set(String(d.ID), d);
+  const deals = Array.from(dealsById.values());
+  console.log(`  união: ${dealsCriados.length} criados + ${dealsFechados.length} fechados → ${deals.length} negócios únicos`);
   writeJSON('bitrix_deals.json', deals);
 
   writeJSON('bitrix_summary.json', {
