@@ -326,7 +326,7 @@ const BitrixFilterBar = ({ data }) => {
   const tipos = raw.maps.tipos || [];
 
   return (
-    <div className="card" style={{ marginBottom: 12, padding: '12px 12px' }}>
+    <div className="card" style={{ marginBottom: 12, padding: '12px 12px', overflow: 'visible' }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-end' }}>
         <BitSelect label="Período" value={String(data.ano)} onChange={() => {}} width={90}>
           <option value={String(data.ano)}>Ano {data.ano}</option>
