@@ -311,12 +311,8 @@ const BitVidaUtil = ({ agg }) => (
 const BitSelect = ({ label, value, onChange, children, width = 150 }) => (
   <label style={{ display: 'inline-flex', flexDirection: 'column', gap: 3 }}>
     <span style={{ fontSize: 10.5, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: 0.4 }}>{label}</span>
-    <select value={value} onChange={(e) => onChange(e.target.value)}
-      style={{
-        height: 32, minWidth: width, padding: '0 8px', fontSize: 12, borderRadius: 6,
-        background: 'rgba(255,255,255,0.04)', color: 'inherit',
-        border: '1px solid rgba(255,255,255,0.12)', cursor: 'pointer',
-      }}>
+    <select className="filter-select" value={value} onChange={(e) => onChange(e.target.value)}
+      style={{ minWidth: width, height: 32, padding: '0 28px 0 10px', fontSize: 12 }}>
       {children}
     </select>
   </label>

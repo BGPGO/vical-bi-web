@@ -414,6 +414,8 @@ input, select { font-family: inherit; color: inherit; }
 }
 .filter-select:hover { border-color: var(--border-2); background-color: var(--surface-2); }
 .filter-select:focus { outline: 0; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(34,211,238,0.15); }
+/* opções do dropdown nativo herdam texto claro → forçar fundo escuro (senão fica branco-no-branco no tema dark) */
+.filter-select option { background: var(--surface); color: var(--text); }
 
 /* range pills */
 .range-pills {
