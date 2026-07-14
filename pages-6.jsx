@@ -74,12 +74,16 @@ function useBitrixFiltros() {
  * ============================================================ */
 function bitAgg(raw, filtros, opts) {
   const mesmoMes = !!(opts && opts.mesmoMes);
+  const headerMes = (opts && opts.month) || 0;   // Mês do cabeçalho (Período de relatório) — 0 = ano completo
   const sources = raw.maps.sources || {};
   const srcNome = (id) => sources[id] || id || '(sem origem)';
   const fontesSet = (filtros.fontes && filtros.fontes.length) ? new Set(filtros.fontes) : null;
 
-  // filtro de mês: mm precisa ser não-nulo e cair no intervalo (0 = sem limite)
-  const passaMes = (mm) => mm != null && (!filtros.mesIni || mm >= filtros.mesIni) && (!filtros.mesFim || mm <= filtros.mesFim);
+  // filtro de mês: mm não-nulo, dentro de Data início/término (0 = sem limite) E
+  // do mês do cabeçalho (Período de relatório, quando != Ano completo)
+  const passaMes = (mm) => mm != null
+    && (!filtros.mesIni || mm >= filtros.mesIni) && (!filtros.mesFim || mm <= filtros.mesFim)
+    && (!headerMes || mm === headerMes);
   const passaFonte = (id) => !fontesSet || fontesSet.has(srcNome(id));
 
   // mês de criação de cada lead (p/ regra "mesmo mês")
@@ -326,9 +330,10 @@ const BitSelect = ({ label, value, onChange, children, width = 150 }) => (
   </label>
 );
 
-const BitrixFilterBar = ({ data }) => {
+const BitrixFilterBar = ({ data, year, month }) => {
   const [filtros, patch, reset] = useBitrixFiltros();
   const raw = data.raw;
+  const periodoTxt = (month ? BIT_MESES[month - 1] + '/' : 'Ano ') + (year || data.ano);
   const pipelines = raw.maps.pipelines || {};
   const fontesOpts = useMemo(() => Array.from(new Set(Object.values(raw.maps.sources || {}))).sort(), [raw]);
   const tipos = raw.maps.tipos || [];
@@ -336,10 +341,6 @@ const BitrixFilterBar = ({ data }) => {
   return (
     <div className="card" style={{ marginBottom: 12, padding: '12px 12px', overflow: 'visible', position: 'relative', zIndex: 100 }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-end' }}>
-        <BitSelect label="Período" value={String(data.ano)} onChange={() => {}} width={90}>
-          <option value={String(data.ano)}>Ano {data.ano}</option>
-        </BitSelect>
-
         <BitSelect label="Pipeline" value={filtros.pipeline} onChange={(v) => patch({ pipeline: v })} width={190}>
           <option value="">Todas as pipelines</option>
           {Object.keys(pipelines).map((id) => <option key={id} value={id}>{pipelines[id]}</option>)}
@@ -373,7 +374,7 @@ const BitrixFilterBar = ({ data }) => {
           }}>Limpar filtros</button>
       </div>
       <div className="status-line" style={{ marginTop: 8 }}>
-        Fonte: Bitrix24 CRM · ano {data.ano}
+        Período de relatório: <b>{periodoTxt}</b> <span style={{ opacity: 0.7 }}>(Ano/Mês no cabeçalho)</span> · Fonte: Bitrix24 CRM
         {data.gerado_em ? ' · atualizado ' + new Date(data.gerado_em).toLocaleString('pt-BR') : ''}
       </div>
     </div>
@@ -393,19 +394,22 @@ const BitKpiRow = ({ agg }) => (
 );
 
 // ---- Tela #1 — Entrada e venda no mesmo mês ----
-const PageBitrixMesmoMes = () => {
+const PageBitrixMesmoMes = ({ year, month }) => {
   const data = (typeof window !== 'undefined' && window.BITRIX_DATA) || null;
   if (!data) return <BitrixIndisponivel titulo="Entrada e venda no mesmo mês" />;
   if (!data.raw) return <BitrixRefTela titulo="Entrada e venda no mesmo mês" tela={data.telas.mesmo_mes} data={data} />;
   const [filtros] = useBitrixFiltros();
-  const agg = useMemo(() => bitAgg(data.raw, filtros, { mesmoMes: true }), [data, filtros]);
+  const anoOk = !year || year === data.ano;
+  const agg = useMemo(() => bitAgg(data.raw, filtros, { mesmoMes: true, month }), [data, filtros, month, year]);
   return (
     <div className="page">
       <div className="page-title"><div>
         <h1>Entrada e venda no mesmo mês</h1>
         <div className="status-line">Negócios criados no mesmo mês de entrada do lead</div>
       </div></div>
-      <BitrixFilterBar data={data} />
+      <BitrixFilterBar data={data} year={year} month={month} />
+      {!anoOk ? <BitrixAnoVazio ano={data.ano} year={year} /> : (
+      <React.Fragment>
       <BitKpiRow agg={agg} />
       <div className="row row-1-1">
         <BitLineCard titulo="Venda (valor dos ganhos por mês)" values={agg.series.venda_valor} color="var(--green)" fmt={bitLblMoney} gradientId="m1venda" />
@@ -419,24 +423,29 @@ const PageBitrixMesmoMes = () => {
         <div className="card"><h2 className="card-title">Funil de vendas (valor)</h2><BitFunilValor funil={agg.funil_valor} /></div>
         <BitVidaUtil agg={agg} />
       </div>
+      </React.Fragment>
+      )}
     </div>
   );
 };
 
 // ---- Tela #2 — Investimento × resultado ----
-const PageBitrixInvestimento = () => {
+const PageBitrixInvestimento = ({ year, month }) => {
   const data = (typeof window !== 'undefined' && window.BITRIX_DATA) || null;
   if (!data) return <BitrixIndisponivel titulo="Investimento × resultado" />;
   if (!data.raw) return <BitrixRefTela titulo="Investimento × resultado" tela={data.telas.investimento} data={data} />;
   const [filtros] = useBitrixFiltros();
-  const agg = useMemo(() => bitAgg(data.raw, filtros, { mesmoMes: false }), [data, filtros]);
+  const anoOk = !year || year === data.ano;
+  const agg = useMemo(() => bitAgg(data.raw, filtros, { mesmoMes: false, month }), [data, filtros, month, year]);
   return (
     <div className="page">
       <div className="page-title"><div>
         <h1>Investimento × resultado</h1>
         <div className="status-line">Cotação e venda por mês · investimento pendente de fonte de verba</div>
       </div></div>
-      <BitrixFilterBar data={data} />
+      <BitrixFilterBar data={data} year={year} month={month} />
+      {!anoOk ? <BitrixAnoVazio ano={data.ano} year={year} /> : (
+      <React.Fragment>
       <div className="row row-4">
         <KpiTile label="Investimento" value="—" tone="red" />
         <KpiTile label="ROI (ganhos ÷ invest.)" value="—" tone="green" nonMonetary />
@@ -472,17 +481,20 @@ const PageBitrixInvestimento = () => {
           </div>
         </div>
       )}
+      </React.Fragment>
+      )}
     </div>
   );
 };
 
 // ---- Tela #3 — Tudo que vendeu no mês (entrou em qualquer data) ----
-const PageBitrixQualquerMes = () => {
+const PageBitrixQualquerMes = ({ year, month }) => {
   const data = (typeof window !== 'undefined' && window.BITRIX_DATA) || null;
   if (!data) return <BitrixIndisponivel titulo="Entrada em qualquer mês" />;
   if (!data.raw) return <BitrixRefTela titulo="Entrada em qualquer mês" tela={data.telas.qualquer_mes} data={data} />;
   const [filtros] = useBitrixFiltros();
-  const agg = useMemo(() => bitAgg(data.raw, filtros, { mesmoMes: false }), [data, filtros]);
+  const anoOk = !year || year === data.ano;
+  const agg = useMemo(() => bitAgg(data.raw, filtros, { mesmoMes: false, month }), [data, filtros, month, year]);
   const vendaTotal = agg.series.venda_valor.reduce((s, v) => s + v, 0);
   const qtdTotal = agg.series.quantidade.reduce((s, v) => s + v, 0);
   const ticketGeral = qtdTotal ? vendaTotal / qtdTotal : 0;
@@ -492,7 +504,9 @@ const PageBitrixQualquerMes = () => {
         <h1>Tudo que vendeu no mês (entrou em qualquer data)</h1>
         <div className="status-line">Vendas do mês independentemente de quando o lead entrou</div>
       </div></div>
-      <BitrixFilterBar data={data} />
+      <BitrixFilterBar data={data} year={year} month={month} />
+      {!anoOk ? <BitrixAnoVazio ano={data.ano} year={year} /> : (
+      <React.Fragment>
       <div className="row row-4">
         <KpiTile label="Conversão (ganhos ÷ negócios)" value={Number(agg.conversao_pct).toFixed(2).replace('.', ',')} unit="%" tone="green" nonMonetary />
         <KpiTile label="Venda total" value={Number(vendaTotal).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} tone="green" />
@@ -508,9 +522,21 @@ const PageBitrixQualquerMes = () => {
         <div className="card"><h2 className="card-title">Funil Leads → Negócios → Pedidos</h2><BitFunilCount funil={agg.funil_count} /></div>
         <div className="card"><h2 className="card-title">Leads / Negócios / Vendas / Conversão por mês</h2><BitComboMensal series={agg.series} /></div>
       </div>
+      </React.Fragment>
+      )}
     </div>
   );
 };
+
+// Aviso quando o ano do cabeçalho não tem dados do Bitrix (só há data.ano)
+const BitrixAnoVazio = ({ ano, year }) => (
+  <div className="card" style={{ borderLeft: '3px solid var(--amber, #f59e0b)' }}>
+    <p style={{ padding: '14px 8px', margin: 0, color: 'var(--muted)', fontSize: 13, lineHeight: 1.6 }}>
+      <b style={{ color: 'var(--amber, #f59e0b)' }}>Sem dados de CRM para {year}.</b> O módulo Bitrix tem dados apenas de <b>{ano}</b>.
+      Selecione <b>{ano}</b> no seletor de ano do cabeçalho.
+    </p>
+  </div>
+);
 
 /* ============================================================
  * Fallback modo referência (sem raw) — render simples baseado em telas
